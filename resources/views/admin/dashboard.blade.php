@@ -442,7 +442,29 @@
 								</ul>
 								
 							</li>
+                            <li>
+								<a href="#">
+									<i class="metismenu-icon fa fa-gavel"></i>
+									Mango List
+									<i class="fa fa-angle-down caret-left"></i>
+								</a>
+								<ul>
+									<li>
+										<a href="{{URL::to('/all-mango')}}">
+											<i class="metismenu-icon"></i>
+											All Mango
+										</a>
+									</li>
+									<li>
+										<a href="{{URL::to('/add-mango')}}">
+											<i class="metismenu-icon"></i>
+											Add Mango
+										</a>
+									</li>
 
+								</ul>
+								
+							</li>
 							<li>
 								<a href="#">
 									<i class="metismenu-icon fa fa-gavel"></i>
