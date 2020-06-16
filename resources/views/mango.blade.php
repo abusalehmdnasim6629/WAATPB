@@ -285,9 +285,9 @@
                             <br>
                             <div class="col-sm-12 mb-5 pay text-center">
                            
-                            <a><img src="{{asset('cash.png')}}" id="cash" class="bkash" data-toggle="cash" title="Cash on Delivery"></a>
-                            <a><img src="{{asset('bkash.png')}}" id="bkash"class="bkash" data-toggle="bkash" title="Pay by bkash"></a>
-                            <a><img src="{{asset('rocket.png')}}"id="rocket" class="bkash" data-toggle="rocket" title="Pay by rocket"></a>
+                            <a><img src="{{asset('image/cash.png')}}" id="cash" class="bkash" data-toggle="cash" title="Cash on Delivery"></a>
+                            <a><img src="{{asset('image/bkash.png')}}" id="bkash"class="bkash" data-toggle="bkash" title="Pay by bkash"></a>
+                            <a><img src="{{asset('image/rocket.png')}}"id="rocket" class="bkash" data-toggle="rocket" title="Pay by rocket"></a>
                             
                             </div>
                             <div class="col-sm-12 mb-5 or" id="or">
