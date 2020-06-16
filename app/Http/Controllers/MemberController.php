@@ -100,7 +100,7 @@ class MemberController extends Controller
         $data['present_organization'] = $request->po;
         $data['blood_group'] = $request->b_g;
         $data['cover_image'] = '';
-        $data['status'] = 1; // this would be zero 0, 1 for certain time only
+        $data['status'] = 0; // this would be zero 0, 1 for certain time only
         $data['code'] = self::memberIdGenerate();
         // $data['member_skill'] = "";
         // $data['member_hobby'] = "";

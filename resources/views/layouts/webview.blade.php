@@ -35,6 +35,9 @@
 	  <script src="assets/js/html5/respond.min.js"></script>
 	<![endif]-->
     <style>
+	html {
+            scroll-behavior: smooth !important;
+        }
      .bg-area {
             height: 800px;
         }
