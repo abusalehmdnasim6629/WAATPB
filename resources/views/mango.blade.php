@@ -463,6 +463,8 @@
                         $("#agent").text("Bkash Number(Agent) : ");
                         $("#method").text("bkash");
                         $("#method").hide();
+                        $("#number").show();
+                        $("#txid").show();
                         $("#nam").text("017xxxxxxxx");
                         $("#or").toggle(1000);
 
@@ -472,6 +474,8 @@
                         $("#agent").text("Rocket Number(Agent) : ");
                         $("#method").text("rocket");
                         $("#method").hide();
+                        $("#number").show();
+                        $("#txid").show();
                         $("#nam").text("017xxxxxxxx");
                         $("#or").toggle(1000);
 
