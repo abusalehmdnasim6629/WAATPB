@@ -1518,4 +1518,59 @@ class AdminController extends Controller
 
         return view('admin.payment_detail')->with('result',$result);
     }
+    public function add_mango(){
+        return view('admin.add_mango');
+    }
+
+    public function save_mango(Request $request){
+       
+        $mn['name'] = $request->mtype;
+        $mn['price'] = $request->mprice;
+
+        DB::table('mangotype')
+           ->insert($mn);
+           Alert::success('Successful', 'Mango add successfully');
+           return redirect()->back();
+       
+     }
+
+     public function all_mango(){
+
+        $result = DB::table('mangotype')
+            ->get();
+         return view('admin.all_mango')->with('result',$result);
+     }
+
+     public function edit_mango($id)
+     {
+ 
+         $result =  DB::table('mangotype')
+             ->where('id', $id)
+             ->first();
+ 
+         return view('admin.edit_mango')->with('result',$result);
+     }
+
+     public function update_mango($id, Request $request)
+    {
+        
+        $mn['name'] = $request->mtype;
+        $mn['price'] = $request->mprice;
+        $result =  DB::table('mangotype')
+            ->where('id', $id)
+            ->update($mn);
+
+        return Redirect::to('/all-mango');
+    }
+
+    public function delete_mango($id)
+     {
+ 
+         DB::table('mangotype')
+             ->where('id', $id)
+             ->delete();
+       
+         Alert::success('Successful', 'deleted successfully');
+         return redirect()->back();
+     }
 }
