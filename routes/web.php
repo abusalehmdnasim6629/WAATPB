@@ -309,6 +309,13 @@ Route::get('/edit-status/{id}', 'AdminController@edit_status')->middleware('admi
 Route::post('/update-status/{id}', 'AdminController@update_status')->middleware('admin');
 Route::get('/payment-detail/{id}', 'AdminController@payment_detail')->middleware('admin');
 
+//add mango
+Route::get('/add-mango', 'AdminController@add_mango')->middleware('admin');
+Route::post('/save-mango', 'AdminController@save_mango')->middleware('admin');
+Route::get('/all-mango', 'AdminController@all_mango')->middleware('admin');
+Route::get('/edit-mango/{id}', 'AdminController@edit_mango')->middleware('admin');
+Route::post('/update-mango/{id}', 'AdminController@update_mango')->middleware('admin');
+Route::get('/delete-mango/{id}', 'AdminController@delete_mango')->middleware('admin');
 
 
 
