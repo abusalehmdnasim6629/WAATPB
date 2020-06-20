@@ -317,6 +317,16 @@ Route::get('/edit-mango/{id}', 'AdminController@edit_mango')->middleware('admin'
 Route::post('/update-mango/{id}', 'AdminController@update_mango')->middleware('admin');
 Route::get('/delete-mango/{id}', 'AdminController@delete_mango')->middleware('admin');
 
+//measurement
+Route::get('/add-measurement', 'AdminController@add_measurement')->middleware('admin');
+Route::get('/all-measurement', 'AdminController@all_measurement')->middleware('admin');
+Route::post('/save-measurement', 'AdminController@save_measurement')->middleware('admin');
+
+//agent
+Route::get('/show-number', 'AdminController@show_agent')->middleware('admin');
+Route::get('/edit-number/{id}', 'AdminController@edit_number')->middleware('admin');
+Route::post('/update-number/{id}', 'AdminController@update_number')->middleware('admin');
+
 
 
 
