@@ -1573,4 +1573,55 @@ class AdminController extends Controller
          Alert::success('Successful', 'deleted successfully');
          return redirect()->back();
      }
+    public function add_measurement(){
+        return view('admin.add_measurement');
+    }
+
+
+    public function save_measurement(Request $request){
+       
+        $mn['value'] = $request->value;
+        
+
+        DB::table('ordermeasure')
+           ->insert($mn);
+           Alert::success('Successful', 'Mango add successfully');
+           return redirect()->back();
+       
+     }
+     public function all_measurement(){
+
+        $result = DB::table('ordermeasure')
+            ->get();
+         return view('admin.all_measurement')->with('result',$result);
+     }
+
+     public function show_agent(){
+
+        $result = DB::table('paynumber')
+            ->get();
+         return view('admin.show_agent')->with('result',$result);
+     }
+
+     public function edit_number($id)
+     {
+ 
+         $result =  DB::table('paynumber')
+             ->where('id', $id)
+             ->first();
+ 
+         return view('admin.edit_number')->with('result',$result);
+     }
+
+     public function update_number($id, Request $request)
+    {
+        
+        $mn['method'] = $request->method;
+        $mn['number'] = $request->number;
+        $result =  DB::table('paynumber')
+            ->where('id', $id)
+            ->update($mn);
+
+        return Redirect::to('/show-number');
+    }
 }
