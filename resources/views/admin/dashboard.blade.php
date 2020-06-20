@@ -419,6 +419,12 @@
 											Order
 								</a>
 							</li>
+                            <li>
+								<a href="{{URL::to('/show-number')}}">
+									<i class="metismenu-icon fa fa-book"></i>
+										Show Agent number
+								</a>
+							</li>
 							<li>
 								<a href="#">
 									<i class="metismenu-icon fa fa-gavel"></i>
@@ -435,7 +441,7 @@
 									<li>
 										<a href="{{URL::to('/add-cost')}}">
 											<i class="metismenu-icon"></i>
-											Add csot
+											Add cost
 										</a>
 									</li>
 
@@ -459,6 +465,29 @@
 										<a href="{{URL::to('/add-mango')}}">
 											<i class="metismenu-icon"></i>
 											Add Mango
+										</a>
+									</li>
+
+								</ul>
+								
+							</li>
+                            <li>
+								<a href="#">
+									<i class="metismenu-icon fa fa-gavel"></i>
+									Measurement
+									<i class="fa fa-angle-down caret-left"></i>
+								</a>
+								<ul>
+									<li>
+										<a href="{{URL::to('/all-measurement')}}">
+											<i class="metismenu-icon"></i>
+											All Measurement
+										</a>
+									</li>
+									<li>
+										<a href="{{URL::to('/add-measurement')}}">
+											<i class="metismenu-icon"></i>
+											Add Measurement
 										</a>
 									</li>
 
