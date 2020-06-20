@@ -108,6 +108,17 @@
        .bkash:hover{
            cursor:pointer;
        }
+       #agent{
+           font-size:20px;
+           color:black;
+           
+       }
+       #nam{
+           font-size:20px;
+           color:black;
+           font-weight:bold;
+           
+       }
     </style>
     
 </head>
@@ -285,10 +296,22 @@
                             <br>
                             <div class="col-sm-12 mb-5 pay text-center">
                            
-                            <a><img src="{{asset('image/cash.png')}}" id="cash" class="bkash" data-toggle="cash" title="Cash on Delivery"></a>
+                            <!-- <a><img src="{{asset('image/cash.png')}}" id="cash" class="bkash" data-toggle="cash" title="Cash on Delivery"></a> -->
                             <a><img src="{{asset('image/bkash.png')}}" id="bkash"class="bkash" data-toggle="bkash" title="Pay by bkash"></a>
                             <a><img src="{{asset('image/rocket.png')}}"id="rocket" class="bkash" data-toggle="rocket" title="Pay by rocket"></a>
-                            
+                            @php
+                                        $bnum=DB::table('paynumber')
+                                                ->where('method','LIKE', '%' .'bkash'. '%')
+                                                ->first();
+
+                                        $rnum=DB::table('paynumber')
+                                                ->where('method','LIKE', '%' .'rocket'. '%')
+                                                ->first();
+                            @endphp
+                            <input type="hidden" class="form-control" name="number" id="bnumb" aria-describedby="emailHelp" value="{{$bnum->number}}">
+                            <input type="hidden" class="form-control" name="number" id="rnumb" aria-describedby="emailHelp" value="{{$rnum->number}}">
+
+
                             </div>
                             <div class="col-sm-12 mb-5 or" id="or">
                             <label for=""><span id="agent"></span> <span id="nam"></span></label>
@@ -460,38 +483,36 @@
                     });
                     $("#or").hide();
                     $("#bkash").click(function(){
+                        var numb = $("#bnumb").val();
                         $("#agent").text("Bkash Number(Agent) : ");
                         $("#method").text("bkash");
                         $("#method").hide();
-                        $("#number").show();
-                        $("#txid").show();
-                        $("#nam").text("017xxxxxxxx");
+                        $("#nam").text(numb);
                         $("#or").toggle(1000);
 
                         
                     });
                     $("#rocket").click(function(){
+                        var numb = $("#rnumb").val();
                         $("#agent").text("Rocket Number(Agent) : ");
                         $("#method").text("rocket");
                         $("#method").hide();
-                        $("#number").show();
-                        $("#txid").show();
-                        $("#nam").text("017xxxxxxxx");
+                        $("#nam").text(numb);
                         $("#or").toggle(1000);
 
                     });
-                    $("#cash").click(function(){
-                        $("#agent").text("Cash on delivery");
-                        $("#method").text("cash on");
-                        $("#method").hide();
-                        $("#number").hide();
-                        $("#txid").hide();
-                        $("#nam").text("");
-                        $("#or").toggle(1000);
+                    // $("#cash").click(function(){
+                    //     $("#agent").text("Cash on delivery");
+                    //     $("#method").text("cash on");
+                    //     $("#method").hide();
+                    //     $("#number").hide();
+                    //     $("#txid").hide();
+                    //     $("#nam").text("");
+                    //     $("#or").toggle(1000);
 
-                    });
+                    // });
 
-                    $('[data-toggle="cash"]').tooltip();
+                    // $('[data-toggle="cash"]').tooltip();
                     $('[data-toggle="bkash"]').tooltip(); 
                     $('[data-toggle="rocket"]').tooltip(); 
                     
