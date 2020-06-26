@@ -52,7 +52,7 @@
                                     href="{{URL::to('/blog')}}">
                                     <i class="fa fa-book"></i>
                                     Blog</a></li>
-                              <li class="nav-item"><a class="nav-link smooth-menu" href="{{url('/mango-order')}}">
+                              <li class="nav-item"><a class="nav-link smooth-menu" href="{{url('/bunnon-basket')}}">
                            
                             Order</a>
                             </li>        
