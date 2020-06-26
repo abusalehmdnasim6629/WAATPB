@@ -40,8 +40,11 @@ class BazarController extends Controller
             $order['email'] =  $request->email;
             
             $order['category'] = $request->category;
+            if($request->type != ""){
             $order['type'] = $request->type;
-
+            }else{
+              $order['type'] = "";
+            }
             
           
             
@@ -182,26 +185,23 @@ class BazarController extends Controller
       
        $cat = DB::table('category')
          ->where('name',$request->category)
+         ->select('category.*')
          ->first();
-
+       
+         
         
-       if($cat->id != 3 ){
+       if($cat->name != 'Custom' ){
               $type = DB::table('mangotype')
                 ->where('category_id',$cat->id)
                 ->get();
-                if($cat->id == 2){
-                      $mes = DB::table('ordermeasure')
-                      ->whereBetween('value', array(0, 5))->get();
-                
-                }
 
-                if($cat->id == 1){
-                  $mes = DB::table('ordermeasure')
-                  ->whereBetween('value', array(20, 100))->get();
+
+                $type1 = DB::table('mangotype')
+                ->where('category_id',$cat->id)
+                ->count();
+               
             
-                }
-            
-                    if($type && $mes){
+                    if($type1 > 0 ){
 
                     echo "<div class='row text-black' style='background:white;padding:15px;'>";
                   
@@ -220,6 +220,13 @@ class BazarController extends Controller
                     echo "</div>";
                   
                     
+                    }else{
+                      echo "<div class='row text-black' style='background:white;padding:15px;'>";
+                  
+                   
+                 
+                    
+                    echo "</div>";
                     }
 
           } else{
