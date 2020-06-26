@@ -270,21 +270,20 @@ Route::post('/cover-upload', 'AdminController@uploadCover');
 
 
 
-//bazar
-Route::get('/bazar', 'BazarController@bazar');
-
-
-
-
 //mango
-Route::get('/mango-order', 'BazarController@mango');
+Route::get('/bunnon-basket', 'BazarController@mango');
 Route::get('/order','BazarController@order');
+Route::get('/custom-order','BazarController@custom_order');
+
 Route::get('/price','BazarController@price');
 
 
 //order
 Route::get('/all-order','AdminController@all_order');
+Route::get('/all-custom-order','AdminController@all_custom_order');
 Route::get('/order-detail/{id}','AdminController@order_detail');
+Route::get('/custom-order-detail/{id}','AdminController@custom_order_detail');
+
 Route::get('/delete-order/{id}', 'AdminController@delete_order')->middleware('admin');
 
 
@@ -309,6 +308,7 @@ Route::get('/edit-status/{id}', 'AdminController@edit_status')->middleware('admi
 Route::post('/update-status/{id}', 'AdminController@update_status')->middleware('admin');
 Route::get('/payment-detail/{id}', 'AdminController@payment_detail')->middleware('admin');
 
+
 //add mango
 Route::get('/add-mango', 'AdminController@add_mango')->middleware('admin');
 Route::post('/save-mango', 'AdminController@save_mango')->middleware('admin');
@@ -316,6 +316,7 @@ Route::get('/all-mango', 'AdminController@all_mango')->middleware('admin');
 Route::get('/edit-mango/{id}', 'AdminController@edit_mango')->middleware('admin');
 Route::post('/update-mango/{id}', 'AdminController@update_mango')->middleware('admin');
 Route::get('/delete-mango/{id}', 'AdminController@delete_mango')->middleware('admin');
+
 
 //measurement
 Route::get('/add-measurement', 'AdminController@add_measurement')->middleware('admin');
@@ -328,7 +329,21 @@ Route::get('/edit-number/{id}', 'AdminController@edit_number')->middleware('admi
 Route::post('/update-number/{id}', 'AdminController@update_number')->middleware('admin');
 
 
+Route::get('/type', 'BazarController@type');
 
+
+//supplier
+Route::get('/all-supplier', 'AdminController@all_supplier')->middleware('admin');
+Route::get('/add-supplier', 'AdminController@add_supplier')->middleware('admin');
+Route::post('/save-supplier', 'AdminController@save_supplier')->middleware('admin');
+Route::get('/edit-supplier/{id}', 'AdminController@edit_supplier')->middleware('admin');
+Route::post('/update-supplier/{id}', 'AdminController@update_supplier')->middleware('admin');
+Route::get('/delete-supplier/{id}', 'AdminController@delete_supplier')->middleware('admin');
+
+
+
+//payment
+Route::get('/payment','BazarController@payment');
 
 
 
