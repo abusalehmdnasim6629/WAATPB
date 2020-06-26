@@ -30,6 +30,9 @@
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
    
     <style>
+    body{
+        background-color:#f5f5f5;
+    }
      .bg-area {
             height: 800px;
         }
@@ -76,8 +79,8 @@
             margin-bottom:20px;
         }
         .cl2{
-            padding:10px;
-            background-color:#e4e4e4;
+            margin-top:20px;
+            box-shadow:0 2px 5px rgb(0,0,153);background:white;padding:15px;
         }
         .cl p{
             font-size:30px;
@@ -119,6 +122,12 @@
            font-weight:bold;
            
        }
+       #ord{
+        box-shadow:0 2px 5px rgb(0,0,153);background:white;padding:15px;
+       }
+       #payinfo:hover{
+           cursor:pointer;
+       }
     </style>
     
 </head>
@@ -142,201 +151,333 @@
 <div class="clearfix"></div>
 <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
 <div class="site-breadcrumb-title" style="background: url(image/mango.jpg)">
-	<h2  style="font-family: 'Alegreya SC';"><i  class="fas fa-cart-plus"></i> Bunon Basket</h2>
+	<h2  style="font-family: 'Alegreya SC'; font-size:50px;"><i  class="fas fa-cart-plus"></i> Bunon Basket</h2>
 	<div class="main-breadcrumb">
 		
 	</div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12 max-auto">
-        </div>
-    </div>
-</div>  
+    <div class="col-sm-12">
+    
+      <div class="row">
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12 mx-auto">
-           <div class="row">
-              <div class="col-sm cl">
-               <p class="mt-3">Mango Order</p>
+        <div class="col-sm-1">
+
+        <!-- <p class="mt-3" style="font-size:30px;color:black;">Video</p> -->
+        
+        
+        </div>
+
+
+        <div class="col-sm-8">
+               <p class="mt-3 text-center" style="font-size:30px;color:black;">Order</p>
+               <div class="col-sm-12">
+               <div class="row text-black">
+                   <div class="col-sm-12" id="ord">
                <form action="{{url('/order')}}"method="post">
                         {{csrf_field()}}
+                  <div class="col-sm-12">
+
+                    <div class="row">
+                      <div class="col-sm-4">
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Name</label>
+                            <label class='text-dark'for="exampleInputPassword1">Name <sup>*</sup></label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="Name" >
                         </div>
+                      </div>
+                      <div class="col-sm-4">
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Phone</label>
+                            <label class='text-dark' for="exampleInputPassword1">Phone <sup>*</sup></label>
                             <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone">
                         </div>
+                        </div>
+                    <div class="col-sm-4">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email</label>
+                            <label class='text-dark' for="exampleInputEmail1">Email <sup></sup></label>
                             <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
                             
                         </div>
-                        <div class="form-group">
-                            <label for="mntype">Mango Type</label>
-                                @php
-                                  $type =  DB::table('mangotype')
-                                       ->get();
-                                @endphp
-                                <select class="form-control"  name="type" id="mntype" >
-                                <option value="">Select..</option>
-                                @foreach($type as $t)
-                                <option value="{{$t->name}}">{{$t->name}}</option>
-                                @endforeach
-                                </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Measurement</label>
-                                @php
-                                  $mes =  DB::table('ordermeasure')
-                                       ->get();
-                                @endphp
-                                <select class="form-control" name="measurement" id="mes">
-                                <option value="">Select..</option>
-                                @foreach($mes as $m)
-                                <option value="{{$m->value}}">{{$m->value}}</option>
-                                @endforeach
+                    </div>
+                  </div>
+                  <input type="hidden" class="form-control" name="prname" id="prname" placeholder="Name" >
+                  <input type="hidden" class="form-control" name="pbrand" id="pbrand" placeholder="Name" >
+                  <input type="hidden" class="form-control" name="pqntt" id="pqntt" placeholder="Name" >
+                  <div id="noted">
+                  <textarea type ="hidden" name="notes" id="notes" cols="30" rows="10"></textarea>
+                  </div>
 
-                                </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">City</label>
-                                @php
-                                  $city=DB::table('delivarycity')
-                                          ->get();
-                                @endphp
-                                <select class="form-control" id="city" name="city">
-                                <option>Select..</option>
-                                @foreach($city as $c)
-                                <option value="{{$c->city}}">{{$c->city}}</option>
-                                @endforeach
-                                </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Address</label>
-                            <textarea name="" id="address"name="address" class="form-control" cols="30" rows="4"></textarea>
-                        </div>
-                       
-                </form>
-
-                
-              </div>
-            
-              <div class="col-sm">
-                    <div class="col-sm-12 cl">
-                        <div class="row">
-                            <p class="col-sm mt-3">Conformation</p>
-                            
-                                <div class="col-sm-12 mx-auto cl2">                            
-                                    <table align="center" class="col-sm">
-                                        <tr>
-                                            <td>Name</td>
-                                            <td>:</td>
-                                            <td><span id="nm"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Phone</td>
-                                            <td>:</td>
-                                            <td><span id="ph"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Email</td>
-                                            <td>:</td>
-                                            <td><span id="em"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Address</td>
-                                            <td>:</td>
-                                            <td><span id="ad"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mango Type</td>
-                                            <td>:</td>
-                                            <td><span id="mnt"></span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Measument</td>
-                                            <td>:</td>
-                                            <td><span id="me"></span></td>
-                                        </tr>
-                                        <tr>
-                                            
-                                            <td>Unit Price</td>
-                                            <td>:</td>
-                                            <td><span id="ppu"></span> BDT</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Price</td>
-                                            <td>:</td>
-                                            <td><span id="mesu"></span> x <span id="pr"></span> = <span id="total"></span></td>
-                                        </tr>
-                                        <tr>
+                  <div class="row">
+                      <div class="col-sm-3">
+                            <div class="form-group" id="ct">
+                                        <label class='text-dark' for="exampleInputPassword1">Category <sup>*</sup></label>
                                         @php
-                                        $cost=DB::table('delivarycost')
-                                                ->first();
+                                        $city=DB::table('category')
+                                                ->get();
                                         @endphp
-                                            <td>Delivery Cost</td>
-                                            <td>:</td>
-                                            <td><span id="cost">{{$cost->cost}}</span> BDT</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Grand Total Price</td>
-                                            <td>:</td>
-                                            <td><span id="gtp"></span></td>
-                                        </tr>
-
-                                    </table>
+                                        <select class="form-control" id="category" name="category">
+                                        <option value="select">Select..</option>
+                                        @foreach($city as $c)
+                                        <option value="{{$c->name}}">{{$c->name}}</option>
+                                        @endforeach
+                                        </select>
                                 </div>
-                        
-                            <p class="col-sm-12 mt-5">Payment Information: <span>Select method</span></p>
-                            <br>
-                            <div class="col-sm-12 mb-5 pay text-center">
-                           
-                            <!-- <a><img src="{{asset('image/cash.png')}}" id="cash" class="bkash" data-toggle="cash" title="Cash on Delivery"></a> -->
-                            <a><img src="{{asset('image/bkash.png')}}" id="bkash"class="bkash" data-toggle="bkash" title="Pay by bkash"></a>
-                            <a><img src="{{asset('image/rocket.png')}}"id="rocket" class="bkash" data-toggle="rocket" title="Pay by rocket"></a>
-                            @php
-                                        $bnum=DB::table('paynumber')
-                                                ->where('method','LIKE', '%' .'bkash'. '%')
-                                                ->first();
-
-                                        $rnum=DB::table('paynumber')
-                                                ->where('method','LIKE', '%' .'rocket'. '%')
-                                                ->first();
-                            @endphp
-                            <input type="hidden" class="form-control" name="number" id="bnumb" aria-describedby="emailHelp" value="{{$bnum->number}}">
-                            <input type="hidden" class="form-control" name="number" id="rnumb" aria-describedby="emailHelp" value="{{$rnum->number}}">
-
-
-                            </div>
-                            <div class="col-sm-12 mb-5 or" id="or">
-                            <label for=""><span id="agent"></span> <span id="nam"></span></label>
-                            <label for=""><span id="method"></label>
-                            <input type="text" class="form-control" name="number" id="number" aria-describedby="emailHelp" placeholder="Enter your number">
-                            <br>
-                            <input type="text" class="form-control" name="txid" id="txid" aria-describedby="emailHelp" placeholder="Enter your transaction id">   
-                            </div>
-
+                      </div>
+                      
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class='text-dark' for="exampleInputEmail1">Measurement <sup>*</sup></label>
                             
-                            
-                            <div class="col-sm-12 mb-5 text-center or">
-                            <a  type="submit" id="order" class="col-sm-12 btn btn-primary mx-auto text-center">Order</a>
-                            </div>
-
+                            <input type="text" style="width:150px;" class="form-control" name="measurement" id="measurement" aria-describedby="emailHelp" placeholder="Ex. 10">
                             
                         </div>
-                        
-                </div>
-                </div> 
+                    </div>
 
+                    <div class="col-sm-2">
+                            <div class="form-group">
+                                    <label class='text-dark' for="exampleInputPassword1">City <sup>*</sup></label>
+                                        @php
+                                        $city=DB::table('delivarycity')
+                                                ->get();
+                                        @endphp
+                                        <select class="form-control" id="city" name="city">
+                                        <option value="select">Select..</option>
+                                        @foreach($city as $c)
+                                        <option value="{{$c->city}}">{{$c->city}}</option>
+                                        @endforeach
+                                        </select>
+                                </div>
+                      </div>
+
+                      <div class="col-sm-4">
+                      <div class="form-group">
+                            <label class='text-dark' for="exampleInputPassword1">Address <sup>*</sup></label>
+                            <textarea name="" id="address"name="address" class="form-control" cols="30" rows="2"></textarea>
+                        </div>
+                        </div>
+                  </div>
+
+
+
+                  <div class="row" id="cus">
+                      
+                  
+                  </div>
+                  <div class="row text-center mt-2" id="cuss" >
+                      
+                  <a  class="btn btn-success mx-auto" id="add">Add</a>
+                  </div>
+
+                    <!-- <div class="form-group" id="input_fields_wrap">
+                      
+                        <div class="d-flex justify-content-between  mb-3">
+                            <div class="p-2"><h3>Medicines</h3></div>
+                            
+                        </div>
+						<div><input type="text" class="form-control" name="mytext[]" required="" ></div>
+					</div> -->
+
+
+
+
+
+
+
+                  <!-- <div class="row">
+                      <div class="col-sm-2">
+                            <div class="form-group">
+                                    <label class='text-dark' for="exampleInputPassword1">City <sup>*</sup></label>
+                                        @php
+                                        $city=DB::table('delivarycity')
+                                                ->get();
+                                        @endphp
+                                        <select class="form-control" id="city" name="city">
+                                        <option value="select">Select..</option>
+                                        @foreach($city as $c)
+                                        <option value="{{$c->city}}">{{$c->city}}</option>
+                                        @endforeach
+                                        </select>
+                                </div>
+                      </div>
+                      <div class="col-sm-4">
+                      <div class="form-group">
+                            <label class='text-dark' for="exampleInputPassword1">Address <sup>*</sup></label>
+                            <textarea name="" id="address"name="address" class="form-control" cols="30" rows="2"></textarea>
+                        </div>
+                        </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            
+                        </div>
+                    </div>
+                  </div> -->
+
+               </div>  
+                        
+                </form>
+                </div>
+                        <div class="col-sm-12 mx-auto mt-4 mb-5 text-center or">
+                                <a  type="submit" id="order" class="col-sm-12 btn btn-primary mx-auto text-center">Order</a>
+                                </div>
+
+
+                        </div>
+                  </div>
+                 
+
+                 
+                  <div class="form-group">
+                            <label for="exampleInputEmail1" style="font-size:30px;color:black;">Payment Conformation<sup></sup></label>
+                             <a id="payinfo" style="font-size:35px;margin-left:20px;"><i class="fa fa-caret-down text-success" aria-hidden="true" ></i></a>
+                            <!-- <input type="checkbox" class="form-control" name="chk" id="payinfo" value="checked" aria-describedby="emailHelp"> -->
+                            
+                  </div>
+                <div class="row">
+                   <div class="col-sm-12" id="payment">
+                       
+                        <p class="col-sm-12 mt-5"><span style="font-size:25px;">Select method</span></p>
+                        <br>
+                        <div class="col-sm-12 mb-5 pay text-center">
+                       
+                        <!-- <a><img src="{{asset('image/cash.png')}}" id="cash" class="bkash" data-toggle="cash" title="Cash on Delivery"></a> -->
+                        <a><img src="{{asset('image/bkash.png')}}" id="bkash"class="bkash" data-toggle="bkash" title="Pay by bkash"></a>
+                        <a><img src="{{asset('image/rocket.png')}}"id="rocket" class="bkash" data-toggle="rocket" title="Pay by rocket"></a>
+                        @php
+                                    $bnum=DB::table('paynumber')
+                                            ->where('method','LIKE', '%' .'bkash'. '%')
+                                            ->first();
+
+                                    $rnum=DB::table('paynumber')
+                                            ->where('method','LIKE', '%' .'rocket'. '%')
+                                            ->first();
+                        @endphp
+                        <input type="hidden" class="form-control" name="number" id="bnumb" aria-describedby="emailHelp" value="{{$bnum->number}}">
+                        <input type="hidden" class="form-control" name="number" id="rnumb" aria-describedby="emailHelp" value="{{$rnum->number}}">
+
+
+                        </div>
+                        <div class="col-sm-12 mb-5 or" id="or">
+                        <label for=""><span id="agent"></span> <span id="nam"></span></label>
+                        <label for=""><span id="method"></label>
+                        <input type="text" class="form-control" name="number" id="number" aria-describedby="emailHelp" placeholder="Enter Your Number">
+                        <br>
+                        <input type="text" class="form-control" name="txid" id="txid" aria-describedby="emailHelp" placeholder="Enter Your Transaction Id"> 
+                        <br>
+                        <input type="text" class="form-control" name="number" id="id" aria-describedby="emailHelp" placeholder="Enter Id">
+                        <br>
+                        <div class="col-sm-12 mb-5 or">
+                        <a  id="cpay" name="cpay" class="col-sm-12 btn btn-primary mx-auto text-center">Confirm</a>
+                        </div>
+                        </div>
+                        
+                        
+                        
+                  </div>
+
+                  </div>
+                  
            </div>
-        </div>
+           <div class="col-sm-3">
+               <p class="col-sm mt-3" style="font-size:30px;color:black">Your Information</p>
+                            
+                            <div class="col-sm-12 mx-auto cl2">                            
+                                <table align="center" class="col-sm">
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>:</td>
+                                        <td><span id="nm"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Phone</td>
+                                        <td>:</td>
+                                        <td><span id="ph"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>:</td>
+                                        <td><span id="em"></span></td>
+                                    </tr>
+                                    
+
+                                </table>
+                            </div>
+
+                            <div class="col-sm-12 mx-auto cl2">  
+                            <h5>Product List</h5> 
+                                                     
+                                <div class="col-sm-12" id="">
+                                   <table class="table table-striped text-center">
+                                    
+                                      <tr>
+                                        <th>
+                                         Product Name
+                                        </th>
+                                        <th>
+                                         Brand
+                                        </th>
+                                        <th>
+                                         Quantity
+                                        </th>
+                                      </tr> 
+
+                                      <tr>
+                                        <td id="pnnn">
+                                        
+                                        </td>
+                                        <td>
+                                         <p id="pbnn"></p>
+                                        </td>
+                                        <td>
+                                         <p id="pqnn"></p>
+                                        </td>
+                                      </tr>  
+                                   </table>
+
+                                   
+                                </div>
+
+                                <div class="col-sm-12" id="plist">
+                                    
+                                    <!-- <table id="tb">
+                                    
+                                    </table> -->
+
+                                   
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-sm-12 mx-auto cl2">                            
+                                
+                                     <p style="color:black;font-weight:bold">Notes:</p>
+                                     <ul>
+                                         <li><b>1.</b> Email Not mendatory</li>
+                                         <li><b>2.</b> Mango should be minimum 20kg or more</li>
+                                         <li><b>3.</b> If you received a ID from admin , Please confirm the payment section</li>
+        
+                                         
+                                     </ul>
+
+                                </table>
+                            </div>
+                               
+                    
+            </div>
+            
+
+            
+
+       </div>
+       </div>
+       </div> 
     </div>
-</div>  
+
+  
+
+
 
 
     @include('layouts.footer')
@@ -411,10 +552,174 @@
     <script src=" {{asset('assets/js/filter.js')}}"></script>
     <script src=" {{asset('assets/js/main.js')}}"></script>
     <script src=" {{asset('assets/js/jquery.countdown.js')}}"></script>
- 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script>
+     
+     $(document).ready(function(){
+        $("#cus").hide();
+        $("#cuss").hide();
+        $("#noted").hide();
+
+        
+
+           $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            
+            $("#category").change(function(e){
+           
+                var category = $("#category option:selected").val();
+                
+                            
+                            
+                            
+                            
+                            $.ajax({
+                                type: "get",
+                                url: "{{ url('/type') }}",
+                                data: {category:category}, 
+                                success:function(data){
+                                    
+                                    $("#cus").html(data);
+                                    
+                                    $("#cus").show();
+                                    $("#cuss").show();
+                                    $("#pname").keyup(function(){
+                                         var p = $("#pname").val();
+                                         console.log(p);
+                                         $("#prname").val(p);
+                                         $("#pnnn").val(p);
+
+
+                                    
+                                            
+                                        });
+                                    
+                                        $("#brand").keyup(function(){
+                                         var p = $("#brand").val();
+                                         console.log(p);
+                                         $("#pbrand").val(p);
+                                         $("#pbnn").val(p);
+                                        
+                                        });
+
+                                        $("#qntt").keyup(function(){
+                                         var p = $("#qntt").val();
+                                         console.log(p);
+                                         $("#pqntt").val(p);
+                                         $("#pqnn").val(p);
+                                        
+                                        });
+                                    
+                                        
+
+                                        $("#note").keyup(function(){
+                                         var p = $("#note").val();
+                                         console.log(p);
+                                         $("#notes").val(p);
+                                        });
+
+
+                                        var max_fields      = 10; //maximum input boxes allowed
+                                        var wrapper   		= $("#cus"); //Fields wrapper
+                                        var add_button      = $("#add_field_button"); //Add button ID
+                                        
+                                        var x = 1; //initlal text box count
+                                        $(add_button).click(function(e){ //on add input button click
+                                            e.preventDefault();
+                                            //max input box allowed
+                                                x++; //text box increment
+                                               // $(wrapper).append('<div><input type="text" class="form-control mt-2" name="mytext[]" required="" ><a href="#" class="btn btn-link "id="remove_field">Remove</a></div>'); //add input box 
+                                                $(wrapper).append('<div class="row" style="border-bottom:3px solid blue;background:white;padding:15px;"><div class="col-sm-3"><label>Product Name <sup>*</sup></label><input type="text" class="form-control" name="pnm[]"  id="pnm" placeholder="Name" ></div><div class="col-sm-3"><label>Brand<sup></sup></label><input type="text" class="form-control" name="brnd[]"  id="brnd[]" placeholder="Brand" ></div><div class="col-sm-2"><label>Quantity<sup>*</sup></label><input type="text" class="form-control" name="qty[]"  id="qty[]" placeholder="Quantity" ></div><br><div class="col-sm-4"><label>Note </label><textarea class="form-control" name="nt[]" id="nt" cols="30" rows="2"></textarea></div><a href="#" class="btn btn-danger mr-3 "id="remove_field">Remove</a></div>');
+                                                
+
+                                               
+
+                                            
+                                            
+                                        });
+                                        
+                                       
+
+                                        
+
+                                        $(wrapper).on("click","#remove_field", function(e){ //user click on remove text
+                                            e.preventDefault(); $(this).parent('div').remove();
+                                            var tr = document.getElementsByName('tr[]');
+                                            
+                                            $("#tb").remove();
+                                           
+                                            x--;
+
+                                        });
+                                           
+                                       
+                                    
+                                  
+                                }
+                            });
+
+                                
+                            
+          
+                
+
+
+            });
+           
+                                             
+                                $("#add").click(function(e){ 
+                                        var pn = $("#prname").val();
+                                        var pb = $("#pbrand").val();
+                                        var pq = $("#pqntt").val();
+                                        $("#pnnn").text(pn);
+                                        $("#pbnn").text(pb);
+                                        $("#pqnn").text(pq);
+
+                                            
+                                            var inps = document.getElementsByName('pnm[]');
+                                            var bds = document.getElementsByName('brnd[]');
+                                            var qts = document.getElementsByName('qty[]');
+
+                                                    $("#tb").remove();
+                                                    for (var i = 0; i <inps.length; i++) {
+                                                    var inp=inps[i];
+                                                    var bd=bds[i];
+                                                    var qt=qts[i]; 
+                                                    $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+inp.value+'</td><td class="text-center">'+bd.value+'</td><td class="text-center">'+qt.value+'</td></tr></table> ');
+                                                        console.log(inp.value);
+                                                    }
+
+                                                       
+                                                        
+                                                    
+                                        });
+          
+           $("#payinfo").click(function(){
+            // if($(this).prop("checked") == true){
+            //     console.log("Checkbox is checked.");
+                $("#payment").toggle(1000);
+            // }
+            // else if($(this).prop("checked") == false){
+            //     console.log("Checkbox is unchecked.");
+            //     $("#payment").hide();
+
+            // }
+            });
+
+           
+                                           
+    
+    });
+    </script>
     <script type="text/javascript">
         
         $(document).ready(function(){
+
+                    $("#payment").hide();
                     $("#name").keyup(function(){
                         var name = $("#name").val();
                          $("#nm").text(name);
@@ -431,56 +736,20 @@
                          $("#em").text(name);
                         
                     });
-                    $("#address").keyup(function(){
-                        var name = $("#address").val();
-                         $("#ad").text(name);
-                        
-                    });
+                    
+
+                    
                     
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         }
                     });
-                    $('#mntype').on('change',function(){
-
-                        var mango_type = $("#mntype option:selected").text();
-                        $("#mnt").text(mango_type);
-
-
-                        $.ajax({
-                        type:'get',
-                        url:"{{ url('/price') }}",
-                        data:{mango_type:mango_type
-                           },
-                        success:function(data){
-                            console.log(data);
-                            $("#ppu").text(data);
-                            $("#pr").text(data);
-
-                                
-                        },
-                        error:function (error) {
-                                   
-                         }
-                        });
-  
-                    });
+                    
 
                        
-                    $('#mes').on('change',function(){
-                        
-                        var measurement = $("#mes option:selected").text();
-                        $("#me").text(measurement);
-                        var price = $("#ppu").text();
-                        var cost = $("#cost").text();
-                        var total = parseInt(measurement)*parseInt(price);
-                        var gtp = total+parseInt(cost);
-                        $("#mesu").text(measurement);
-                        $("#total").text(total);
-                        $("#gtp").text(gtp);
-                        
-                    });
+                   
+                    
                     $("#or").hide();
                     $("#bkash").click(function(){
                         var numb = $("#bnumb").val();
@@ -489,8 +758,12 @@
                         $("#method").hide();
                         $("#nam").text(numb);
                         $("#or").toggle(1000);
-
                         
+                        
+                        
+                        
+                        
+   
                     });
                     $("#rocket").click(function(){
                         var numb = $("#rnumb").val();
@@ -500,25 +773,73 @@
                         $("#nam").text(numb);
                         $("#or").toggle(1000);
 
-                    });
-                    // $("#cash").click(function(){
-                    //     $("#agent").text("Cash on delivery");
-                    //     $("#method").text("cash on");
-                    //     $("#method").hide();
-                    //     $("#number").hide();
-                    //     $("#txid").hide();
-                    //     $("#nam").text("");
-                    //     $("#or").toggle(1000);
 
-                    // });
+                        
+                    });   
 
-                    // $('[data-toggle="cash"]').tooltip();
+                    $("#cpay").click(function(e){
+                         
+                         $("#method").hide();
+                         
+                         var nm = $("#number").val();
+                         var tx = $("#txid").val();
+                         var id = $("#id").val();
+                         var method = $("#method").text();
+
+                         console.log(method);
+                     
+                         $.ajax({
+                         type:'get',
+                         url:"{{ url('/payment') }}",
+                         data:{
+                             nm:nm,
+                             tx:tx,
+                             id:id,
+                             method:method
+                             },
+                         success:function(data){
+                             console.log(data);
+                             
+                                
+                                     $.alert('Payment completed successfully');
+                                     $("#or").hide();
+                                     $("#method").hide();
+                                     $("#number").val("");
+                                     $("#txid").val("");
+                                     $("#id").val("");
+                                     
+                             
+                         },
+                         error:function (error) {
+                                     $("#or").hide();
+                                     $("#method").hide();
+                                     $("#number").val();
+                                     $("#txid").val();
+                                     $("#id").val();
+                                     
+                                     $.alert('Error !! please fill the all sections');
+                                 
+                             }
+                         });
+                         
+
+         
+                        });
+     
                     $('[data-toggle="bkash"]').tooltip(); 
                     $('[data-toggle="rocket"]').tooltip(); 
                     
+                   
+
+                    
+                   
                     
         });
-        </script>	
+
+
+       
+        </script>
+        
         
         <script>
          $(function() {
@@ -537,96 +858,210 @@
 
 
 
-     $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
    
+    
     $("#order").click(function(e){
   
         e.preventDefault();
-   
-        var name = $("#name").val();
-        var phone = $("#phone").val();
-        var email = $("#email").val();
-        var type = $("#mnt").text();
-        var measurement = $("#mes").val();
-        var address = $("#address").val();
-        var city = $("#city").val();
-        var method = $("#method").text();
-        if(method == 'cash on'){
-            var number = 'N/A';
-            var txid = 'N/A';
-        }else{
-            var number = $("#number").val();
-            var txid = $("#txid").val();
-        }
-        
+         $.confirm({
+                    title: 'Confirm!',
+                    content: 'Simple confirm!',
+                    buttons: {
+                        confirm: function () {
+                            // $.alert('Confirmed!');
+                            var category = $("#category option:selected").val();
+                            console.log(category);
+                        if(category != 'Custom Category'){
+                            var name = $("#name").val();
+                            var phone = $("#phone").val();
+                            var pn = $("#pname").val();
+                            var pb = $("#brand").val();
+                            var pq = $("#qntt").val();
+                            var no = $("#note").val();
 
-       
-       
-   
-        $.ajax({
-           type:'get',
-           url:"{{ url('/order') }}",
-           data:{name:name,
-            phone:phone,
-            email:email,
-            type:type,
-            measurement:measurement,
-            address:address,
-            city:city,
-            method:method,
-            number:number,
-            txid:txid},
-           success:function(data){
-              console.log(data);
-              
-                if (data) {
-                    $("#name").val("");
-                    $("#phone").val("");
-                    $("#email").val("");
-                    
-                    $("#address").val("");
-                    $("#city").val("");
+                            if( $("#email").val() == ""){
+                                var email =" ";
+                            }else{
+                                var email = $("#email").val();
+                            }
+                            
+                            var type = $("#mtype option:selected").val();
+                            var measurement = $("#measurement").val();
+                            var address = $("#address").val();
+                            var city = $("#city").val();
+                            var qan = $("#pqntt").val();
 
-                    $("#nm").text("");
-                    $("#ph").text("");
-                    $("#em").text("");
-                    $("#mnt").text("");
-                    $("#mes").text("");
-                    $("#ad").text("");
-                    $("#gtp").text("");
-                    $("#method").text("");
-                    $("#number").val("");
-                    $("#txid").val("");
-                    alert("Order completed");
-                }
-           },
-           error:function (error) {
-                    $("#name").val("");
-                    $("#phone").val("");
-                    $("#email").val("");
-                    
-                    $("#address").val("");
-                    $("#city").val("");
+                            
+                            var pns = [];
+                            var pbs = [];
+                            var pqs = [];
+                            var nts = [];
 
-                    $("#nm").text("");
-                    $("#ph").text("");
-                    $("#em").text("");
+                            var inps = document.getElementsByName('pnm[]');
+                                                    for (var i = 0; i <inps.length; i++) {
+                                                    var inp=inps[i];
+                                                    pns[i] = inp.value;
+                                                        console.log(inp.value);
+                                                    }
+
+                                                var bndd = document.getElementsByName('brnd[]');
+                                                    for (var i = 0; i <bndd.length; i++) {
+                                                    var bnd=bndd[i];
+                                                    pbs[i] = bnd.value
+                                                        console.log(bnd.value);
+                                                    }
+
+
+                                                var qty = document.getElementsByName('pnm[]');
+                                                    for (var i = 0; i <qty.length; i++) {
+                                                    var qt=qty[i];
+                                                        pqs[i]=qt.value; 
+                                                        console.log(qt.value);
+                                                    } 
+
+                                                var nt = document.getElementsByName('nt[]');
+                                                    for (var i = 0; i <nt.length; i++) {
+                                                    var ntt=nt[i];
+                                                        nts[i] = ntt.value; 
+                                                        
+                                                    } 
+                        
+                        
                     
-                    
-                    $("#ad").text("");
-                   
-                    $("#gtp").text("");
-                alert("Error !! please fill the all sections");
-            }
-        });
+                            $.ajax({
+                            type:'get',
+                            url:"{{ url('/order') }}",
+                            data:{name:name,
+                                phone:phone,
+                                email:email,
+                                pn:pn,
+                                pb:pb,
+                                pq:pq,
+                                no:no,
+                                type:type,
+                                category:category,
+                                measurement:measurement,
+                                address:address,
+                                city:city,
+                                pns:pns,
+                                pbs:pbs,
+                                pqs:pqs,
+                                nts:nts,
+                                qan:qan
+
+                                },
+                            success:function(data){
+                                console.log(data);
+                                
+                                    if (data) {
+                                        $("#name").val("");
+                                        $("#phone").val("");
+                                        $("#pname").val("");
+                                        $("#brand").val("");
+                                        $("#qnty").val("");
+                                        $("#note").val("");
+                                        $("#email").val("");
+                                        
+                                        $("#category").val("select");
+                                        $("#mtype").val("select");
+                                        $("#city").val("select");
+                                        $("#measurement").val("");
+                                        $("#address").val("");
+
+                                        $("#nm").text("");
+                                        $("#ph").text("");
+                                        $("#em").text("");
+
+                                        $("#pnnn").text("");
+                                        $("#pbnn").text("");
+                                        $("#pqnn").text("");
+
+                                        $("#cus").hide();
+                                        $("#cuss").hide();
+
+                                        $.alert('Order completed successfully');
+                                    }
+                            },
+                            error:function (error) {
+                                        $("#cus").hide();
+                                        $("#name").val("");
+                                        $("#phone").val("");
+                                        $("#prname").val("");
+                                        $("#pbrand").val("");
+                                        $("#quantity").val("");
+                                        $("#notes").val("");
+                                        $("#email").val("");
+                                        
+                                        $("#category").val("select");
+                                        $("#mtype").val("select");
+                                        $("#city").val("select");
+                                        $("#measurement").val("");
+                                        $("#address").val("");;
+                                    
+                                        $("#nm").text("");
+                                        $("#ph").text("");
+                                        $("#em").text("");
+                                        $("#pnnn").text("");
+                                        $("#pbnn").text("");
+                                        $("#pqnn").text("");
+                                        $.alert('Error !! please fill the all sections');
+                                   
+                                }
+                            });
+
+                            }
+                        },
+                        cancel: function () {
+
+                            $("#cus").hide();
+                            $("#name").val("");
+                            $("#phone").val("");
+                            $("#prname").val("");
+                            $("#pbrand").val("");
+                            $("#quantity").val("");
+                            $("#notes").val("");
+                            $("#email").val("");
+                            
+                            $("#category").val("select");
+                            $("#mtype").val("select");
+                            $("#city").val("select");
+                            $("#measurement").val("");
+                            $("#address").val("");
+                            $("#nm").text("");
+                            $("#ph").text("");
+                            $("#pnnn").text("");
+                                        $("#pbnn").text("");
+                                        $("#pqnn").text("");
+                            $("#em").text("");
+                            $.alert('Canceled!');
+                        },
+                        
+                    }
+    });
+
+
+
+
+
+               
+                
+            
   
 	});
                  
         </script>
+
+<script>
+$(document).ready(function() {
+	
+});
+</script>
+        
 </body>
 
 </html>
