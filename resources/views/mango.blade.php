@@ -343,17 +343,21 @@
                         <!-- <a><img src="{{asset('image/cash.png')}}" id="cash" class="bkash" data-toggle="cash" title="Cash on Delivery"></a> -->
                         <a><img src="{{asset('image/bkash.png')}}" id="bkash"class="bkash" data-toggle="bkash" title="Pay by bkash"></a>
                         <a><img src="{{asset('image/rocket.png')}}"id="rocket" class="bkash" data-toggle="rocket" title="Pay by rocket"></a>
-                        @php
+                        @php         
                                     $bnum=DB::table('paynumber')
                                             ->where('method','LIKE', '%' .'bkash'. '%')
-                                            ->first();
+                                            ->get();
 
                                     $rnum=DB::table('paynumber')
                                             ->where('method','LIKE', '%' .'rocket'. '%')
-                                            ->first();
+                                            ->get();
                         @endphp
+                        @foreach($bnum as $bnum)
                         <input type="hidden" class="form-control" name="number" id="bnumb" aria-describedby="emailHelp" value="{{$bnum->number}}">
+                        @endforeach
+                        @foreach($rnum as $rnum)
                         <input type="hidden" class="form-control" name="number" id="rnumb" aria-describedby="emailHelp" value="{{$rnum->number}}">
+                        @endforeach
 
 
                         </div>
