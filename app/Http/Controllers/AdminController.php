@@ -1624,4 +1624,76 @@ class AdminController extends Controller
 
         return Redirect::to('/show-number');
     }
+    
+    public function all_supplier(){
+
+        $result = DB::table('supplier')
+            ->get();
+         return view('admin.all_supplier')->with('result',$result);
+     }
+
+     public function add_supplier(){
+        return view('admin.add_supplier');
+    }
+
+    public function save_supplier(Request $request){
+       
+        $sp['company'] = $request->company;
+        $sp['coo'] = $request->coo;
+        $sp['item'] = $request->item;
+        $sp['size'] = $request->size;
+        $sp['retail_price'] = $request->rprice;
+        $sp['selling_price'] = $request->sprice;
+        $sp['remark'] = $request->remark;
+        $sp['date'] = date('Y-m-d');
+
+        
+
+        DB::table('supplier')
+           ->insert($sp);
+           Alert::success('Successful', 'add successfully');
+           return redirect()->back();
+       
+     }
+
+     public function edit_supplier($id)
+     {
+ 
+         $result =  DB::table('supplier')
+             ->where('id', $id)
+             ->first();
+ 
+         return view('admin.edit_supplier')->with('result',$result);
+     }
+
+     public function update_supplier($id, Request $request)
+     {
+         
+        $sp['company'] = $request->company;
+        $sp['coo'] = $request->coo;
+        $sp['item'] = $request->item;
+        $sp['size'] = $request->size;
+        $sp['retail_price'] = $request->rprice;
+        $sp['selling_price'] = $request->sprice;
+        $sp['remark'] = $request->remark;
+        $sp['date'] = date('Y-m-d');
+
+         $result =  DB::table('supplier')
+             ->where('id', $id)
+             ->update($sp);
+ 
+         return Redirect::to('/all-supplier');
+     }
+
+     
+     public function delete_supplier($id)
+     {
+ 
+         DB::table('supplier')
+             ->where('id', $id)
+             ->delete();
+ 
+         Alert::success('Successful', 'deleted successfully');
+         return redirect()->back();
+     }
 }
