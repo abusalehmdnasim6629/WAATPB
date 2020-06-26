@@ -413,13 +413,46 @@
 								</ul>
 								
 							</li>
+
+							<li>
+								<a href="#">
+									<i class="metismenu-icon fa fa-book"></i>
+									Supplier
+									<i class="fa fa-angle-down caret-left"></i>
+								</a>
+								<ul>
+									<li>
+										<a href="{{URL::to('/all-supplier')}}">
+											<i class="metismenu-icon"></i>
+											All Supplier
+										</a>
+									</li>
+									<li>
+										<a href="{{URL::to('/add-supplier')}}">
+											<i class="metismenu-icon"></i>
+											Add Supplier
+										</a>
+									</li>
+									
+
+								</ul>
+								
+							</li>
 							<li>
 								<a href="{{URL::to('/all-order')}}">
 									<i class="metismenu-icon fa fa-book"></i>
-											Order
+											Order List
 								</a>
 							</li>
-                            <li>
+
+							<li>
+								<a href="{{URL::to('/all-custom-order')}}">
+									<i class="metismenu-icon fa fa-book"></i>
+											Custom Order List
+								</a>
+							</li>
+
+							<li>
 								<a href="{{URL::to('/show-number')}}">
 									<i class="metismenu-icon fa fa-book"></i>
 										Show Agent number
@@ -441,37 +474,38 @@
 									<li>
 										<a href="{{URL::to('/add-cost')}}">
 											<i class="metismenu-icon"></i>
-											Add cost
+											Add csot
 										</a>
 									</li>
 
 								</ul>
 								
 							</li>
-                            <li>
+
+							<li>
 								<a href="#">
 									<i class="metismenu-icon fa fa-gavel"></i>
-									Mango List
+									Type List
 									<i class="fa fa-angle-down caret-left"></i>
 								</a>
 								<ul>
 									<li>
 										<a href="{{URL::to('/all-mango')}}">
 											<i class="metismenu-icon"></i>
-											All Mango
+											All types
 										</a>
 									</li>
 									<li>
 										<a href="{{URL::to('/add-mango')}}">
 											<i class="metismenu-icon"></i>
-											Add Mango
+											Add type
 										</a>
 									</li>
 
 								</ul>
 								
 							</li>
-                            <li>
+							<li>
 								<a href="#">
 									<i class="metismenu-icon fa fa-gavel"></i>
 									Measurement
@@ -494,6 +528,7 @@
 								</ul>
 								
 							</li>
+
 							<li>
 								<a href="#">
 									<i class="metismenu-icon fa fa-gavel"></i>
