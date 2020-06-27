@@ -205,9 +205,9 @@ class BazarController extends Controller
 
                     echo "<div class='row text-black' style='background:white;padding:15px;'>";
                   
-                    echo "<div class='col-sm-12'>";  
+                    echo "<div class='col-sm'>";  
                     echo "<div class='form-group'>";
-                    echo "<label class='text-black'>Type:</label>";
+                    echo "<label class='text-black'>Type:<sup>*</sup></label>";
                     echo "<select class='form-control' id='mtype'>";
                     echo "<option value='select'>".'Select..'. "</option>";
                     foreach($type as $t){
@@ -216,13 +216,26 @@ class BazarController extends Controller
                     echo "</select>"; 
                     echo "</div>";
                     echo "</div>";
+
+                    echo "<div class='col-sm'>";  
+                    echo "<div class='form-group'>";
+                    echo "<label class='text-black'>Quantity:<sup>*</sup></label>";
+                    echo "<input type='text' style='width:150px;' class='form-control' name='measurement' id='measurement' aria-describedby='emailHelp' placeholder='Ex. 10 kg'>";
+                    echo "</div>";
+                    echo "</div>";
                     
                     echo "</div>";
                   
                     
                     }else{
                       echo "<div class='row text-black' style='background:white;padding:15px;'>";
-                  
+                      
+                      echo "<div class='col-sm'>";  
+                      echo "<div class='form-group'>";
+                      echo "<label class='text-black'>Quantity:<sup>*</sup></label>";
+                      echo "<input type='text' style='width:150px;' class='form-control' name='measurement' id='measurement' aria-describedby='emailHelp' placeholder='Ex. 10 kg'>";
+                      echo "</div>";
+                      echo "</div>";
                    
                  
                     
