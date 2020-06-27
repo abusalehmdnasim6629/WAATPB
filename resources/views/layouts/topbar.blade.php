@@ -27,7 +27,7 @@
                     <!-- <button class="navbar-toggler toggler-spring"><span class="navbar-toggler-icon"></span></button> -->
                     <div class="collapse navbar-collapse justify-content-sm-end">
                         <ul class="navbar-nav navbar-mobile ">
-                            <li class="nav-item mr-2"><a class="nav-link smooth-menu lmk" data-toggle="popover" title="Home" id ="home" href="{{URL::to('/')}}" style="">
+                            <li class="nav-item mr-2"><a class="nav-link smooth-menu lnk" data-toggle="popover" title="Home" id ="home" href="{{URL::to('/')}}" style="">
                             <i class="fa fa-home"></i>
                             Home
                              </a>
