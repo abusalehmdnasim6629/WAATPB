@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
 .lnk:hover {
   /* border-top: 2px solid #38b9f8; */
   box-shadow:0 2px 5px rgb(0,1.0,1.0);
@@ -9,6 +10,7 @@
   /* padding: 6px 0;  */
   
 }
+</style>
 <header class="header">
     <div class="container">
         <div class="main-navigation">
