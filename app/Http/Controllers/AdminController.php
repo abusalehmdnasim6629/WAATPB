@@ -1392,11 +1392,39 @@ class AdminController extends Controller
            return view('admin.order')->with('result',$result);    
          }
 
+       
+
+     public function all_custom_order(){
+
+            $result = DB::table('customorder')
+                 ->select('customorder.*')
+                ->distinct('customorder.order_id')
+                ->paginate(50);
+             
+            return view('admin.custom_order')->with('result',$result);    
+          }
+
         public function order_detail($id){
+            
+            
             $result = DB::table('order')
-                    ->where('id',$id)
+                    ->where('order_id',$id)
                     ->first();
-            return view('admin.order_detail')->with('result',$result);    
+            return view('admin.order_detail')->with('result',$result);   
+            
+        }
+        public function custom_order_detail($id){
+            
+            
+            $result = DB::table('customorder')
+                    ->where('order_id',$id)
+                    ->get();
+
+            $result2 = DB::table('customorder')
+                    ->where('order_id',$id)
+                    ->get();
+            return view('admin.corder_detail')->with('result',$result)->with('result2',$result2);   
+            
         }
 
 
@@ -1459,8 +1487,13 @@ class AdminController extends Controller
      }
      public function delete_order($id)
      {
- 
-         DB::table('order')
+        
+       $rs =  DB::table('order')
+             ->where('order_id', $id)
+             ->first();
+
+        if($rs){
+        DB::table('order')
              ->where('order_id', $id)
              ->delete();
         DB::table('payment')
@@ -1468,6 +1501,16 @@ class AdminController extends Controller
              ->delete();
          Alert::success('Successful', 'deleted successfully');
          return redirect()->back();
+        }else{
+            DB::table('customorder')
+             ->where('order_id', $id)
+             ->delete();
+            DB::table('payment')
+                ->where('order_id', $id)
+                ->delete();
+            Alert::success('Successful', 'deleted successfully');
+            return redirect()->back();
+        }
      }
 
      public function edit_cost($id)
@@ -1496,18 +1539,43 @@ class AdminController extends Controller
         $result =  DB::table('order')
             ->where('id', $id)
             ->first();
+        
+        if($result){
 
-        return view('admin.edit_status')->with('result',$result);
+            return view('admin.edit_status')->with('result',$result);
+        }else{
+
+            $result =  DB::table('customorder')
+            ->where('id', $id)
+            ->first();
+            return view('admin.edit_status')->with('result',$result);
+        }    
+
+        
     }
     public function update_status($id, Request $request)
     {
+
         
         $status['d_status'] = $request->status;
-        $result =  DB::table('order')
+
+        $res =  DB::table('order')
+            ->where('id', $id)
+            ->first();
+        
+        if($res){
+          $result =  DB::table('order')
             ->where('id', $id)
             ->update($status);
 
-        return Redirect::to('/all-order');
+           return Redirect::to('/all-order');
+        }else{
+            $result =  DB::table('customorder')
+            ->where('id', $id)
+            ->update($status);
+
+           return Redirect::to('/all-custom-order');
+        }
     }
     public function payment_detail($id)
     {
@@ -1515,9 +1583,9 @@ class AdminController extends Controller
         $result =  DB::table('payment')
             ->where('order_id', $id)
             ->first();
-
         return view('admin.payment_detail')->with('result',$result);
     }
+
     public function add_mango(){
         return view('admin.add_mango');
     }
@@ -1526,6 +1594,13 @@ class AdminController extends Controller
        
         $mn['name'] = $request->mtype;
         $mn['price'] = $request->mprice;
+        $mn['category_id'] = $request->category_id;
+        // if($request->category_id){
+        //     $mn['category_id'] = $request->category_id;
+        // }else{
+        //     $mn['category_id'] = "";
+        // }
+        
 
         DB::table('mangotype')
            ->insert($mn);
@@ -1573,7 +1648,7 @@ class AdminController extends Controller
          Alert::success('Successful', 'deleted successfully');
          return redirect()->back();
      }
-    public function add_measurement(){
+     public function add_measurement(){
         return view('admin.add_measurement');
     }
 
@@ -1624,7 +1699,7 @@ class AdminController extends Controller
 
         return Redirect::to('/show-number');
     }
-    
+
     public function all_supplier(){
 
         $result = DB::table('supplier')
@@ -1690,6 +1765,63 @@ class AdminController extends Controller
      {
  
          DB::table('supplier')
+             ->where('id', $id)
+             ->delete();
+ 
+         Alert::success('Successful', 'deleted successfully');
+         return redirect()->back();
+     }
+
+     public function all_product_category(){
+
+        $result = DB::table('category')
+            ->get();
+         return view('admin.all_category')->with('result',$result);
+     }
+
+     public function add_product_category(){
+
+       
+         return view('admin.add_category');
+     }
+
+     public function save_product_category(Request $request){
+       
+        $mn['name'] = $request->cname;
+        
+
+        DB::table('category')
+           ->insert($mn);
+           Alert::success('Successful', 'Add successfully');
+           return redirect()->back();
+       
+     }
+     public function edit_product_category($id)
+     {
+ 
+         $result =  DB::table('category')
+             ->where('id', $id)
+             ->first();
+ 
+         return view('admin.edit_pcategory')->with('result',$result);
+     }
+
+     public function update_product_category($id, Request $request)
+     {
+         
+        
+         $mn['name'] = $request->cname;
+         $result =  DB::table('category')
+             ->where('id', $id)
+             ->update($mn);
+ 
+         return Redirect::to('/all-product-category');
+     }
+
+     public function delete_product_category($id)
+     {
+ 
+         DB::table('category')
              ->where('id', $id)
              ->delete();
  
