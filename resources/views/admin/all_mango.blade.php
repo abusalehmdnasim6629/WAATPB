@@ -15,7 +15,7 @@
 <div class="row">
 	
 		
-			<h2><i class="col-sm halflings-icon user"></i><span class="break"></span>Mango</h2>
+			<h2><i class="col-sm halflings-icon user"></i><span class="break"></span>Types</h2>
 			
 
 		<div class="col-sm-12">
@@ -24,6 +24,7 @@
 					<tr>
 						<th>Id</th>
 						<th>Name</th>
+						<th>Category</th>
 						<th>Price</th>
 						<th class="text-center">Action</th>
 					</tr>
@@ -34,6 +35,12 @@
 					<tr>
 						<td>{{ $ct->id}}</td>
 						<td class="center">{{ $ct->name}}</td>
+						@php 
+						   $category = DB::table('category')
+							  ->where('id',$ct->category_id)
+							  ->first();
+						@endphp
+						<td class="center">{{ $category->name}}</td>
 						<td class="center">{{ $ct->price}}</td>
 						<td class="text-center">
 							<div class="btn btn-group">  
