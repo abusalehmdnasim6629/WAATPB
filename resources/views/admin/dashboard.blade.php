@@ -458,6 +458,29 @@
 										Show Agent number
 								</a>
 							</li>
+                            <li>
+								<a href="#">
+									<i class="metismenu-icon fa fa-gavel"></i>
+									Product Category
+									<i class="fa fa-angle-down caret-left"></i>
+								</a>
+								<ul>
+									<li>
+										<a href="{{URL::to('/all-product-category')}}">
+											<i class="metismenu-icon"></i>
+											All category
+										</a>
+									</li>
+									<li>
+										<a href="{{URL::to('/add-product-category')}}">
+											<i class="metismenu-icon"></i>
+											Add category
+										</a>
+									</li>
+
+								</ul>
+								
+							</li>
 							<li>
 								<a href="#">
 									<i class="metismenu-icon fa fa-gavel"></i>
