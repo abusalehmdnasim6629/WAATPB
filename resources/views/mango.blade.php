@@ -204,6 +204,8 @@
                   <input type="hidden" class="form-control" name="prname" id="prname" placeholder="Name" >
                   <input type="hidden" class="form-control" name="pbrand" id="pbrand" placeholder="Name" >
                   <input type="hidden" class="form-control" name="pqntt" id="pqntt" placeholder="Name" >
+                  <input type="hidden" class="form-control" name="measurem" id="measurem" placeholder="Name" >
+
                   <div id="noted">
                   <textarea type ="hidden" name="notes" id="notes" cols="30" rows="10"></textarea>
                   </div>
@@ -225,14 +227,14 @@
                                 </div>
                       </div>
                       
-                    <div class="col-sm-3">
+                      <!-- <div class="col-sm-3">
                         <div class="form-group">
                             <label class='text-dark' for="exampleInputEmail1">Measurement <sup>*</sup></label>
                             
                             <input type="text" style="width:150px;" class="form-control" name="measurement" id="measurement" aria-describedby="emailHelp" placeholder="Ex. 10">
                             
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="col-sm-2">
                             <div class="form-group">
@@ -408,10 +410,10 @@
                             </div>
 
                             <div class="col-sm-12 mx-auto cl2">  
-                            <h5>Product List</h5> 
+                            <h3 class="col-sm">Product List</h3> 
                                                      
                                 <div class="col-sm-12" id="">
-                                   <table class="table table-striped text-center">
+                                   <table class="table table-striped text-center" id="head">
                                     
                                       <tr>
                                         <th>
@@ -425,7 +427,7 @@
                                         </th>
                                       </tr> 
 
-                                      <tr>
+                                      <tr id="tb1">
                                         <td id="pnnn">
                                         
                                         </td>
@@ -458,10 +460,18 @@
                                 
                                      <p style="color:black;font-weight:bold">Notes:</p>
                                      <ul>
-                                         <li><b>1.</b> Email Not mendatory</li>
-                                         <li><b>2.</b> Mango should be minimum 20kg or more</li>
-                                         <li><b>3.</b> If you received a ID from admin , Please confirm the payment section</li>
-        
+                                         @php
+                                           $r = DB::table('ordernote') 
+                                                ->get();
+                                              $i = 1;  
+                                         @endphp 
+                                         @foreach($r as $r)
+                                         <li><td><b>{{ $i }}. </b></td><td>{{$r->note}}</td></li>
+                                         @php
+                                         $i++;
+                                         @endphp 
+                                         @endforeach
+                                        
                                          
                                      </ul>
 
@@ -564,6 +574,8 @@
         $("#cus").hide();
         $("#cuss").hide();
         $("#noted").hide();
+        $("#tb1").hide();
+
 
         
 
@@ -676,6 +688,50 @@
            
                                              
                                 $("#add").click(function(e){ 
+
+                                        
+                                        var category = $("#category option:selected").val();
+                                        
+                                        var typ = $("#mtype option:selected").val();
+                                        var qtt = $("#measurement").val();
+
+                                        
+                                        
+                                        if( category != "Custom"){
+                                               $("#measurem").val(category);
+                                                if(typ){
+                                                  if( typ == "select"){
+                                                     
+                                                     var categ = $("#measurem").val();
+                                                     console.log(typ);
+                                                     $("#tb").remove();
+                                                     $("#tb1").hide();
+                                                   
+                                                     $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+category+'</td><td class="text-center">'+" "+'</td><td class="text-center">'+qtt+'</td></tr></table> ');
+                                                     
+                                                
+                                                  }
+                                                  else{
+                                                    console.log(typ);
+                                                    $("#tb").remove();
+                                                    $("#tb1").hide();
+                                                   
+                                                     $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+typ+'</td><td class="text-center">'+" "+'</td><td class="text-center">'+qtt+'</td></tr></table> ');
+                                                     
+                                                  }
+                                                }else{
+                                                     console.log(typ);
+                                                     $("#tb").remove();
+                                                     $("#tb1").hide();
+                                                     $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+category+'</td><td class="text-center">'+" "+'</td><td class="text-center">'+qtt+'</td></tr></table> ');
+                                                }
+
+                                                $(this).data('clicked', true);
+
+
+                                        }else{
+                                        $("#tb1").show();
+                                        
                                         var pn = $("#prname").val();
                                         var pb = $("#pbrand").val();
                                         var pq = $("#pqntt").val();
@@ -696,9 +752,9 @@
                                                     $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+inp.value+'</td><td class="text-center">'+bd.value+'</td><td class="text-center">'+qt.value+'</td></tr></table> ');
                                                         console.log(inp.value);
                                                     }
-
+                                                    $(this).data('clicked', true);
                                                        
-                                                        
+                                        }            
                                                     
                                         });
           
@@ -936,7 +992,7 @@
                                                     } 
                         
                         
-                    
+                        if($('#add').data('clicked')) {
                             $.ajax({
                             type:'get',
                             url:"{{ url('/order') }}",
@@ -1017,6 +1073,9 @@
                                    
                                 }
                             });
+                            }else{
+                                $.alert('Please add products on product list');
+                            }
 
                             }
                         },
