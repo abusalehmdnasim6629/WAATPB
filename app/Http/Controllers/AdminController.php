@@ -1828,4 +1828,39 @@ class AdminController extends Controller
          Alert::success('Successful', 'deleted successfully');
          return redirect()->back();
      }
+     public function add_order_note(){
+
+       
+        return view('admin.add_order_note');
+    }
+
+    public function save_order_note(Request $request){
+       
+        $mn['note'] = $request->note;
+        
+
+        DB::table('ordernote')
+           ->insert($mn);
+           Alert::success('Successful', 'Add successfully');
+           return redirect()->back();
+       
+     }
+
+     public function all_order_note(){
+
+        $result = DB::table('ordernote')
+            ->get();
+         return view('admin.all_order_note')->with('result',$result);
+     }
+
+     public function delete_order_note($id)
+     {
+ 
+         DB::table('ordernote')
+             ->where('id', $id)
+             ->delete();
+ 
+         Alert::success('Successful', 'deleted successfully');
+         return redirect()->back();
+     }
 }
