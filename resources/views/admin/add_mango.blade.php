@@ -41,21 +41,36 @@
                         {{ csrf_field() }}
 						  <fieldset>
                            <div class="form-group">
-                                <h3>Mamgo type</h3>
+                                <h3>Type</h3>
                                 <input type="text" class="form-control" name="mtype"  required="">
                             </div>
                             <div class="form-group">
                                 <h3>Price</h3>
                                 <input type="text" class="form-control" name="mprice"  required="">
                             </div>
-							
+							<div class="form-group">
+					              <h3>category</h3>
+								
+								  <select id="selectError3" name="category_id" class="form-control">
+                                  <option >Select category</option>
+
+                                  <?php
+                                    $all_category = DB::table('category')
+                                                ->get();
+                                    foreach($all_category as $c){?>
+									<option value="{{$c->id}}">{{ $c->name}}</option>
+            	
+                                    <?php } ?>
+								  </select>
+								
+					       </div>
 
                             
                           
 
     	                    <br>
 							<div class="form-actions">
-							  <button type="submit" class="btn btn-primary">Add cost</button>
+							  <button type="submit" class="btn btn-primary">Add</button>
 							  <button type="reset" class="btn">Cancel</button>
 							</div>
 						  </fieldset>
