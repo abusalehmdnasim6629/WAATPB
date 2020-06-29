@@ -44,10 +44,10 @@
 						<td class="center">{{ $ct->price}}</td>
 						<td class="text-center">
 							<div class="btn btn-group">  
-                                <a class="btn btn-info btn-sm" href="{{URL::to('/edit-mango/'.$ct->id)}}">
+                                <a class="btn btn-info btn-sm" href="{{URL::to('/edit-type/'.$ct->id)}}">
 									<i class="fa fa-edit white edit"></i>
 								</a>
-								<a class="btn btn-danger btn-sm" href="{{URL::to('/delete-mango/'.$ct->id)}}">
+								<a class="btn btn-danger btn-sm" href="{{URL::to('/delete-type/'.$ct->id)}}">
 									<i class="fa fa-trash white trash"></i>
 								</a>
 							</div>
