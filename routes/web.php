@@ -270,8 +270,8 @@ Route::post('/cover-upload', 'AdminController@uploadCover');
 
 
 
-//mango
-Route::get('/bunnon-basket', 'BazarController@mango');
+//bunnon
+Route::get('/bunon-basket', 'BazarController@mango');
 Route::get('/order','BazarController@order');
 Route::get('/custom-order','BazarController@custom_order');
 
@@ -309,13 +309,13 @@ Route::post('/update-status/{id}', 'AdminController@update_status')->middleware(
 Route::get('/payment-detail/{id}', 'AdminController@payment_detail')->middleware('admin');
 
 
-//add mango
-Route::get('/add-mango', 'AdminController@add_mango')->middleware('admin');
-Route::post('/save-mango', 'AdminController@save_mango')->middleware('admin');
-Route::get('/all-mango', 'AdminController@all_mango')->middleware('admin');
-Route::get('/edit-mango/{id}', 'AdminController@edit_mango')->middleware('admin');
-Route::post('/update-mango/{id}', 'AdminController@update_mango')->middleware('admin');
-Route::get('/delete-mango/{id}', 'AdminController@delete_mango')->middleware('admin');
+//add type
+Route::get('/add-type', 'AdminController@add_mango')->middleware('admin');
+Route::post('/save-type', 'AdminController@save_mango')->middleware('admin');
+Route::get('/all-type', 'AdminController@all_mango')->middleware('admin');
+Route::get('/edit-type/{id}', 'AdminController@edit_mango')->middleware('admin');
+Route::post('/update-type/{id}', 'AdminController@update_mango')->middleware('admin');
+Route::get('/delete-type/{id}', 'AdminController@delete_mango')->middleware('admin');
 
 
 //measurement
@@ -344,6 +344,27 @@ Route::get('/delete-supplier/{id}', 'AdminController@delete_supplier')->middlewa
 
 //payment
 Route::get('/payment','BazarController@payment');
+
+
+//product category
+Route::get('/all-product-category', 'AdminController@all_product_category')->middleware('admin');
+Route::get('/add-product-category', 'AdminController@add_product_category')->middleware('admin');
+Route::post('/save-product-category', 'AdminController@save_product_category')->middleware('admin');
+Route::get('/edit-product-category/{id}', 'AdminController@edit_product_category')->middleware('admin');
+Route::post('/update-product-category/{id}', 'AdminController@update_product_category')->middleware('admin');
+Route::get('/delete-product-category/{id}', 'AdminController@delete_product_category')->middleware('admin');
+
+//order note
+
+Route::get('/add-order-note', 'AdminController@add_order_note')->middleware('admin');
+Route::post('/save-order-note', 'AdminController@save_order_note')->middleware('admin');
+Route::get('/all-order-note', 'AdminController@all_order_note')->middleware('admin');
+Route::get('/delete-order-note', 'AdminController@delete_order_note')->middleware('admin');
+
+//paynumber
+Route::post('/save-number', 'AdminController@save_number')->middleware('admin');
+Route::get('/add-number', 'AdminController@add_number')->middleware('admin');
+Route::get('/delete-number/{id}', 'AdminController@delete_number')->middleware('admin');
 
 
 
