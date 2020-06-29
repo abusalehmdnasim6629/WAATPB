@@ -1387,14 +1387,13 @@ class AdminController extends Controller
          public function all_order(){
 
            $result = DB::table('order')
+                // ->groupBy('order_id')
                ->paginate(50);
             
            return view('admin.order')->with('result',$result);    
          }
 
-       
-
-     public function all_custom_order(){
+         public function all_custom_order(){
 
             $result = DB::table('customorder')
                  ->select('customorder.*')
@@ -1436,7 +1435,7 @@ class AdminController extends Controller
          $city['city'] = $request->city;
          DB::table('delivarycity')
             ->insert($city);
-            Alert::success('Successful', 'City add successfully');
+            Alert::success('Successful', 'add successfully');
         return redirect()->back();
     }
 
@@ -1451,7 +1450,7 @@ class AdminController extends Controller
         $cost['cost'] = $request->cost;
         DB::table('delivarycost')
            ->insert($cost);
-           Alert::success('Successful', 'Cost add successfully');
+           Alert::success('Successful', 'add successfully');
            return redirect()->back();
        }else{
         Alert::warning('Unsuccessful', 'Already added');
@@ -1537,7 +1536,7 @@ class AdminController extends Controller
     {
 
         $result =  DB::table('order')
-            ->where('id', $id)
+            ->where('order_id', $id)
             ->first();
         
         if($result){
@@ -1604,7 +1603,7 @@ class AdminController extends Controller
 
         DB::table('mangotype')
            ->insert($mn);
-           Alert::success('Successful', 'Mango add successfully');
+           Alert::success('Successful', 'add successfully');
            return redirect()->back();
        
      }
@@ -1660,7 +1659,7 @@ class AdminController extends Controller
 
         DB::table('ordermeasure')
            ->insert($mn);
-           Alert::success('Successful', 'Mango add successfully');
+           Alert::success('Successful', 'add successfully');
            return redirect()->back();
        
      }
@@ -1828,6 +1827,9 @@ class AdminController extends Controller
          Alert::success('Successful', 'deleted successfully');
          return redirect()->back();
      }
+
+
+
      public function add_order_note(){
 
        
@@ -1863,4 +1865,33 @@ class AdminController extends Controller
          Alert::success('Successful', 'deleted successfully');
          return redirect()->back();
      }
+
+     public function save_number(Request $request){
+       
+        $mn['method'] = $request->method;
+        $mn['number'] = $request->number;
+        
+
+        DB::table('paynumber')
+           ->insert($mn);
+           Alert::success('Successful', 'Add successfully');
+           return redirect()->back();
+       
+     }
+     public function add_number(){
+
+       
+        return view('admin.add_number');
+    }
+
+    public function delete_number($id)
+    {
+
+        DB::table('paynumber')
+            ->where('id', $id)
+            ->delete();
+
+        Alert::success('Successful', 'deleted successfully');
+        return redirect()->back();
+    }
 }
