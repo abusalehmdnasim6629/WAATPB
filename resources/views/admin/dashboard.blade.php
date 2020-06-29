@@ -453,12 +453,34 @@
 							</li>
 
 							<li>
-								<a href="{{URL::to('/show-number')}}">
-									<i class="metismenu-icon fa fa-book"></i>
-										Show Agent number
-								</a>
+							
 							</li>
-                            <li>
+
+							<li>
+								<a href="#">
+									<i class="metismenu-icon fa fa-gavel"></i>
+									Payment number
+									<i class="fa fa-angle-down caret-left"></i>
+								</a>
+								<ul>
+									<li>
+										<a href="{{URL::to('/show-number')}}">
+											<i class="metismenu-icon fa fa-book"></i>
+												Show numbers
+										</a>
+									</li>
+									<li>
+										<a href="{{URL::to('/add-number')}}">
+											<i class="metismenu-icon"></i>
+											Add number
+										</a>
+									</li>
+
+								</ul>
+								
+							</li>
+
+							<li>
 								<a href="#">
 									<i class="metismenu-icon fa fa-gavel"></i>
 									Product Category
@@ -481,6 +503,32 @@
 								</ul>
 								
 							</li>
+
+							<li>
+								<a href="#">
+									<i class="metismenu-icon fa fa-gavel"></i>
+									Order Note
+									<i class="fa fa-angle-down caret-left"></i>
+								</a>
+								<ul>
+									<li>
+										<a href="{{URL::to('/all-order-note')}}">
+											<i class="metismenu-icon"></i>
+											All Notes
+										</a>
+									</li>
+									<li>
+										<a href="{{URL::to('/add-order-note')}}">
+											<i class="metismenu-icon"></i>
+											Add Note
+										</a>
+									</li>
+
+								</ul>
+								
+							</li>
+
+
 							<li>
 								<a href="#">
 									<i class="metismenu-icon fa fa-gavel"></i>
@@ -513,13 +561,13 @@
 								</a>
 								<ul>
 									<li>
-										<a href="{{URL::to('/all-mango')}}">
+										<a href="{{URL::to('/all-type')}}">
 											<i class="metismenu-icon"></i>
 											All types
 										</a>
 									</li>
 									<li>
-										<a href="{{URL::to('/add-mango')}}">
+										<a href="{{URL::to('/add-type')}}">
 											<i class="metismenu-icon"></i>
 											Add type
 										</a>
