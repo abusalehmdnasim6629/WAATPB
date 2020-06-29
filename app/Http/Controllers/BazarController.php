@@ -31,7 +31,7 @@ class BazarController extends Controller
      										
      public function order(Request $request){
 
-          if($request->category != "Custom Category")
+          if($request->category != "Custom")
             {
             $order = array();  
             $order['order_id'] = Str::random(8);
