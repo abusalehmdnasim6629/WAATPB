@@ -24,7 +24,7 @@
 		<div class="box-content">
 		   
 			<div class="col-md-8 offset-md-2">
-				<form action="{{url('/update-mango',$result->id)}}" method="POST" enctype="multipart/form-data">
+				<form action="{{url('/update-type',$result->id)}}" method="POST" enctype="multipart/form-data">
 					@csrf
 					        <div class="form-group">
                                 <h3>Mango type</h3>
