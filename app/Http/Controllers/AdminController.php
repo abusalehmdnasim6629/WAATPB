@@ -1581,7 +1581,7 @@ class AdminController extends Controller
 
         $result =  DB::table('payment')
             ->where('order_id', $id)
-            ->first();
+            ->get();
         return view('admin.payment_detail')->with('result',$result);
     }
 
