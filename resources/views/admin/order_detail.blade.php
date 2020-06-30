@@ -22,6 +22,8 @@
 						<table class="table table-condensed">
 							  <thead>
 								  <tr>
+								      <th>Order Id</th>
+								      <th>Category</th>
 									  <th>Name</th>
 									  <th>City</th>
 									  <th>Address</th>
@@ -30,8 +32,10 @@
 								  </tr>
 							  </thead>   
 							  <tbody>
-                             
+                                
                                   <tr>
+								<td class="center">{{ $result->order_id }} </td>
+								<td class="center">{{ $result->category }} </td>
                                 <td class="center">{{ $result->name }}</td>
                                 <td class="center">{{ $result->city }}</td>
                                 <td class="center">{{ $result->address }}</td>  
@@ -60,25 +64,21 @@
 						<table class="table table-bordered table-striped table-condensed">
 							  <thead>
 								  <tr>
-									  <th>Order id</th>
-									  <th>Mango type</th>
+									  
+									  <th>Product name</th>
 									  <th>Measurement</th>
-									  <th>Delivary charge</th> 
-									  <th>Price per unit</th> 
-                                      <th>Total</th>                                           
+									                                         
 								  </tr>
 							  </thead>   
 							  <tbody>
                              
                                 <tr>
-                                <td class="center">{{ $result->order_id }} </td>
+                                
                                 <td class="center">{{ $result->type }} </td>  
                                 <td class="center">{{ $result->measurement }} </td> 
-                                <td class="center">{{ $result->delivary_charge }}</td> 
-                                <td class="center">{{ $result->price_per_unit }}</td>   
-                                <td class="center">{{ $result->total_price }}</td>                                  
+                                                            
 								</tr>
-                                
+                               
                              
 								                         
 							  </tbody>
