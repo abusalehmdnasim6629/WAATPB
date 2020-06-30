@@ -93,7 +93,7 @@
                         </td>
 						<td class="text-center">
                             <div class="btn btn-group">
-                                <a class="btn btn-primary btn-sm" href="{{URL::to('/order-detail/'.$o->id)}}">
+                                <a class="btn btn-primary btn-sm" href="{{URL::to('/order-detail/'.$o->order_id)}}">
 									<i class="fa fa-eye white eye"></i>
 								</a>
 								<a class="btn btn-danger btn-sm" href="{{URL::to('/delete-order/'.$o->order_id)}}">
