@@ -36,6 +36,7 @@
 
 				
 				<tbody>
+                @foreach($result as $result)
 					<tr>
 						<td class="text-center">{{$i}}</td>
 						<td class="text-center">{{ $result->order_id}}</td>
@@ -43,8 +44,12 @@
 						<td class="text-center">{{ $result->number}}</td>
 						<td class="text-center">{{ $result->txt_id}}</td>
 						
-						
+						@php
+				$i++;
 
+				
+				@endphp
+                 @endforeach
 				</tbody>
 
 				
