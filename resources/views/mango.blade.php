@@ -171,7 +171,7 @@
         </div>
 
 
-        <div class="col-sm-8">
+        <div class="col-sm-7">
                <p class="mt-3 text-center" style="font-size:30px;color:black;">Order</p>
                <div class="col-sm-12">
                <div class="row text-black">
@@ -226,6 +226,14 @@
                                         </select>
                                 </div>
                       </div>
+
+                      <!-- <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class='text-dark' for="exampleInputPassword1">Click here</label>
+                            <input class="btn btn-warning btn-sm" name="custom" id="custom" value="Custom Category">
+                            
+                        </div>
+                     </div> -->
                       
                       <!-- <div class="col-sm-3">
                         <div class="form-group">
@@ -271,49 +279,6 @@
                   <a  class="btn btn-success mx-auto" id="add">Add</a>
                   </div>
 
-                    <!-- <div class="form-group" id="input_fields_wrap">
-                      
-                        <div class="d-flex justify-content-between  mb-3">
-                            <div class="p-2"><h3>Medicines</h3></div>
-                            
-                        </div>
-						<div><input type="text" class="form-control" name="mytext[]" required="" ></div>
-					</div> -->
-
-
-
-
-
-
-
-                  <!-- <div class="row">
-                      <div class="col-sm-2">
-                            <div class="form-group">
-                                    <label class='text-dark' for="exampleInputPassword1">City <sup>*</sup></label>
-                                        @php
-                                        $city=DB::table('delivarycity')
-                                                ->get();
-                                        @endphp
-                                        <select class="form-control" id="city" name="city">
-                                        <option value="select">Select..</option>
-                                        @foreach($city as $c)
-                                        <option value="{{$c->city}}">{{$c->city}}</option>
-                                        @endforeach
-                                        </select>
-                                </div>
-                      </div>
-                      <div class="col-sm-4">
-                      <div class="form-group">
-                            <label class='text-dark' for="exampleInputPassword1">Address <sup>*</sup></label>
-                            <textarea name="" id="address"name="address" class="form-control" cols="30" rows="2"></textarea>
-                        </div>
-                        </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            
-                        </div>
-                    </div>
-                  </div> -->
 
                </div>  
                         
@@ -330,7 +295,7 @@
 
                  
                   <div class="form-group">
-                            <label for="exampleInputEmail1" style="font-size:30px;color:black;">Payment Conformation<sup></sup></label>
+                            <label for="exampleInputEmail1" style="font-size:30px;color:black;">Payment Confirmation<sup></sup></label>
                              <a id="payinfo" style="font-size:35px;margin-left:20px;"><i class="fa fa-caret-down text-success" aria-hidden="true" ></i></a>
                             <!-- <input type="checkbox" class="form-control" name="chk" id="payinfo" value="checked" aria-describedby="emailHelp"> -->
                             
@@ -384,7 +349,7 @@
                   </div>
                   
            </div>
-           <div class="col-sm-3">
+           <div class="col-sm-4">
                <p class="col-sm mt-3" style="font-size:30px;color:black">Your Information</p>
                             
                             <div class="col-sm-12 mx-auto cl2">                            
@@ -429,7 +394,6 @@
 
                                       <tr id="tb1">
                                         <td id="pnnn">
-                                        
                                         </td>
                                         <td>
                                          <p id="pbnn"></p>
@@ -437,7 +401,8 @@
                                         <td>
                                          <p id="pqnn"></p>
                                         </td>
-                                      </tr>  
+                                     </tr> 
+
                                    </table>
 
                                    
@@ -445,10 +410,7 @@
 
                                 <div class="col-sm-12" id="plist">
                                     
-                                    <!-- <table id="tb">
                                     
-                                    </table> -->
-
                                    
                                 </div>
                             </div>
@@ -685,8 +647,108 @@
 
 
             });
+
+
+
+
+    //         $("#custom").click(function(e){
            
-                                             
+    //                 var category = "Custom";
+                       
+    //                    $.ajax({
+    //                        type: "get",
+    //                        url: "{{ url('/type') }}",
+    //                        data: {category:category}, 
+    //                        success:function(data){
+                               
+    //                            $("#cus").html(data);
+                               
+    //                            $("#cus").show();
+    //                            $("#cuss").show();
+    //                            $("#pname").keyup(function(){
+    //                                 var p = $("#pname").val();
+    //                                 console.log(p);
+    //                                 $("#prname").val(p);
+    //                                 $("#pnnn").val(p);
+                                    
+
+                               
+                                       
+    //                                });
+                               
+    //                                $("#brand").keyup(function(){
+    //                                 var p = $("#brand").val();
+    //                                 console.log(p);
+    //                                 $("#pbrand").val(p);
+    //                                 $("#pbnn").val(p);
+                                   
+    //                                });
+
+    //                                $("#qntt").keyup(function(){
+    //                                 var p = $("#qntt").val();
+    //                                 console.log(p);
+    //                                 $("#pqntt").val(p);
+    //                                 $("#pqnn").val(p);
+                                   
+    //                                });
+                               
+                                   
+
+    //                                $("#note").keyup(function(){
+    //                                 var p = $("#note").val();
+    //                                 console.log(p);
+    //                                 $("#notes").val(p);
+    //                                });
+
+
+    //                                var max_fields      = 10; //maximum input boxes allowed
+    //                                var wrapper   		= $("#cus"); //Fields wrapper
+    //                                var add_button      = $("#add_field_button"); //Add button ID
+                                   
+    //                                var x = 1; //initlal text box count
+    //                                $(add_button).click(function(e){ //on add input button click
+    //                                    e.preventDefault();
+    //                                    //max input box allowed
+    //                                        x++; //text box increment
+    //                                       // $(wrapper).append('<div><input type="text" class="form-control mt-2" name="mytext[]" required="" ><a href="#" class="btn btn-link "id="remove_field">Remove</a></div>'); //add input box 
+    //                                        $(wrapper).append('<div class="row" style="border-bottom:3px solid blue;background:white;padding:15px;"><div class="col-sm-3"><label>Product Name <sup>*</sup></label><input type="text" class="form-control" name="pnm[]"  id="pnm" placeholder="Name" ></div><div class="col-sm-3"><label>Brand<sup></sup></label><input type="text" class="form-control" name="brnd[]"  id="brnd[]" placeholder="Brand" ></div><div class="col-sm-2"><label>Quantity<sup>*</sup></label><input type="text" class="form-control" name="qty[]"  id="qty[]" placeholder="Quantity" ></div><br><div class="col-sm-4"><label>Note </label><textarea class="form-control" name="nt[]" id="nt" cols="30" rows="2"></textarea></div><a href="#" class="btn btn-danger mr-3 "id="remove_field">Remove</a></div>');
+                                           
+
+                                          
+
+                                       
+                                       
+    //                                });
+                                   
+                                  
+
+                                   
+
+    //                                $(wrapper).on("click","#remove_field", function(e){ //user click on remove text
+    //                                    e.preventDefault(); $(this).parent('div').remove();
+    //                                    var tr = document.getElementsByName('tr[]');
+                                       
+    //                                    $("#tb").remove();
+                                      
+    //                                    x--;
+
+    //                                });
+                                      
+                                  
+                               
+                             
+    //                        }
+    //                    });
+
+                           
+                       
+     
+           
+
+
+    //    });                   
+                                var ar = [];
+                                
                                 $("#add").click(function(e){ 
 
                                         
@@ -694,7 +756,7 @@
                                         
                                         var typ = $("#mtype option:selected").val();
                                         var qtt = $("#measurement").val();
-
+                                        
                                         
                                         
                                         if( category != "Custom"){
@@ -703,10 +765,10 @@
                                                   if( typ == "select"){
                                                      
                                                      var categ = $("#measurem").val();
-                                                     console.log(typ);
+                                                   
                                                      $("#tb").remove();
                                                      $("#tb1").hide();
-                                                   
+                                                     
                                                      $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+category+'</td><td class="text-center">'+" "+'</td><td class="text-center">'+qtt+'</td></tr></table> ');
                                                      
                                                 
@@ -717,13 +779,25 @@
                                                     $("#tb1").hide();
                                                    
                                                      $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+typ+'</td><td class="text-center">'+" "+'</td><td class="text-center">'+qtt+'</td></tr></table> ');
-                                                     
+                                                    // categor.push(category); 
+                                                    
+                                                    // pnme.push(typ);
+                                                    // brd.push("");
+
+                                                    // qtity.push(qtt);
+
+                                                    
                                                   }
                                                 }else{
                                                      console.log(typ);
                                                      $("#tb").remove();
                                                      $("#tb1").hide();
-                                                     $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+category+'</td><td class="text-center">'+" "+'</td><td class="text-center">'+qtt+'</td></tr></table> ');
+                                                     $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center" name="cat[]">'+category+'</td><td class="text-center">'+" "+'</td><td class="text-center">'+qtt+'</td></tr></table> ');
+                                                    // categor.push(category); 
+                                                    // pnme.push(category);
+                                                    // brd.push("");
+                                                    // qtity.push(qtt);
+                                                    
                                                 }
 
                                                 $(this).data('clicked', true);
@@ -731,14 +805,17 @@
 
                                         }else{
                                         $("#tb1").show();
-                                        
+                                        $("#tb").remove();
                                         var pn = $("#prname").val();
                                         var pb = $("#pbrand").val();
                                         var pq = $("#pqntt").val();
                                         $("#pnnn").text(pn);
                                         $("#pbnn").text(pb);
                                         $("#pqnn").text(pq);
-
+                                        // pnme.push(pn);
+                                        // brd.push(pb);
+                                        // qtity.push(pq);
+                                        // categor.push(category); 
                                             
                                             var inps = document.getElementsByName('pnm[]');
                                             var bds = document.getElementsByName('brnd[]');
@@ -749,12 +826,27 @@
                                                     var inp=inps[i];
                                                     var bd=bds[i];
                                                     var qt=qts[i]; 
-                                                    $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+inp.value+'</td><td class="text-center">'+bd.value+'</td><td class="text-center">'+qt.value+'</td></tr></table> ');
-                                                        console.log(inp.value);
+                                                    // categor.push(category); 
+                                                    // pnme.push(inp.value);
+                                                    // brd.push(bd.value);
+                                                    // qtity.push(qt.value);
+                                                    $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center" name="cat[]">'+inp.value+'</td><td class="text-center">'+bd.value+'</td><td class="text-center">'+qt.value+'</td></tr></table> ');
+                                                    
                                                     }
                                                     $(this).data('clicked', true);
                                                        
-                                        }            
+                                        }  
+                                        // $("#tb").remove();
+                                        // for (var i = 0; i <pnme.length; i++) {
+                                            
+                                        //      $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+pnme[i]+'</td><td class="text-center">'+brd[i]+'</td><td class="text-center">'+qtity[i]+'</td><td class="text-center"><a class="btn btn-danger" id="rmv">remove</a></td></tr></table> ');
+                                        //     // console.log(inp.value);
+                                        //              console.log(categor[i]);
+                                        //              console.log(pnme[i]);
+                                        //              console.log(brd[i]);
+                                        //              console.log(qtity[i]);
+
+                                        //              }          
                                                     
                                         });
           
@@ -936,7 +1028,7 @@
                             // $.alert('Confirmed!');
                             var category = $("#category option:selected").val();
                             console.log(category);
-                        if(category != 'Custom Category'){
+                           if(category != 'Custom Category'){
                             var name = $("#name").val();
                             var phone = $("#phone").val();
                             var pn = $("#pname").val();
@@ -1043,7 +1135,8 @@
 
                                         $("#cus").hide();
                                         $("#cuss").hide();
-
+                                        $("tb1").hide();
+                                        $("#tb").remove();
                                         $.alert('Order completed successfully');
                                     }
                             },
@@ -1069,11 +1162,15 @@
                                         $("#pnnn").text("");
                                         $("#pbnn").text("");
                                         $("#pqnn").text("");
+                                        $("tb1").hide();
+                                        $("#tb").remove();
                                         $.alert('Error !! please fill the all sections');
                                    
                                 }
                             });
                             }else{
+                                $("tb1").hide();
+                                        $("#tb").remove();
                                 $.alert('Please add products on product list');
                             }
 
@@ -1101,6 +1198,8 @@
                                         $("#pbnn").text("");
                                         $("#pqnn").text("");
                             $("#em").text("");
+                            $("tb1").hide();
+                                        $("#tb").remove();
                             $.alert('Canceled!');
                         },
                         
