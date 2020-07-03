@@ -1384,12 +1384,16 @@ class AdminController extends Controller
 
          }
      
-         public function all_order(){
+        
+    
+    public function all_order(){
 
-           $result = DB::table('order')
-                // ->groupBy('order_id')
-               ->paginate(50);
-            
+      
+            $result = DB::table('customorder')
+               ->select('customorder.*')
+               ->where('category','NOT LIKE','%'.'custom'.'%')
+              ->distinct('customorder.order_id')
+              ->paginate(50);
            return view('admin.order')->with('result',$result);    
          }
 
@@ -1406,10 +1410,15 @@ class AdminController extends Controller
         public function order_detail($id){
             
             
-            $result = DB::table('order')
+            $result = DB::table('customorder')
                     ->where('order_id',$id)
-                    ->first();
-            return view('admin.order_detail')->with('result',$result);   
+                    ->where('category','NOT LIKE','%'.'custom'.'%')
+                    ->get();
+
+           $result2 = DB::table('customorder')
+                    ->where('order_id',$id)
+                    ->get();        
+            return view('admin.order_detail')->with('result',$result)->with('result2',$result2);
             
         }
         public function custom_order_detail($id){
