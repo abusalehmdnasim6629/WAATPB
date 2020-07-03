@@ -29,127 +29,127 @@ class BazarController extends Controller
   
      }
      										
-     public function order(Request $request){
+//      public function order(Request $request){
 
-          if($request->category != "Custom")
-            {
-            $order = array();  
-            $order['order_id'] = Str::random(8);
-            $order['name'] =  $request->name;
-            $order['phone'] =  $request->phone;
-            $order['email'] =  $request->email;
+//           if($request->category != "Custom")
+//             {
+//             $order = array();  
+//             $order['order_id'] = Str::random(8);
+//             $order['name'] =  $request->name;
+//             $order['phone'] =  $request->phone;
+//             $order['email'] =  $request->email;
             
-            $order['category'] = $request->category;
-            if($request->type != ""){
-            $order['type'] = $request->type;
-            }else{
-              $order['type'] = "";
-            }
+//             $order['category'] = $request->category;
+//             if($request->type != ""){
+//             $order['type'] = $request->type;
+//             }else{
+//               $order['type'] = "";
+//             }
             
           
             
-            $order['measurement'] =  $request->measurement;
+//             $order['measurement'] =  $request->measurement;
             
-            $order['city'] = $request->city;
-            $order['address'] = $request->address; 
-            $order['d_status'] = 'pending';  
+//             $order['city'] = $request->city;
+//             $order['address'] = $request->address; 
+//             $order['d_status'] = 'pending';  
 
                   
-            $mntype = DB::table('mangotype')
-              ->where('name',$request->type)
-              ->first();
+//             $mntype = DB::table('mangotype')
+//               ->where('name',$request->type)
+//               ->first();
             
             
             
-            $or = DB::table('order')
-              ->insert($order);
+//             $or = DB::table('order')
+//               ->insert($order);
             
-            // $pay = DB::table('payment')
-            //    ->insert($payment);  
+//             // $pay = DB::table('payment')
+//             //    ->insert($payment);  
             
-            if($or){
-              return 'success';
-            }
+//             if($or){
+//               return 'success';
+//             }
 
-          } else{
+//           } else{
  
-              $order = array();  
-              $order['order_id'] = Str::random(8);
-              $order['name'] =  $request->name;
-              $order['phone'] =  $request->phone;
-              $order['email'] =  $request->email;
+//               $order = array();  
+//               $order['order_id'] = Str::random(8);
+//               $order['name'] =  $request->name;
+//               $order['phone'] =  $request->phone;
+//               $order['email'] =  $request->email;
               
-              $order['category'] = $request->category;
-              $order['product_name'] = $request->pn;
-              $order['brand'] = $request->pb;
-              $order['quantity'] = $request->qan;
-              $order['note'] = $request->no;
+//               $order['category'] = $request->category;
+//               $order['product_name'] = $request->pn;
+//               $order['brand'] = $request->pb;
+//               $order['quantity'] = $request->qan;
+//               $order['note'] = $request->no;
               
               
-              $order['city'] = $request->city;
-              $order['address'] = $request->address; 
-              $order['d_status'] = 'pending';  
+//               $order['city'] = $request->city;
+//               $order['address'] = $request->address; 
+//               $order['d_status'] = 'pending';  
 
-              $or = DB::table('customorder')
-                 ->insert($order);
-              if( $request->pbs && $request->pqs && $request->nts) {
-                 $i=0;
-                 $pbr = array();
-                 $pqn = array();
-                 $nte = array();
+//               $or = DB::table('customorder')
+//                  ->insert($order);
+//               if( $request->pbs && $request->pqs && $request->nts) {
+//                  $i=0;
+//                  $pbr = array();
+//                  $pqn = array();
+//                  $nte = array();
 
-                 foreach( $request->pbs as $pb )
-                 {   
-                    $pbr[$i] = $pb;
-                    $i++;
-                 }
-                 $i=0;
-                 foreach( $request->pqs as $pb )
-                 {   
-                    $pqn[$i] = $pb;
-                    $i++;
-                 }
-                 $i=0;
-                 foreach( $request->nts as $pb )
-                 {   
-                    $nte[$i] = $pb;
-                    $i++;
-                 }
-                 $i=0;
+//                  foreach( $request->pbs as $pb )
+//                  {   
+//                     $pbr[$i] = $pb;
+//                     $i++;
+//                  }
+//                  $i=0;
+//                  foreach( $request->pqs as $pb )
+//                  {   
+//                     $pqn[$i] = $pb;
+//                     $i++;
+//                  }
+//                  $i=0;
+//                  foreach( $request->nts as $pb )
+//                  {   
+//                     $nte[$i] = $pb;
+//                     $i++;
+//                  }
+//                  $i=0;
                 
-                foreach( $request->pns as $pn )
-                {  
+//                 foreach( $request->pns as $pn )
+//                 {  
                     
-                  $orderr['order_id'] = $order['order_id'];
-                  $orderr['name'] =  $request->name;
-                  $orderr['phone'] =  $request->phone;
-                  $orderr['email'] =  $request->email;
+//                   $orderr['order_id'] = $order['order_id'];
+//                   $orderr['name'] =  $request->name;
+//                   $orderr['phone'] =  $request->phone;
+//                   $orderr['email'] =  $request->email;
                   
-                  $orderr['category'] = $request->category;
-                  $orderr['city'] = $request->city;
-                  $orderr['address'] = $request->address; 
-                  $orderr['d_status'] = 'pending';
-                  $orderr['product_name'] = $pn;
-                  $orderr['brand'] = $pbr[$i];
-                  $orderr['quantity'] = $pbr[$i];
-                  $orderr['note'] = $nte[$i];
-                    DB::table('customorder')
-                    ->insert($orderr);
-                    $i++;
+//                   $orderr['category'] = $request->category;
+//                   $orderr['city'] = $request->city;
+//                   $orderr['address'] = $request->address; 
+//                   $orderr['d_status'] = 'pending';
+//                   $orderr['product_name'] = $pn;
+//                   $orderr['brand'] = $pbr[$i];
+//                   $orderr['quantity'] = $pbr[$i];
+//                   $orderr['note'] = $nte[$i];
+//                     DB::table('customorder')
+//                     ->insert($orderr);
+//                     $i++;
               
               
-                  }
+//                   }
 
-                }
+//                 }
                  
-                    return 'success';
+//                     return 'success';
                 
       
 
-          }
+//           }
       
   
-     }
+//      }
 
      public function orderr(Request $request){
       
