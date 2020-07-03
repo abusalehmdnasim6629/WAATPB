@@ -23,7 +23,6 @@
 							  <thead>
 								  <tr>
 									  <th>Order Id</th>
-									  <th>Category</th>
 									  <th>Name</th>
 									  <th>City</th>
 									  <th>Address</th>
@@ -35,7 +34,7 @@
                                 @foreach($result->unique('order_id') as $result)
                                   <tr>
                                 <td class="center">{{ $result->order_id }}</td>
-                                <td class="center">{{ $result->category }} </td> 
+                                
                                 <td class="center">{{ $result->name }}</td>
                                 <td class="center">{{ $result->city }}</td>
                                 <td class="center">{{ $result->address }}</td>  
@@ -67,6 +66,7 @@
 									 
 									  
 									  <th>Product Name</th>
+									  <th>Category</th>
 									  <th>Brand</th>
 									  <th>Measurement</th>
 									  <th>Notes</th>
@@ -77,7 +77,8 @@
 							  <tbody>
                               <?php foreach($result2 as $result) { ?>
                                 <tr>
-                                <td class="center">{{ $result->product_name }} </td>  
+                                <td class="center">{{ $result->product_name }} </td>
+                                <td class="center">{{ $result->category }} </td>  
                                 <td class="center">{{ $result->brand }} </td>  
                                 <td class="center">{{ $result->quantity }} </td> 
                                 <td class="center">{{ $result->note }} </td>                            
