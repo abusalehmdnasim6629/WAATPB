@@ -151,7 +151,61 @@ class BazarController extends Controller
   
      }
 
+     public function orderr(Request $request){
+      
+      
+      // $i=0;
+      // foreach( $request->cubes as $pb )
+      // {    
+      //    $j = 0;
+      //    $nte[$i][$j] = $pb;
+      //    $i++;
+      // }
+      $orderr = array();
+      $str = Str::random(8);
+      $max = sizeof($request->cubes);
+     
+      for($i = 0; $i < $max; $i++){
+            $j = 0;
+            $orderr['order_id'] = $str;
+            $orderr['name'] =  $request->name;
+            $orderr['phone'] =  $request->phone;
+            
+            $orderr['d_status'] = 'pending';
+            $orderr['city'] = $request->city;
+            $orderr['address'] = $request->address;
+            
+         $orderr['category'] =$request->cubes[$i][$j];;
+         $orderr['product_name'] = $request->cubes[$i][$j+1];
+        
+         $orderr['quantity'] = $request->cubes[$i][$j+3];
 
+         if($request->email){
+          $orderr['email'] =  $request->email;
+          }else{
+           $orderr['email'] =" ";
+          }
+         if($request->cubes[$i][$j+4]){
+         $orderr['note'] =$request->cubes[$i][$j+4];
+         }else{
+          $orderr['note'] =" ";
+         }
+
+
+         if($request->cubes[$i][$j+2]){
+          $orderr['brand'] = $request->cubes[$i][$j+2];
+          }else{
+            $orderr['brand'] =" ";
+          }
+         DB::table('customorder')
+         ->insert($orderr);
+
+        
+      }
+      
+      return "success";
+
+     }
 
      public function payment(Request $request){
             
