@@ -272,7 +272,8 @@ Route::post('/cover-upload', 'AdminController@uploadCover');
 
 //bunnon
 Route::get('/bunon-basket', 'BazarController@mango');
-Route::get('/order','BazarController@order');
+
+Route::get('/orderr','BazarController@orderr');
 Route::get('/custom-order','BazarController@custom_order');
 
 Route::get('/price','BazarController@price');
