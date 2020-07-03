@@ -276,7 +276,7 @@
                   </div>
                   <div class="row text-center mt-2" id="cuss" >
                       
-                  <a  class="btn btn-success mx-auto" id="add">Add</a>
+                  <a  class="btn btn-success mx-auto text-white" id="add"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart</a>
                   </div>
 
 
@@ -284,12 +284,12 @@
                         
                 </form>
                 </div>
-                        <div class="col-sm-12 mx-auto mt-4 mb-5 text-center or">
+                       <!-- <div class="col-sm-12 mx-auto mt-4 mb-5 text-center or">
                                 <a  type="submit" id="order" class="col-sm-12 btn btn-primary mx-auto text-center">Order</a>
-                                </div>
+                                </div> -->
 
 
-                        </div>
+                        </div> 
                   </div>
                  
 
@@ -375,12 +375,26 @@
                             </div>
 
                             <div class="col-sm-12 mx-auto cl2">  
-                            <h3 class="col-sm">Product List</h3> 
-                                                     
+                            <h3 class="col-sm"><i class="fa fa-shopping-cart text-warning" aria-hidden="true"></i> Cart</h3>
+                            
+                            <div class="col-sm-12 mx-auto">  
+                                <div class="row">
+                                   <div class="col-sm-9">
+                                   <a class="btn btn-warning text-white">No of Product: <span id="cart"></span></a>
+                                   </div>
+                                   <div class="col-sm-3">
+                                   <a class="btn btn-danger text-right mb-1" id="clear">Clear list</a>
+                                   </div>
+                                </div>
+                                
+                            </div>                
                                 <div class="col-sm-12" id="">
-                                   <table class="table table-striped text-center" id="head">
+                                   <table class="table table-striped text-center">
                                     
                                       <tr>
+                                        <th>
+                                         Serial
+                                        </th>
                                         <th>
                                          Product Name
                                         </th>
@@ -390,35 +404,46 @@
                                         <th>
                                          Quantity
                                         </th>
+                                        
                                       </tr> 
 
-                                      <tr id="tb1">
-                                        <td id="pnnn">
-                                        </td>
-                                        <td>
-                                         <p id="pbnn"></p>
-                                        </td>
-                                        <td>
-                                         <p id="pqnn"></p>
-                                        </td>
-                                     </tr> 
+                                      
 
                                    </table>
 
                                    
                                 </div>
+                                <div class="col-sm-12" id="">
+                                   <table class="table table-striped text-center" id="h">
+                                    
+                                      
+                                      
 
-                                <div class="col-sm-12" id="plist">
-                                    
-                                    
+                                   </table>
+                                   
                                    
                                 </div>
+                                
+                                
+                            </div>      
+                                
+                           
+                                
+                                <div class="col-sm-12 mx-auto mt-2">  
+                                    <div class="row">
+                                    
+                                    <div class="col-sm-12 mx-auto">
+                                    <a class="col-sm-12 btn btn-primary text-white" style="font-size:25px;" id="ordd">Order</a>
+                                    </div>
+                                    </div>
+
+
                             </div>
 
 
 
 
-                            <div class="col-sm-12 mx-auto cl2">                            
+                            <div class="col-sm-12 mx-auto cl2 mb-3">                            
                                 
                                      <p style="color:black;font-weight:bold">Notes:</p>
                                      <ul>
@@ -537,6 +562,8 @@
         $("#cuss").hide();
         $("#noted").hide();
         $("#tb1").hide();
+        $("#cart").text(0);
+
 
 
         
@@ -601,7 +628,7 @@
                                         });
 
 
-                                        var max_fields      = 10; //maximum input boxes allowed
+                                        var max_fields      = 19; //maximum input boxes allowed
                                         var wrapper   		= $("#cus"); //Fields wrapper
                                         var add_button      = $("#add_field_button"); //Add button ID
                                         
@@ -748,8 +775,11 @@
 
     //    });                   
                                 var ar = [];
+                                var cubes = [];
                                 
                                 $("#add").click(function(e){ 
+
+                                    
 
                                         
                                         var category = $("#category option:selected").val();
@@ -765,20 +795,23 @@
                                                   if( typ == "select"){
                                                      
                                                      var categ = $("#measurem").val();
-                                                   
-                                                     $("#tb").remove();
-                                                     $("#tb1").hide();
-                                                     
-                                                     $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+category+'</td><td class="text-center">'+" "+'</td><td class="text-center">'+qtt+'</td></tr></table> ');
+                                                      
+                                                    // $("#tb").remove();
+                                                    // $("#tb1").hide();
+                                                     cubes.push([category,category,"none",qtt,"none"]);
+                                                    
+
+                                                     //$("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+category+'</td><td class="text-center">'+" "+'</td><td class="text-center">'+qtt+'</td></tr></table> ');
                                                      
                                                 
                                                   }
                                                   else{
                                                     console.log(typ);
-                                                    $("#tb").remove();
-                                                    $("#tb1").hide();
+                                                    // $("#tb").remove();
+                                                    // $("#tb1").hide();
+                                                    cubes.push([category,typ,"none",qtt,"none"]);
                                                    
-                                                     $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+typ+'</td><td class="text-center">'+" "+'</td><td class="text-center">'+qtt+'</td></tr></table> ');
+                                                    // $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center">'+typ+'</td><td class="text-center">'+" "+'</td><td class="text-center">'+qtt+'</td></tr></table> ');
                                                     // categor.push(category); 
                                                     
                                                     // pnme.push(typ);
@@ -789,10 +822,11 @@
                                                     
                                                   }
                                                 }else{
+                                                    cubes.push([category,category,"none",qtt,"none"]);
                                                      console.log(typ);
-                                                     $("#tb").remove();
-                                                     $("#tb1").hide();
-                                                     $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center" name="cat[]">'+category+'</td><td class="text-center">'+" "+'</td><td class="text-center">'+qtt+'</td></tr></table> ');
+                                                    //  $("#tb").remove();
+                                                    //  $("#tb1").hide();
+                                                    //  $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center" name="cat[]">'+category+'</td><td class="text-center">'+" "+'</td><td class="text-center">'+qtt+'</td></tr></table> ');
                                                     // categor.push(category); 
                                                     // pnme.push(category);
                                                     // brd.push("");
@@ -804,11 +838,14 @@
 
 
                                         }else{
-                                        $("#tb1").show();
-                                        $("#tb").remove();
+                                        // $("#tb1").show();
+                                        // $("#tb").remove();
                                         var pn = $("#prname").val();
                                         var pb = $("#pbrand").val();
                                         var pq = $("#pqntt").val();
+                                        var no = $("#note").val();
+  
+                                        cubes.push([category,pn,pb,pq,no]);
                                         $("#pnnn").text(pn);
                                         $("#pbnn").text(pb);
                                         $("#pqnn").text(pq);
@@ -820,17 +857,21 @@
                                             var inps = document.getElementsByName('pnm[]');
                                             var bds = document.getElementsByName('brnd[]');
                                             var qts = document.getElementsByName('qty[]');
+                                            var nts = document.getElementsByName('nt[]');
 
-                                                    $("#tb").remove();
+                                                    // $("#tb").remove();
                                                     for (var i = 0; i <inps.length; i++) {
                                                     var inp=inps[i];
                                                     var bd=bds[i];
                                                     var qt=qts[i]; 
+                                                    var nt=nts[i]; 
+                                                    cubes.push([category,inp.value,bd.value,qt.value,nt.value]);
+
                                                     // categor.push(category); 
                                                     // pnme.push(inp.value);
                                                     // brd.push(bd.value);
                                                     // qtity.push(qt.value);
-                                                    $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center" name="cat[]">'+inp.value+'</td><td class="text-center">'+bd.value+'</td><td class="text-center">'+qt.value+'</td></tr></table> ');
+                                                   // $("#plist").append('<table class="table table-striped text-center"id="tb"><tr name="tr[]"id="tr"><td class="text-center" name="cat[]">'+inp.value+'</td><td class="text-center">'+bd.value+'</td><td class="text-center">'+qt.value+'</td></tr></table> ');
                                                     
                                                     }
                                                     $(this).data('clicked', true);
@@ -846,9 +887,219 @@
                                         //              console.log(brd[i]);
                                         //              console.log(qtity[i]);
 
-                                        //              }          
+                                        //              }   
+
+
+                                         $("#h").empty();
+                                         for(var i = 0; i < cubes.length; i++) {
+                                                //var cube = cubes[i];
+                                                var j = 0;
+                                                // for(var j = 0; j < cube.length; j++) {
+                                                    $("#h").append('<tr name=""id="trr"><td class="id">'+(i+1)+'</td><td class="name" style="width:100px;">'+cubes[i][j+1]+'</td><td class="">'+cubes[i][j+2]+'</td><td class="">'+cubes[i][j+3]+'</td></tr>');
+                                                    //console.log("cube[" + i + "][" + j + "] = " + cube[j]);
+                                               // }
+                                            }   
+                                            $("#cart").text(cubes.length);
+                                           
+
+                                            //    $('.dm').click(function(){
+                                            //             var val = $(this).closest('tr').find(".id").text();
+                                            //             var nm = $(this).closest('tr').find(".name").text();
+
+                                            //             console.log(nm);
+                                            //             var index = val-1;
+                                            //             // var index = cubes.findIndex(function(item) {return item.name == val})
+                                            //             // console.log(index)
+                                            //             cubes.splice(index, 1)
+
+                                            //             $("#h").empty();
+                                            //             for(var i = 0; i < cubes.length; i++) {
+                                            //                     //var cube = cubes[i];
+                                            //                     var j = 0;
+                                            //                     // for(var j = 0; j < cube.length; j++) {
+                                            //                         $("#h").append('<tr name=""id="trr"><td class="id">'+(i+1)+'</td><td class="name" name="p_name[]">'+cubes[i][j]+'</td><td class="" name="p_brand[]">'+cubes[i][j+1]+'</td><td class=""name="p_qty[]">'+cubes[i][j+2]+'</td></tr>');
+                                            //                         //console.log("cube[" + i + "][" + j + "] = " + cube[j]);
+                                            //                 // }
+                                            //                 }  
+                                            //                 // $("#add").data('clicked', true);
+                                            //             // console.log(arr);
+                                            //         }); 
+
+                                             
                                                     
                                         });
+
+                                        $("#clear").click(function(){
+                                                       
+                                                      
+
+                                                   
+                                                        
+                                                        cubes.splice(0,cubes.length)
+                                                        $("#h").empty();
+                                                        $("#cart").text(0);
+
+                                                        console.log(cubes.length);
+                                                       
+                                                    }); 
+
+
+       $("#ordd").click(function(e){
+  
+                   e.preventDefault();
+                   $.confirm({
+                    title: 'Confirm!',
+                    content: 'Simple confirm!',
+                    buttons: {
+                        confirm: function () {
+                 // $.alert('Confirmed!');
+                 var category = $("#category option:selected").val();
+                 
+               
+                 var name = $("#name").val();
+                 var phone = $("#phone").val();
+                
+
+                 var address = $("#address").val();
+                 var city = $("#city").val();
+
+                 var email = $("#email").val();
+          
+                 
+                
+              
+
+
+           if(cubes.length >= 1 && cubes.length <= 20){
+
+                 $.ajax({
+                 type:'get',
+                 url:"{{ url('/orderr') }}",
+                 data:{name:name,
+                     phone:phone,
+                     email:email,
+                     city:city,
+                     address:address,
+                     cubes:cubes
+
+                     },
+                 success:function(data){
+                     console.log(data);
+                     cubes.splice(0,cubes.length);
+                            $("#name").val("");
+                            $("#phone").val("");
+                            $("#prname").val("");
+                            $("#pbrand").val("");
+                            $("#quantity").val("");
+                            $("#notes").val("");
+                            $("#email").val("");
+                            
+                            $("#category").val("select");
+                            $("#mtype").val("select");
+                            $("#city").val("select");
+                            $("#measurement").val("");
+                            $("#address").val("");
+                            $("#nm").text("");
+                            $("#ph").text("");
+                            $("#em").text("");
+                            $("#cart").text(0);
+                     $("#h").empty();
+                     $.alert('Success');
+
+                     
+                  },
+                  error:function (error) {
+                        cubes.splice(0,cubes.length);
+                        $("#name").val("");
+                            $("#phone").val("");
+                            $("#prname").val("");
+                            $("#pbrand").val("");
+                            $("#quantity").val("");
+                            $("#notes").val("");
+                            $("#email").val("");
+                            $("#nm").text("");
+                            $("#ph").text("");
+                            $("#em").text("");
+                            $("#category").val("select");
+                            $("#mtype").val("select");
+                            $("#city").val("select");
+                            $("#measurement").val("");
+                            $("#address").val("");
+                        $("#h").empty();
+                        $("#cart").text(0);
+                        $.alert('Please fill all the mandatory field');
+
+                    }
+
+                });
+                
+                }else if (cubes.length > 20)
+                {
+                    cubes.splice(0,cubes.length);
+                    $("#name").val("");
+                            $("#phone").val("");
+                            $("#prname").val("");
+                            $("#pbrand").val("");
+                            $("#quantity").val("");
+                            $("#notes").val("");
+                            $("#email").val("");
+                            $("#nm").text("");
+                            $("#ph").text("");
+                            $("#em").text("");
+                            $("#category").val("select");
+                            $("#mtype").val("select");
+                            $("#city").val("select");
+                            $("#measurement").val("");
+                            $("#address").val("");
+                            $("#cart").text(0);
+                    $("#h").empty();
+                    $.alert('Please add product less than or equal 20 in the cart');
+                }else{
+                    cubes.splice(0,cubes.length);
+                    $("#name").val("");
+                            $("#phone").val("");
+                            $("#prname").val("");
+                            $("#pbrand").val("");
+                            $("#quantity").val("");
+                            $("#notes").val("");
+                            $("#email").val("");
+                            $("#nm").text("");
+                            $("#ph").text("");
+                            $("#em").text("");
+                            $("#category").val("select");
+                            $("#mtype").val("select");
+                            $("#city").val("select");
+                            $("#measurement").val("");
+                            $("#address").val("");
+                            $("#cart").text(0);
+                    $("#h").empty();
+                    $.alert('Please add product in the cart');
+                }
+
+                
+                
+            },
+            
+            cancel: function () {
+
+                $.alert('Canceled!');
+            }
+
+                    }    
+        });      
+                 
+
+                
+             
+             
+             
+      
+             
+       
+});
+
+
+                                       
           
            $("#payinfo").click(function(){
             // if($(this).prop("checked") == true){
@@ -1017,194 +1268,195 @@
         });
    
     
-    $("#order").click(function(e){
+    // $("#order").click(function(e){
   
-        e.preventDefault();
-         $.confirm({
-                    title: 'Confirm!',
-                    content: 'Simple confirm!',
-                    buttons: {
-                        confirm: function () {
-                            // $.alert('Confirmed!');
-                            var category = $("#category option:selected").val();
-                            console.log(category);
-                           if(category != 'Custom Category'){
-                            var name = $("#name").val();
-                            var phone = $("#phone").val();
-                            var pn = $("#pname").val();
-                            var pb = $("#brand").val();
-                            var pq = $("#qntt").val();
-                            var no = $("#note").val();
+    //     e.preventDefault();
+    //      $.confirm({
+    //                 title: 'Confirm!',
+    //                 content: 'Simple confirm!',
+    //                 buttons: {
+    //                     confirm: function () {
+    //                         // $.alert('Confirmed!');
+    //                         var category = $("#category option:selected").val();
+    //                         console.log(category);
+    //                        if(category != 'Custom Category'){
+    //                         var name = $("#name").val();
+    //                         var phone = $("#phone").val();
+    //                         var pn = $("#pname").val();
+    //                         var pb = $("#brand").val();
+    //                         var pq = $("#qntt").val();
+    //                         var no = $("#note").val();
 
-                            if( $("#email").val() == ""){
-                                var email =" ";
-                            }else{
-                                var email = $("#email").val();
-                            }
+    //                         if( $("#email").val() == ""){
+    //                             var email =" ";
+    //                         }else{
+    //                             var email = $("#email").val();
+    //                         }
                             
-                            var type = $("#mtype option:selected").val();
-                            var measurement = $("#measurement").val();
-                            var address = $("#address").val();
-                            var city = $("#city").val();
-                            var qan = $("#pqntt").val();
+    //                         var type = $("#mtype option:selected").val();
+    //                         var measurement = $("#measurement").val();
+    //                         var address = $("#address").val();
+    //                         var city = $("#city").val();
+    //                         var qan = $("#pqntt").val();
 
                             
-                            var pns = [];
-                            var pbs = [];
-                            var pqs = [];
-                            var nts = [];
+    //                         var pns = [];
+    //                         var pbs = [];
+    //                         var pqs = [];
+    //                         var nts = [];
 
-                            var inps = document.getElementsByName('pnm[]');
-                                                    for (var i = 0; i <inps.length; i++) {
-                                                    var inp=inps[i];
-                                                    pns[i] = inp.value;
-                                                        console.log(inp.value);
-                                                    }
+    //                         var inps = document.getElementsByName('pnm[]');
+    //                                                 for (var i = 0; i <inps.length; i++) {
+    //                                                 var inp=inps[i];
+    //                                                 pns[i] = inp.value;
+    //                                                     console.log(inp.value);
+    //                                                 }
 
-                                                var bndd = document.getElementsByName('brnd[]');
-                                                    for (var i = 0; i <bndd.length; i++) {
-                                                    var bnd=bndd[i];
-                                                    pbs[i] = bnd.value
-                                                        console.log(bnd.value);
-                                                    }
+    //                                             var bndd = document.getElementsByName('brnd[]');
+    //                                                 for (var i = 0; i <bndd.length; i++) {
+    //                                                 var bnd=bndd[i];
+    //                                                 pbs[i] = bnd.value
+    //                                                     console.log(bnd.value);
+    //                                                 }
 
 
-                                                var qty = document.getElementsByName('pnm[]');
-                                                    for (var i = 0; i <qty.length; i++) {
-                                                    var qt=qty[i];
-                                                        pqs[i]=qt.value; 
-                                                        console.log(qt.value);
-                                                    } 
+    //                                             var qty = document.getElementsByName('pnm[]');
+    //                                                 for (var i = 0; i <qty.length; i++) {
+    //                                                 var qt=qty[i];
+    //                                                     pqs[i]=qt.value; 
+    //                                                     console.log(qt.value);
+    //                                                 } 
 
-                                                var nt = document.getElementsByName('nt[]');
-                                                    for (var i = 0; i <nt.length; i++) {
-                                                    var ntt=nt[i];
-                                                        nts[i] = ntt.value; 
+    //                                             var nt = document.getElementsByName('nt[]');
+    //                                                 for (var i = 0; i <nt.length; i++) {
+    //                                                 var ntt=nt[i];
+    //                                                     nts[i] = ntt.value; 
                                                         
-                                                    } 
+    //                                                 } 
                         
                         
-                        if($('#add').data('clicked')) {
-                            $.ajax({
-                            type:'get',
-                            url:"{{ url('/order') }}",
-                            data:{name:name,
-                                phone:phone,
-                                email:email,
-                                pn:pn,
-                                pb:pb,
-                                pq:pq,
-                                no:no,
-                                type:type,
-                                category:category,
-                                measurement:measurement,
-                                address:address,
-                                city:city,
-                                pns:pns,
-                                pbs:pbs,
-                                pqs:pqs,
-                                nts:nts,
-                                qan:qan
+    //                     if($('#add').data('clicked')) {
+    //                         $.ajax({
+    //                         type:'get',
+    //                         url:"{{ url('/order') }}",
+    //                         data:{name:name,
+    //                             phone:phone,
+    //                             email:email,
+    //                             pn:pn,
+    //                             pb:pb,
+    //                             pq:pq,
+    //                             no:no,
+    //                             type:type,
+    //                             category:category,
+    //                             measurement:measurement,
+    //                             address:address,
+    //                             city:city,
+    //                             pns:pns,
+    //                             pbs:pbs,
+    //                             pqs:pqs,
+    //                             nts:nts,
+    //                             qan:qan
 
-                                },
-                            success:function(data){
-                                console.log(data);
+    //                             },
+    //                         success:function(data){
+    //                             console.log(data);
                                 
-                                    if (data) {
-                                        $("#name").val("");
-                                        $("#phone").val("");
-                                        $("#pname").val("");
-                                        $("#brand").val("");
-                                        $("#qnty").val("");
-                                        $("#note").val("");
-                                        $("#email").val("");
+    //                                 if (data) {
+    //                                     $("#name").val("");
+    //                                     $("#phone").val("");
+    //                                     $("#pname").val("");
+    //                                     $("#brand").val("");
+    //                                     $("#qnty").val("");
+    //                                     $("#note").val("");
+    //                                     $("#email").val("");
                                         
-                                        $("#category").val("select");
-                                        $("#mtype").val("select");
-                                        $("#city").val("select");
-                                        $("#measurement").val("");
-                                        $("#address").val("");
+    //                                     $("#category").val("select");
+    //                                     $("#mtype").val("select");
+    //                                     $("#city").val("select");
+    //                                     $("#measurement").val("");
+    //                                     $("#address").val("");
 
-                                        $("#nm").text("");
-                                        $("#ph").text("");
-                                        $("#em").text("");
+    //                                     $("#nm").text("");
+    //                                     $("#ph").text("");
+    //                                     $("#em").text("");
 
-                                        $("#pnnn").text("");
-                                        $("#pbnn").text("");
-                                        $("#pqnn").text("");
+    //                                     $("#pnnn").text("");
+    //                                     $("#pbnn").text("");
+    //                                     $("#pqnn").text("");
 
-                                        $("#cus").hide();
-                                        $("#cuss").hide();
-                                        $("tb1").hide();
-                                        $("#tb").remove();
-                                        $.alert('Order completed successfully');
-                                    }
-                            },
-                            error:function (error) {
-                                        $("#cus").hide();
-                                        $("#name").val("");
-                                        $("#phone").val("");
-                                        $("#prname").val("");
-                                        $("#pbrand").val("");
-                                        $("#quantity").val("");
-                                        $("#notes").val("");
-                                        $("#email").val("");
+    //                                     $("#cus").hide();
+    //                                     $("#cuss").hide();
+    //                                     $("tb1").hide();
+    //                                     $("#tb").remove();
+    //                                     $.alert('Order completed successfully');
+    //                                 }
+    //                         },
+    //                         error:function (error) {
+    //                                     $("#cus").hide();
+    //                                     $("#name").val("");
+    //                                     $("#phone").val("");
+    //                                     $("#prname").val("");
+    //                                     $("#pbrand").val("");
+    //                                     $("#quantity").val("");
+    //                                     $("#notes").val("");
+    //                                     $("#email").val("");
                                         
-                                        $("#category").val("select");
-                                        $("#mtype").val("select");
-                                        $("#city").val("select");
-                                        $("#measurement").val("");
-                                        $("#address").val("");;
+    //                                     $("#category").val("select");
+    //                                     $("#mtype").val("select");
+    //                                     $("#city").val("select");
+    //                                     $("#measurement").val("");
+    //                                     $("#address").val("");;
                                     
-                                        $("#nm").text("");
-                                        $("#ph").text("");
-                                        $("#em").text("");
-                                        $("#pnnn").text("");
-                                        $("#pbnn").text("");
-                                        $("#pqnn").text("");
-                                        $("tb1").hide();
-                                        $("#tb").remove();
-                                        $.alert('Error !! please fill the all sections');
+    //                                     $("#nm").text("");
+    //                                     $("#ph").text("");
+    //                                     $("#em").text("");
+    //                                     $("#pnnn").text("");
+    //                                     $("#pbnn").text("");
+    //                                     $("#pqnn").text("");
+    //                                     $("tb1").hide();
+    //                                     $("#tb").remove();
+    //                                     $.alert('Error !! please fill the all sections');
                                    
-                                }
-                            });
-                            }else{
-                                $("tb1").hide();
-                                        $("#tb").remove();
-                                $.alert('Please add products on product list');
-                            }
+    //                             }
+    //                         });
+    //                         }else{
+    //                             $("tb1").hide();
+    //                                     $("#tb").remove();
+    //                             $.alert('Please add products on product list');
+    //                         }
 
-                            }
-                        },
-                        cancel: function () {
+    //                         }
+    //                     },
+    //                     cancel: function () {
 
-                            $("#cus").hide();
-                            $("#name").val("");
-                            $("#phone").val("");
-                            $("#prname").val("");
-                            $("#pbrand").val("");
-                            $("#quantity").val("");
-                            $("#notes").val("");
-                            $("#email").val("");
+    //                         $("#cus").hide();
+    //                         $("#name").val("");
+    //                         $("#phone").val("");
+    //                         $("#prname").val("");
+    //                         $("#pbrand").val("");
+    //                         $("#quantity").val("");
+    //                         $("#notes").val("");
+    //                         $("#email").val("");
                             
-                            $("#category").val("select");
-                            $("#mtype").val("select");
-                            $("#city").val("select");
-                            $("#measurement").val("");
-                            $("#address").val("");
-                            $("#nm").text("");
-                            $("#ph").text("");
-                            $("#pnnn").text("");
-                                        $("#pbnn").text("");
-                                        $("#pqnn").text("");
-                            $("#em").text("");
-                            $("tb1").hide();
-                                        $("#tb").remove();
-                            $.alert('Canceled!');
-                        },
+    //                         $("#category").val("select");
+    //                         $("#mtype").val("select");
+    //                         $("#city").val("select");
+    //                         $("#measurement").val("");
+    //                         $("#address").val("");
+    //                         $("#nm").text("");
+    //                         $("#ph").text("");
+    //                         $("#em").text("");
+    //                         $("#pnnn").text("");
+    //                                     $("#pbnn").text("");
+    //                                     $("#pqnn").text("");
+                            
+    //                         $("tb1").hide();
+    //                                     $("#tb").remove();
+    //                         $.alert('Canceled!');
+    //                     },
                         
-                    }
-    });
+    //                 }
+    // });
 
 
 
@@ -1214,8 +1466,12 @@
                 
             
   
-	});
-                 
+	// });
+
+
+    
+
+    
         </script>
 
 <script>
