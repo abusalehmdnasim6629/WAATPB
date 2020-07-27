@@ -438,17 +438,17 @@
 								</ul>
 								
 							</li>
-							<li>
+							<!-- <li>
 								<a href="{{URL::to('/all-order')}}">
 									<i class="metismenu-icon fa fa-book"></i>
 											Order List
 								</a>
-							</li>
+							</li> -->
 
 							<li>
 								<a href="{{URL::to('/all-custom-order')}}">
 									<i class="metismenu-icon fa fa-book"></i>
-											Custom Order List
+										Order List
 								</a>
 							</li>
 

@@ -36,20 +36,26 @@
 
 				
 				<tbody>
-                @foreach($result as $result)
+				    @if($result)
+					@foreach($result as $result)
 					<tr>
 						<td class="text-center">{{$i}}</td>
 						<td class="text-center">{{ $result->order_id}}</td>
 						<td class="text-center">{{ $result->method}}</td>
 						<td class="text-center">{{ $result->number}}</td>
 						<td class="text-center">{{ $result->txt_id}}</td>
+				    </tr>
+					@php
+					$i++;
+					@endphp
+					@endforeach
+					@else
+					<tr>
+					  <td colspan="5" class="text-center"> Not Done Yet </td>
+					</tr>
+					@endif
 						
-						@php
-				$i++;
 
-				
-				@endphp
-                 @endforeach
 				</tbody>
 
 				

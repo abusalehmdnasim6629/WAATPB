@@ -8,14 +8,14 @@
 	
 	<li>
 	<div class="text-right">
-				<form action="{{url('/search-member')}}" method="POST" enctype="multipart/form-data">
+				<form action="{{url('/search-order')}}" method="POST" enctype="multipart/form-data">
 				          	@csrf
 				
 						
 							
 							<div class="input-group">
                         
-                                <input type="text" class="form-control" style="height:40px;"placeholder="Search member" name="email">
+                                <input type="text" class="form-control" style="height:40px;"placeholder="Search order by order id" name="order">
                                 <div class="input-group-append">
                                 <button type="submit" class="btn btn-primary " id="search">
                                     <i class="fa fa-search"></i>

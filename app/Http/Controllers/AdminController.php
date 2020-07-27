@@ -1903,4 +1903,10 @@ class AdminController extends Controller
         Alert::success('Successful', 'deleted successfully');
         return redirect()->back();
     }
+
+
+    public function back(){
+
+        return redirect::to('/all-member-request');
+    }
 }

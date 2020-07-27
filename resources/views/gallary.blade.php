@@ -1,6 +1,23 @@
 @extends('layouts.webview')
 
 @section('content')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<style>
+  .ig{
+	  
+	  border-color:transparent;
+	  filter: grayscale(1);
+  }
+
+  .ig:hover{
+	filter: grayscale(0);
+	transform: scale(1.5);
+	transition-duration: 1s;
+  }
+
+
+</style>
+
 <div class="site-breadcrumb-title" style="background: url(assets/img/breadcrumb/breadcrumb.png)">
 	<h2>Gallary</h2>
 	<div class="main-breadcrumb">
@@ -71,9 +88,9 @@
 	
 	<div class="row">
 		<?php foreach($gallary as $g){ ?>
-		<div class="col-md-4 text-center px-2 py-2">
+		<div class="col-md-3 text-center px-2 py-2">
 			<div class="gallary-img">
-				<img src="{{URL::to($g->image)}}" style="width:200px;height:200px;" alt="thumb">
+			<a class="ig border" data-fancybox="gallery" href="{{URL::to($g->image)}}"><img src="{{URL::to($g->image)}}" style="width:250px;height:200px;" alt="thumb"></a>
 			</div>
 
 		</div>
@@ -94,4 +111,8 @@
 		</nav>
 	</div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 @endsection

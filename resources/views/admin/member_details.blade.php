@@ -1,6 +1,12 @@
 @extends('admin.dashboard')
 @section('admin_content')
+<style>
+  /* .im{
+     height:200px;
+     width:200px;
+  } */
 
+</style>
 <ul class="breadcrumb">
 	<li>
 		<i class="icon-home"></i>
@@ -15,44 +21,54 @@
 			</div>
             <br><br>
     <div class="row">
-       <div class="col-md mb-5">
-        <img src="{{URL::to($result->image)}}" alt="">
+       <div class="col-sm-5 mb-5">
+        <img src="{{URL::to($result->image)}}" style="height:200px;width:200px;" class="img-responsive im" alt="">
        </div>
-       <div class="col-md">
+       <div class="col-sm-7">
         <table>
            <tr>
-           <td><b> Member id : </b></td>
-           <td>{{$result->code}}</td>
+           <td><b> Member id</b></td>
+           <td><b>: </b></td>
+           <td> {{$result->code}}</td>
            </tr>
            <tr>
-           <td><b> Name : </b></td>
-           <td>{{$result->member_name}}</td>
+           <td><b> Name</b></td>
+           <td><b>: </b></td>
+           <td> {{$result->member_name}}</td>
            </tr>
            <tr>
-           <td><b>Email : </b></td>
-           <td>{{$result->email_address}}</td>
+           <td><b>Email</b></td>
+           <td><b>: </b></td>
+           <td> {{$result->email_address}}</td>
            </tr>
            <tr>
-           <td><b>National ID : </b></td>
-           <td>{{$result->nid}}</td>
+           <td><b>National ID</b></td>
+           <td><b>: </b></td>
+           <td> {{$result->nid}}</td>
            </tr>
            <tr>
-           <td><b>Present Organization : </b></td>
-           <td>{{$result->present_organization}}</td>
+           <td><b>Present Organization</b></td>
+           <td><b>: </b></td>
+           <td> {{$result->present_organization}}</td>
            </tr>
-           <td><b>Present Address : </b></td>
-           <td>{{$result->present_address}}</td>
+           <td><b>Present Address</b></td>
+           <td><b>: </b></td>
+           <td> {{$result->present_address}}</td>
            </tr>
-           <td><b>Department : </b></td>
-           <td>{{$result->department}}</td>
+           <td><b>Department</b></td>
+           <td><b>: </b></td>
+           <td> {{$result->department}}</td>
            </tr>
-           <td><b>Blood group : </b></td>
+           <td><b>Blood group</b></td>
+           <td><b>: </b></td>
            <td>{{$result->blood_group}}</td>
            </tr>
-           <td><b>Skills : </b></td>
-           <td>{{$result->member_skill}}</td>
+           <td><b>Skills</b></td>
+           <td><b>: </b></td>
+           <td> {{$result->member_skill}}</td>
            </tr>
-           <td><b>Hobby : </b></td>
+           <td><b>Hobby</b></td>
+           <td><b>: </b></td>
            <td>{{$result->member_hobby}}</td>
            </tr>
           

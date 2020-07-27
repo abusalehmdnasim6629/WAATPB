@@ -37,7 +37,7 @@
 						</div>
 					@endif
 					<div class="box-content">
-						<form class="form-horizontal" action="{{url('/save-type')}}" method="post" enctype="multipart/form-data">
+						<form class="form-horizontal" action="{{url('/save-mango')}}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
 						  <fieldset>
                            <div class="form-group">

@@ -73,9 +73,11 @@ class MemberController extends Controller
 
     public function save_member(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [  
             'image' => 'nullable|image|mimes:jpeg,png|max:2000',
             'pass' => 'required|min:6',
+            'nid' => 'required|max:18|min:11',
+
 
 
         ]);
@@ -100,7 +102,7 @@ class MemberController extends Controller
         $data['present_organization'] = $request->po;
         $data['blood_group'] = $request->b_g;
         $data['cover_image'] = '';
-        $data['status'] = 0; // this would be zero 0, 1 for certain time only
+        $data['status'] = 1; // this would be zero 0, 1 for certain time only
         $data['code'] = self::memberIdGenerate();
         // $data['member_skill'] = "";
         // $data['member_hobby'] = "";
@@ -109,7 +111,13 @@ class MemberController extends Controller
         $check = DB::table('tbl_member')
             ->where('email_address', $request->email)
             ->where('contact_number', $request->contact)
+            ->orwhere('nid', $request->nid)
             ->first();
+
+        $checknid = DB::table('tbl_member')
+            ->where('nid', $request->nid)
+            ->first(); 
+        if($checknid == null){       
         if ($check == null) {
 
             if ($request->pass == $request->c_pass) {
@@ -136,7 +144,7 @@ class MemberController extends Controller
                     ->first();
                 $rsub = "Registration conformation";
                 $rmsg = "Thank you for registration";
-                Mail::to($data['email_address'])->send(new SendMail($rsub, $rmsg));
+                // Mail::to($data['email_address'])->send(new SendMail($rsub, $rmsg));
                 Alert::success('Successful', 'Thank you for registration');
                 Session::put('lcheck', $l_check->member_id);
                 return Redirect::to('/profile');
@@ -156,6 +164,13 @@ class MemberController extends Controller
         } else {
 
             Alert::warning('Fail', 'Already resigtered');
+            return Redirect::to('/member-registration');
+        }
+
+        }
+        else {
+
+            Alert::warning('Fail', 'This NID has already been resigtered');
             return Redirect::to('/member-registration');
         }
     }

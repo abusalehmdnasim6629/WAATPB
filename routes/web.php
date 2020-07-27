@@ -369,3 +369,6 @@ Route::get('/delete-number/{id}', 'AdminController@delete_number')->middleware('
 
 
 
+//back
+
+Route::get('/back','AdminController@back')->middleware('admin');

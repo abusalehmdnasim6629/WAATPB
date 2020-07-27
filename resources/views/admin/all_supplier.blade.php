@@ -32,6 +32,8 @@
 						<th>Remark</th>
 						<th>Date</th>
 						<th class="text-center">Action</th>
+						<th class="text-center">Action</th>
+
 					</tr>
 				</thead>
 
@@ -57,6 +59,18 @@
 								</a>
 							</div>
 						</td>
+						<td>
+
+                         <Form>
+
+
+
+						 <input type="checkbox" name="check[]" >
+
+
+                        </Form>
+
+                    </td>
 					</tr>
 
 				</tbody>

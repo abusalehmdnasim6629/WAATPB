@@ -12,12 +12,8 @@
 	</li>
 </ul>
 <div class="container">
-<div class="row">
-	
-		
+<div class="row">		
 			<h2><i class="col-sm halflings-icon user"></i><span class="break"></span>Numbers</h2>
-			
-
 		<div class="col-sm-12">
 			<table class="table table-bordered">
 				<thead>
@@ -39,6 +35,9 @@
 							<div class="btn btn-group">  
                                 <a class="btn btn-info btn-sm" href="{{URL::to('/edit-number/'.$ct->id)}}">
 									<i class="fa fa-edit white edit"></i>
+								</a>
+								<a class="btn btn-danger btn-sm" href="{{URL::to('/delete-number/'.$ct->id)}}">
+									<i class="fa fa-trash white trash"></i>
 								</a>
 								
 							</div>

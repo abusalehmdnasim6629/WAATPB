@@ -1,6 +1,13 @@
 @extends('admin.dashboard')
 @section('admin_content')
 
+<style>
+  .img{
+     width:200px;
+     height:200px;
+  }
+
+</style>
 <ul class="breadcrumb">
 	<li>
 		<i class="icon-home"></i>
@@ -16,9 +23,9 @@
             <br><br>
     <div class="row">
        <div class="col-md mb-5">
-        <img src="{{URL::to($result->image)}}" alt="">
+        <img src="{{URL::to($result->image)}}" class="img-responsive img" alt="">
        </div>
-       <div class="col-md">
+       <div class="col-md-6">
         <table>
            <tr>
            <td><b> Member id : </b></td>
@@ -66,11 +73,15 @@
     
     </div>
     
-								<a class="btn btn-success btn-sm pd-2" href="{{URL::to('/accept-member/'.$result->member_id)}}">
-									<i>Accept</i>
+								<a class="btn btn-success  pd-2" href="{{URL::to('/accept-member/'.$result->member_id)}}">
+									<i class="">Accept</i>
 								</a>
-								<a class="btn btn-danger btn-sm pd-2" href="{{URL::to('/reject-member/'.$result->member_id)}}">
+								<a class="btn btn-danger  pd-2" href="{{URL::to('/reject-member/'.$result->member_id)}}">
 									<i > Reject</i>
+								</a>
+
+                        <a class="btn btn-info  pd-2" href="{{URL::to('/back')}}">
+                           <i class="fa fa-arrow-left" aria-hidden="true"> Back</i>
 								</a>
    
 </div>

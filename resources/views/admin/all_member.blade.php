@@ -84,11 +84,8 @@
 							<a class="btn btn-info btn-sm" href="{{URL::to('/member-info/'.$ct->member_id)}}">
 								<i class="fa fa-eye white eye"></i>
 							</a>
-							<!-- <a class="btn btn-danger btn-sm" href="{{URL::to('/delete-member/'.$ct->member_id)}}">
-								<i class="fa fa-trash white trash"></i>
-							</a> -->
-							
-							{{ $ct->member_id }}
+						
+						
 							<input type="hidden" name="" id="hi" value="{{ $ct->member_id }}">
 							<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" id="open">
 							 <i class="fa fa-trash white trash"></i>
