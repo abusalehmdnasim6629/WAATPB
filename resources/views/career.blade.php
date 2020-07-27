@@ -1,6 +1,13 @@
 @extends('layouts.webview')
 
 @section('content')
+
+<style>
+   #here{
+	   cursor:ponter;
+   }
+
+</style>
 <div class="clearfix"></div>
 <div class="site-breadcrumb-title" style="background: url(assets/img/breadcrumb/breadcrumb.png)">
 	<h2>Career</h2>
@@ -136,7 +143,7 @@ if($result != null){
 	<a href="{{url('/member-registration')}}" style="color: #00aeef;"> <i class="fas fa-arrow-circle-right"></i>
 		Apply For Membership </a>
 	<h4>Or</h4>
-	<a href="#port-popup" style="color: #00aeef;" id="here"> <i class="fas fa-arrow-circle-right"></i> Login as a member
+	<a href="" data-toggle="modal" data-target="#exampleModal" style="color: #00aeef;" id="here"> <i class="fas fa-arrow-circle-right"></i> Login as a member
 	</a>
 </div>
 

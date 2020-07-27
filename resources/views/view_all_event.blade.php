@@ -78,7 +78,7 @@
     ?>
 	<div class="event-wrapper grid-3 pd-2 mb-5">
 		<?php foreach($event as $e){ ?>
-		<div class="event-box text-center">
+		<div class="event-box text-center mx-auto">
 			<div class="event-img">
 				<img src="{{URL::to($e->event_image)}}" alt="thumb">
 				<div class="event-date">
