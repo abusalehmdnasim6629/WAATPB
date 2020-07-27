@@ -53,7 +53,7 @@
                                     <i class="fa fa-calendar"></i>
                                     Event</a></li>
                             <li class="nav-item"><a class="nav-link smooth-menu lnk" href="{{url('/career')}}">
-                            <i class="fa fa-university"></i>
+                            <i class="fa fa-briefcase"></i>
                             Career</a>
                             </li>
                             <li class="nav-item"><a class="nav-link smooth-menu lnk"
@@ -65,7 +65,7 @@
                                     <i class="fa fa-book"></i>
                                     Blog</a></li>
                               <li class="nav-item"><a class="nav-link smooth-menu lnk" href="{{url('/bunon-basket')}}">
-                           
+                              <i class="fa fa-shopping-cart"></i>
                             Order</a>
                             </li>        
                             <?php 

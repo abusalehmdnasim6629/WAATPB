@@ -1,6 +1,11 @@
 @extends('admin.dashboard')
 @section('admin_content')
+<style>
+    .to{
+		text-decoration: none;
+	}
 
+</style>
 <div class="app-page-title">
 	<div class="page-title-wrapper">
 		<div class="page-title-heading">
@@ -21,8 +26,10 @@
 </div>
 <div class="row">
 	<div class="col-md-6 col-xl-4">
+	  <a href="{{URL::to('/all-member')}}" class="to" >
 		<div class="card mb-3 widget-content bg-midnight-bloom">
 			<div class="widget-content-wrapper text-white">
+			 
 				<div class="widget-content-left">
 					<div class="widget-heading">Total Members</div>
 				</div>
@@ -31,8 +38,10 @@
 				</div>
 			</div>
 		</div>
+	  </a>
 	</div>
 	<div class="col-md-6 col-xl-4">
+	 <a href="{{URL::to('/all-job')}}" class="to" >
 		<div class="card mb-3 widget-content bg-arielle-smile">
 			<div class="widget-content-wrapper text-white">
 				<div class="widget-content-left">
@@ -43,8 +52,10 @@
 				</div>
 			</div>
 		</div>
+	  </a>
 	</div>
 	<div class="col-md-6 col-xl-4">
+	   <a href="{{URL::to('/all-event')}}" class="to" >
 		<div class="card mb-3 widget-content bg-grow-early">
 			<div class="widget-content-wrapper text-white">
 				<div class="widget-content-left">
@@ -55,8 +66,10 @@
 				</div>
 			</div>
 		</div>
+	   </a>
 	</div>
 	<div class="col-md-6 col-xl-4">
+	  <a href="{{URL::to('/all-member-request')}}" class="to" >
 		<div class="card mb-3 widget-content bg-grow-early">
 			<div class="widget-content-wrapper text-white">
 				<div class="widget-content-left">
@@ -67,8 +80,10 @@
 				</div>
 			</div>
 		</div>
+	  </a>
 	</div>
 	<div class="col-md-6 col-xl-4">
+	 <a href="{{URL::to('/all-image')}}" class="to" >
 		<div class="card mb-3 widget-content bg-midnight-bloom">
 			<div class="widget-content-wrapper text-white">
 				<div class="widget-content-left">
@@ -79,8 +94,10 @@
 				</div>
 			</div>
 		</div>
+	  </a>
 	</div>
 	<div class="col-md-6 col-xl-4">
+	  <a href="{{URL::to('/all-service')}}" class="to" >
 		<div class="card mb-3 widget-content bg-arielle-smile">
 			<div class="widget-content-wrapper text-white">
 				<div class="widget-content-left">
@@ -91,6 +108,7 @@
 				</div>
 			</div>
 		</div>
+	  </a>
 	</div>
 </div>
 @endsection

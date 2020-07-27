@@ -59,7 +59,7 @@
 			
 				<div class="app-header-left">
 				
-					<div class="search-wrapper">
+					<!-- <div class="search-wrapper">
 						<div class="input-holder">
 						
 							<input type="email" class="search-input" name="email" placeholder="Search for registered member">
@@ -67,7 +67,7 @@
 							
 						</div>
 						<button class="close"></button>
-					</div>
+					</div> -->
 					
 				</div>
 				
@@ -163,8 +163,13 @@
 				<div class="scrollbar-sidebar overflow-auto" >
 					<div class="app-sidebar__inner"  >
 						<ul class="vertical-nav-menu">
-
-							<li>
+						      <li>
+								<a href="{{URL::to('/admin')}}">
+									<i class="metismenu-icon fa fa-home"></i>
+										Home
+								</a>
+							  </li>
+							  <li>
 								<a href="#">
 									<i class="fa fa-briefcase metismenu-icon"></i>
 									Jobs
@@ -204,7 +209,7 @@
 							</li>
 							<li>
 								<a href="#">
-									<i class="metismenu-icon fa fa-picture-o"></i>
+									<i class="metismenu-icon fa fa-support"></i>
 									Gallery category
 									<i class="fa fa-angle-down caret-left"></i>
 								</a>
@@ -316,7 +321,7 @@
 							</li>
 							<li>
 								<a href="#">
-									<i class="metismenu-icon fa fa-users"></i>
+									<i class="metismenu-icon fa fa-send"></i>
 									Member Request
 									<i class="fa fa-angle-down caret-left"></i>
 								</a>
@@ -354,7 +359,7 @@
 							</li>
 							<li>
 								<a href="#">
-									<i class="metismenu-icon fa fa-gavel"></i>
+									<i class="metismenu-icon fa fa-futbol-o"></i>
 									Services
 									<i class="fa fa-angle-down caret-left"></i>
 								</a>
@@ -374,7 +379,7 @@
 								</ul>
 								<li>
 								<a href="#">
-									<i class="metismenu-icon fa fa-gavel"></i>
+									<i class="metismenu-icon fa fa-audio-description"></i>
 									Advertisment
 									<i class="fa fa-angle-down caret-left"></i>
 								</a>
@@ -416,7 +421,7 @@
 
 							<li>
 								<a href="#">
-									<i class="metismenu-icon fa fa-book"></i>
+									<i class="metismenu-icon fa fa-user-plus"></i>
 									Supplier
 									<i class="fa fa-angle-down caret-left"></i>
 								</a>
@@ -447,7 +452,7 @@
 
 							<li>
 								<a href="{{URL::to('/all-custom-order')}}">
-									<i class="metismenu-icon fa fa-book"></i>
+									<i class="metismenu-icon fa fa-shopping-cart"></i>
 										Order List
 								</a>
 							</li>
@@ -458,7 +463,7 @@
 
 							<li>
 								<a href="#">
-									<i class="metismenu-icon fa fa-gavel"></i>
+									<i class="metismenu-icon fa fa-mobile"></i>
 									Payment number
 									<i class="fa fa-angle-down caret-left"></i>
 								</a>
@@ -482,7 +487,7 @@
 
 							<li>
 								<a href="#">
-									<i class="metismenu-icon fa fa-gavel"></i>
+									<i class="metismenu-icon fa fa-cogs"></i>
 									Product Category
 									<i class="fa fa-angle-down caret-left"></i>
 								</a>
@@ -506,7 +511,7 @@
 
 							<li>
 								<a href="#">
-									<i class="metismenu-icon fa fa-gavel"></i>
+									<i class="metismenu-icon fa fa-sticky-note"></i>
 									Order Note
 									<i class="fa fa-angle-down caret-left"></i>
 								</a>
@@ -531,7 +536,7 @@
 
 							<li>
 								<a href="#">
-									<i class="metismenu-icon fa fa-gavel"></i>
+									<i class="metismenu-icon fa fa-money"></i>
 									Delivary cost
 									<i class="fa fa-angle-down caret-left"></i>
 								</a>
@@ -555,7 +560,7 @@
 
 							<li>
 								<a href="#">
-									<i class="metismenu-icon fa fa-gavel"></i>
+									<i class="metismenu-icon fa fa-bolt"></i>
 									Type List
 									<i class="fa fa-angle-down caret-left"></i>
 								</a>
@@ -578,7 +583,7 @@
 							</li>
 							<li>
 								<a href="#">
-									<i class="metismenu-icon fa fa-gavel"></i>
+									<i class="metismenu-icon fa fa-balance-scale"></i>
 									Measurement
 									<i class="fa fa-angle-down caret-left"></i>
 								</a>
@@ -602,7 +607,7 @@
 
 							<li>
 								<a href="#">
-									<i class="metismenu-icon fa fa-gavel"></i>
+									<i class="metismenu-icon fa fa-th"></i>
 									Delivary City
 									<i class="fa fa-angle-down caret-left"></i>
 								</a>
@@ -622,6 +627,13 @@
 
 								</ul>
 								
+							</li>
+
+							<li>
+								<a href="{{URL::to('/logout')}}">
+									<i class="metismenu-icon fa fa-power-off"></i>
+									Logout
+								</a>
 							</li>
 						</ul>
 					</div>
