@@ -9,7 +9,7 @@
 
 </style>
 <div class="clearfix"></div>
-<div class="site-breadcrumb-title" style="background: url(assets/img/breadcrumb/breadcrumb.png)">
+<!-- <div class="site-breadcrumb-title" style="background: url(assets/img/breadcrumb/breadcrumb.png)">
 	<h2>Career</h2>
 	<div class="main-breadcrumb">
 		<div class="container">
@@ -17,6 +17,16 @@
 				<li><a href="index.html">Home</a></li>
 				<li class="active"><a href="#">Career</a></li>
 			</ul>
+		</div>
+	</div>
+</div> -->
+
+<div class="site-breadcrumb-title" style="height:250px;">
+<!-- style="background: url(assets/img/breadcrumb/breadcrumb.png)" -->
+	<h2 style="margin-top:35px;font-family: 'Alegreya SC'; font-size:50px;">Career</h2>
+	<div class="main-breadcrumb">
+		<div class="container">
+			
 		</div>
 	</div>
 </div>
@@ -137,7 +147,7 @@ if($result != null){
 </div>
 <!--/row-->
 <?php } else{ ?>
-<div style="padding:20px;" class="col-sm-12 col-md-12 col-lg-12">
+<div style="padding:20px;" class="col-sm-10 col-md-10 col-lg-10 mx-auto">
 	<h4>To see the available jobs, please register by clicking the below link</h4>
 
 	<a href="{{url('/member-registration')}}" style="color: #00aeef;"> <i class="fas fa-arrow-circle-right"></i>

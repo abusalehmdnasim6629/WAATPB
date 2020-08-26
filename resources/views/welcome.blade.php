@@ -4,7 +4,7 @@
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Advent Pro' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Amarante' rel='stylesheet'>
-<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<!-- <script src='https://kit.fontawesome.com/a076d05399.js'></script> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 
 <style>
@@ -52,7 +52,7 @@
  }
  .sr{
 	box-shadow:0 2px 5px rgb(0,1.0,1.0);
-	border-radius:50%;
+	border-radius:48%;
 	background-color: white;
 	/* background-image: linear-gradient(to right, white, #a9dcdf); */
 	height:200px;
@@ -163,7 +163,7 @@
 	 color:black;
  }
  .learn:hover{
-	 border:1px solid black;
+	 border:1px solid white;
 	transform: scale(1.5);
 	transition-duration: .5s;
  }
@@ -397,8 +397,8 @@
                 
 				<div class="row" id="gl">
 				   @foreach($g_category as $gc)
-				   <div class="col-md " >
-				        <!-- <h4 class="mt-5 text-center">{{$gc->category}}</h4>  -->
+				   <div class="col-md mx-auto" >
+				        
 						<?php 
 						   $imageByCategory = DB::table('tbl_gallary')
 							  ->where('category_id',$gc->id)
@@ -407,9 +407,9 @@
 						?>
 						<div class="row gd">
 						
-						<div class="col-md text-center ">
+						<div class="col-md text-center mx-auto">
 						<marquee behavior="alternate" direction="up" onmouseover="this.stop();" onmouseout="this.start();" scrolldelay="0" height="500">
-						@foreach($imageByCategory as $ibc)
+						    @foreach($imageByCategory as $ibc)
 							<a href="{{URL::to($ibc->image)}}" class="mb-4 h-100" id="marquee" >
 								<img class="img-fluid img-thumbnail mx-auto im" style="width:100%;height:200px;border-bottom:2px solid black;"
 									src="{{URL::to($ibc->image)}}" alt="image">

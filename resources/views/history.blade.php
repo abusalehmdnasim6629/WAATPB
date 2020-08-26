@@ -2,7 +2,7 @@
 
 @section('content')
 <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
-<div class="site-breadcrumb-title" style="background: url(assets/img/breadcrumb/breadcrumb.png)">
+<!-- <div class="site-breadcrumb-title" style="background: url(assets/img/breadcrumb/breadcrumb.png)">
 	<h2  style="font-family: 'Alegreya SC';">History</h2>
 	<div class="main-breadcrumb">
 		<div class="container">
@@ -12,8 +12,16 @@
 			</ul>
 		</div>
 	</div>
+</div> -->
+<div class="site-breadcrumb-title" style="height:250px;">
+<!-- style="background: url(assets/img/breadcrumb/breadcrumb.png)" -->
+	<h2 style="margin-top:35px;font-family: 'Alegreya SC'; font-size:50px;">History</h2>
+	<div class="main-breadcrumb">
+		<div class="container">
+			
+		</div>
+	</div>
 </div>
-
 <main class="main">
 
 	<!-- Start Slider

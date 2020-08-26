@@ -18,7 +18,7 @@
 
 </style>
 
-<div class="site-breadcrumb-title" style="background: url(assets/img/breadcrumb/breadcrumb.png)">
+<!-- <div class="site-breadcrumb-title" style="background: url(assets/img/breadcrumb/breadcrumb.png)">
 	<h2>Gallary</h2>
 	<div class="main-breadcrumb">
 		<div class="container">
@@ -26,6 +26,16 @@
 				<li><a href="{{URL::to('/')}}">Home</a></li>
 				<li class="active"><a href="{{URL::to('/view-all')}}">Gallary</a></li>
 			</ul>
+		</div>
+	</div>
+</div> -->
+
+<div class="site-breadcrumb-title" style="height:250px;">
+<!-- style="background: url(assets/img/breadcrumb/breadcrumb.png)" -->
+	<h2 style="margin-top:35px;font-family: 'Alegreya SC'; font-size:50px;">Gallary</h2>
+	<div class="main-breadcrumb">
+		<div class="container">
+			
 		</div>
 	</div>
 </div>
@@ -90,7 +100,7 @@
 		<?php foreach($gallary as $g){ ?>
 		<div class="col-md-3 text-center px-2 py-2">
 			<div class="gallary-img">
-			<a class="ig border" data-fancybox="gallery" href="{{URL::to($g->image)}}"><img src="{{URL::to($g->image)}}" style="width:250px;height:200px;" alt="thumb"></a>
+			<a class="ig border" data-fancybox="gallery" href="{{URL::to($g->image)}}"><img src="{{URL::to($g->image)}}" style="width:200px;height:200px;" alt="thumb"></a>
 			</div>
 
 		</div>

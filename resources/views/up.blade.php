@@ -1,13 +1,21 @@
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.css" integrity="sha256-M8o9uqnAVROBWo3/2ZHSIJG+ZHbaQdpljJLLvdpeKcI=" crossorigin="anonymous" />
+
+<title> WAATPB</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="{{asset('frontend/css/price-range.css')}}" rel="stylesheet">
+    <!-- Place favicon.ico in the root directory -->
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/img/logo/favicon.png')}}">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.css" integrity="sha256-M8o9uqnAVROBWo3/2ZHSIJG+ZHbaQdpljJLLvdpeKcI=" crossorigin="anonymous" />
  <?php
  
     $pro = Session::get('profile');
     
  ?>
       
-          <div class="container" style="padding:10px;background-color:#f5f5f5;">
+<div class="container" style="padding:10px;background-color:#f5f5f5;">
 <div class="row pd-2">
 		<div class="col-sm-8 mx-auto " style="margin-top:2%;">  
 		    
@@ -146,16 +154,12 @@ $(document).ready(function(){
         success:function(data)
         {
           $('#uploadimageModal').modal('hide');
-        //  html = '<img src="' + data + '" />';
+    
           $('#uploaded_image').html(data);
           $('#uploadd_image').val(data);
         }
       });
-    // $('#uploadimageModal').modal('hide');
-    //      html = '<img src="' +response+ '" />';
-    //     html2 = response;
-    //     $('#uploaded_image').html(html);
-    //     $('#uploadd_image').val(html2);
+    
     })
   });
 

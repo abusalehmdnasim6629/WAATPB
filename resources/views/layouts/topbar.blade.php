@@ -28,53 +28,50 @@
                     <div class="collapse navbar-collapse justify-content-sm-end">
                         <ul class="navbar-nav navbar-mobile ">
                             <li class="nav-item mr-2"><a class="nav-link smooth-menu lnk" data-toggle="popover" title="Home" id ="home" href="{{URL::to('/')}}" style="">
-                            <i class="fa fa-home"></i>
+                            <!-- <i class="fa fa-home"></i> -->
                             Home
                              </a>
                             </li>
                             @if (request()->is('/'))
                             <li class="nav-item "><a class="nav-link smooth-menu lnk" href="#about">
-                            <i class="fa fa-info-circle"></i>
+                            <!-- <i class="fa fa-info-circle"></i> -->
                             About</a></li>
                             @endif
 
                             @if (request()->is('/'))
                             <li class="nav-item "><a class="nav-link smooth-menu lnk" href="#service">
-                            <i class="fa fa-gavel"></i>
+                            <!-- <i class="fa fa-gavel"></i> -->
                             Services</a></li>
                             @endif
 
                             <li class="nav-item "><a class="nav-link smooth-menu lnk"
                                     href="{{request()->is('/') ? '#history' : url('full-history')}}">
-                                    <i class="fa fa-history"></i>
+                                    <!-- <i class="fa fa-history"></i> -->
                                     History</a></li>
                             <li class="nav-item"><a class="nav-link smooth-menu lnk"
                                     href="{{request()->is('/') ? '#event' : url('view-all-event')}}">
-                                    <i class="fa fa-calendar"></i>
+                                    <!-- <i class="fa fa-calendar"></i> -->
                                     Event</a></li>
                             <li class="nav-item"><a class="nav-link smooth-menu lnk" href="{{url('/career')}}">
-                            <i class="fa fa-briefcase"></i>
+                            <!-- <i class="fa fa-briefcase"></i> -->
                             Career</a>
                             </li>
                             <li class="nav-item"><a class="nav-link smooth-menu lnk"
                                     href="{{request()->is('/') ? '#gallary' : url('view-all')}}">
-                                    <i class="fa fa-image"></i>
+                                    <!-- <i class="fa fa-image"></i> -->
                                     Gallery</a></li>
                             <li class="nav-item"><a class="nav-link smooth-menu lnk"
                                     href="{{URL::to('/blog')}}">
-                                    <i class="fa fa-book"></i>
+                                    <!-- <i class="fa fa-book"></i> -->
                                     Blog</a></li>
-                              <li class="nav-item"><a class="nav-link smooth-menu lnk" href="{{url('/bunon-basket')}}">
-                              <i class="fa fa-shopping-cart"></i>
-                            Order</a>
-                            </li>        
+                                   
                             <?php 
 								$lg = Session::get('lcheck');
 								if($lg!=null){								
 								?>
                             <li class="nav-item "><a class="nav-link smooth-menu lnk"
                                     href="{{URL::to('/profile')}}">
-                                    <i class="fa fa-user"></i>
+                                    <!-- <i class="fa fa-user"></i> -->
                                     Profile</a></li>
 
                             <li class="nav-item "><a class="nav-link smooth-menu lnk"
@@ -82,11 +79,16 @@
                                     <i class="fa fa-power-off"></i>
                                     Logout</a></li>
 
+
                             <?php }else{ ?>
                             <li class="nav-item lnk"><a class="nav-link" data-toggle="modal" data-target="#exampleModal">Login</a></li>
                             <li class="nav-item lnk"><a class="nav-link smooth-menu"
                                     href="{{URL::to('/member-registration')}}">Member</a></li>
                             <?php } ?>
+                            <li class="nav-item"><a class="nav-link smooth-menu lnk" href="{{url('/bunon-basket')}}">
+                              <i class="fa fa-shopping-cart"></i>
+                                Order</a>
+                            </li> 
 
 
                         </ul>

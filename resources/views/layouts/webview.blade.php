@@ -25,7 +25,9 @@
     <link href="{{asset('assets/css/swiper.min.css')}}" rel="stylesheet" />
     <link href="{{asset('assets/style.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
     <!-- ========== End Stylesheet ========== -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -93,10 +95,11 @@
     <!-- Start header
 	============================================= -->
     <div class="icon-bar">
-        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-        <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+        <a href="#" target="_blank" class="twitter" data-toggle="tooltip1" title="Twitter"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.facebook.com/Welfare-Association-of-Apparel-Textile-Professionals-of-Bangladesh-2101507819897752/" target="_blank" class="facebook" data-toggle="tooltip2" title="Facebook"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.facebook.com/groups/183928775783549/?ref=share" target="_blank" class="twitter"><i class="fa fa-users" data-toggle="tooltip3" title="Facebook Group"></i></a>
+        <a href="#" target="_blank" class="linkedin" data-toggle="tooltip4" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+        <a href="#" target="_blank" class="youtube" data-toggle="tooltip5" title="Youtube"><i class="fa fa-youtube"></i></a>
     </div>
     
     @include('layouts.topbar')
@@ -221,6 +224,16 @@
         		 });
 
        
+    </script>
+
+    <script>
+        $(document).ready(function(){
+        $('[data-toggle="tooltip1"]').tooltip();   
+        $('[data-toggle="tooltip2"]').tooltip();   
+        $('[data-toggle="tooltip3"]').tooltip();   
+        $('[data-toggle="tooltip4"]').tooltip();   
+        $('[data-toggle="tooltip5"]').tooltip();   
+        });
     </script>
 
 </body>

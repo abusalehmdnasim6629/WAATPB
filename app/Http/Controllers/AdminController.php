@@ -394,7 +394,7 @@ class AdminController extends Controller
     public function save_image(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'image' => 'required|image|mimes:jpeg,png|max:2000|dimensions:width=200,height=200',
+            'image' => 'required|image|mimes:jpeg,png|max:2000',
 
         ]);
 
@@ -1278,35 +1278,16 @@ class AdminController extends Controller
          
          $imageName = time() . '.png';
         
+        //  file_put_contents("public/".$imageName, $data);
          file_put_contents($imageName, $data);
-         
-         
+
+
          echo '<img src="'.$imageName.'"class="img-thumbnail" />';
          Session::put('imn',$imageName);
         }
          
         
-        // if ($request->uploaded_image) {
-
-        //     $image = $request->uploaded_image;
-            
-        //     $image_name = Str::random(20);
-        //     $ext = strtolower($image->getClientOriginalExtension());
-        //     $image_full_name = $image_name . '.' . $ext;
-        //     $upload_path = public_path() . '/image/';
-        //     $image_url = 'image/' . $image_full_name;
-        //     $success = $image->move($upload_path, $image_full_name);
-    
-        //     if ($success) {
-        //       $data['uploaded_image'] = $image_url;
-        //       return $image_url;
-        //     }
-        //     else{
-        //         return $request->uploaded_image;
-        //     }
-        //  image/cI5xWkbxuKfR6Hwo7I73.jpg } 
-     //  
-        
+      
 
        
  
@@ -1326,7 +1307,7 @@ class AdminController extends Controller
                   ->back()
                   ->withErrors($validator);
               }
-            $uploaded_image['image'] = Session::get('imn');
+            $uploaded_image['image'] = "public/".Session::get('imn');
                 DB::table('tbl_member')
                   ->where('member_id',Session::get('lcheck'))
                   ->update($uploaded_image);

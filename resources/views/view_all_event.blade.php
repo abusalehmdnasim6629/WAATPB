@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="clearfix"></div>
-<div class="site-breadcrumb-title" style="background: url(assets/img/breadcrumb/breadcrumb.png)">
+<!-- <div class="site-breadcrumb-title" style="background: url(assets/img/breadcrumb/breadcrumb.png)">
 	<h2>Events</h2>
 	<div class="main-breadcrumb">
 		<div class="container">
@@ -11,6 +11,16 @@
 				<li><a href="{{URL::to('/')}}">Home</a></li>
 				<li class="active"><a href="{{URL::to('/view-all-event')}}">Events</a></li>
 			</ul>
+		</div>
+	</div>
+</div> -->
+
+<div class="site-breadcrumb-title" style="height:250px;">
+<!-- style="background: url(assets/img/breadcrumb/breadcrumb.png)" -->
+	<h2 style="margin-top:35px;font-family: 'Alegreya SC'; font-size:50px;">All Event</h2>
+	<div class="main-breadcrumb">
+		<div class="container">
+			
 		</div>
 	</div>
 </div>
@@ -69,6 +79,11 @@
 	<!-- End hero -->
 
 </main>
+<div class="container">
+<div class="row">
+<div class="col-md-12 mx-auto">
+
+	
 <div style="padding:20px;">
 	<?php 
      $event =  DB::table('tbl_event')->where('event_date', '>', \Carbon\Carbon::now())
@@ -76,7 +91,7 @@
     
     
     ?>
-	<div class="event-wrapper grid-3 pd-2 mb-5">
+	<div class="event-wrapper grid-3 pd-2 mb-5 mx-auto">
 		<?php foreach($event as $e){ ?>
 		<div class="event-box text-center mx-auto">
 			<div class="event-img">
@@ -98,5 +113,8 @@
 		<?php  } ?>
 
 	</div>
+</div>
+</div>
+</div>
 </div>
 @endsection
