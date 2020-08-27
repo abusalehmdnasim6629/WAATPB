@@ -2,7 +2,7 @@
 <style>
 .lnk:hover {
   /* border-top: 2px solid #38b9f8; */
-  box-shadow:0 2px 5px rgb(0,1.0,1.0);
+  box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   border: 2px solid #38b9f8;
   border-radius:10px;
   color:#38b9f8;

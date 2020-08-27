@@ -67,7 +67,7 @@
 						<td class="text-center"><img src="{{URL::to($result->image)}}" alt="member image" style="height:70px; width:70px">
 						<td class="text-center">{{ $result->email_address}}</td>
 						
-
+                        @if( $result->status == 1 )
 						<td class="text-center">
 							<a class="btn btn-info btn-sm" href="{{URL::to('/member-info/'.$result->member_id)}}">
 								<i class="fa fa-eye white eye"></i>
@@ -79,6 +79,13 @@
 									<i class="fa fa-edit white edit"></i>
 							</a>
 						</td>
+						@else 
+						<td class="text-center">
+						    <a class="btn btn-info btn-sm" href="{{URL::to('/requested-member-info/'.$result->member_id)}}">
+								<i class="fa fa-eye white eye"></i>
+							</a>
+						</td>	
+						@endif
 					</tr>
 					@php
 				$i++;

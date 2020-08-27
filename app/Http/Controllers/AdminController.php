@@ -719,7 +719,6 @@ class AdminController extends Controller
             ->where('email_address', 'like', '%' . $email . '%')
             ->orWhere('member_name', 'like', '%' . $email . '%')
             ->orWhere('code', 'like', '%' . $email . '%')
-           // ->orderBy('code')
             ->get();
         // return $result->email_address;
         if ($result) {

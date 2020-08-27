@@ -3,15 +3,32 @@
 
 @include('sweetalert::alert')
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
-
-           <ul class="breadcrumb">
-				<li>
-					<i class="icon-home"></i>
-					<a href="index.html">Home</a> 
-					<i class="icon-angle-right"></i>
-				</li>
-				<li><a href="#">Tables</a></li>
-			</ul>
+<ul class="breadcrumb">
+	
+	<li>
+	<div class="text-right">
+				<form action="{{url('/search-member')}}" method="POST" enctype="multipart/form-data">
+				          	@csrf
+				
+						
+							
+							<div class="input-group">
+                        
+                                <input type="text" class="form-control" style="height:40px;"placeholder="Search member" name="email">
+                                <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary " id="search">
+                                    <i class="fa fa-search"></i>
+                                    
+                                </button>
+        
+                            </div>
+                            </div>
+						
+				   </form>
+	</div>		   
+	</li>
+</ul>
+        
 
 			<div class="row-fluid sortable">		
 				<div class="box span12">

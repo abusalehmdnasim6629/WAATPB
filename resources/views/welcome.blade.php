@@ -33,7 +33,8 @@
 
  } */
  .wh{
-	box-shadow:0 2px 5px rgb(0,1.0,1.0);
+	
+	box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 	background-color:white;
 	color:black;
  }
@@ -51,7 +52,8 @@
 	
  }
  .sr{
-	box-shadow:0 2px 5px rgb(0,1.0,1.0);
+	/* box-shadow:0 2px 5px rgb(0,1.0,1.0); */
+	box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 	border-radius:48%;
 	background-color: white;
 	/* background-image: linear-gradient(to right, white, #a9dcdf); */
@@ -76,7 +78,7 @@
 	
  }
  .hi{
-	box-shadow:0 2px 5px rgb(0,1.0,1.0);
+	box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 	background-color:#85c1e9;
 	/* border-top-left-radius:10%;
 	border-top-right-radius:10%; */
