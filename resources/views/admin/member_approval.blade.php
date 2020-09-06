@@ -1,6 +1,7 @@
 @extends('admin.dashboard')
 @section('admin_content')
-
+@include('sweetalert::alert')
+@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 <style>
   .img{
      width:200px;
@@ -54,7 +55,13 @@
                                     <a class="btn btn-info  pd-2" href="{{URL::to('/back')}}">
                                        <i class="fa fa-arrow-left" aria-hidden="true"> Back</i>
                                     </a>
+                                    
                               </div>  
+                              <div class="action"> 
+                                    <a class="btn btn-danger  pd-2" href="{{URL::to('/delete-request/'.$result->member_id)}}">
+                                       <i class="fa fa-trush " aria-hidden="true"> Delete</i>
+                                    </a>
+                              </div>
                </div>
                
                <div class="col-md-8 shadow detail  mx-auto">
@@ -83,19 +90,28 @@
                                  <td><b>Present Address</b></td>
                                  <td>{{$result->present_address}}</td>
                                  </tr>
+                                 <tr>
                                  <td><b>Department</b></td>
                                  <td>{{$result->department}}</td>
                                  </tr>
+                                 <tr>
                                  <td><b>Blood group</b></td>
                                  <td>{{$result->blood_group}}</td>
                                  </tr>
+
+                                 @if( $result->member_skill )
+                                 <tr>
                                  <td><b>Skills</b></td>
                                  <td>{{$result->member_skill}}</td>
                                  </tr>
+                                 @endif
+
+                                 @if( $result->member_hobby )
+                                 <tr>
                                  <td><b>Hobby</b></td>
                                  <td>{{$result->member_hobby}}</td>
                                  </tr>
-                                 
+                                 @endif
                               
                               </table>
                         </div> 

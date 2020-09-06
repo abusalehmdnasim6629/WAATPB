@@ -18,6 +18,7 @@ class Videos extends Migration
             $table->string('title');
             $table->string('video_link');
             $table->string('video_id');
+            $table->string('thumbnail_image	');
             $table->timestamps();
         });
     }

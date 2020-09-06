@@ -34,9 +34,11 @@
 					<div class="form-group">
 						<h3>Video link</h3>
 						<input type="text" class="form-control" name="link" required="">
-						
-						
-						
+					</div>
+
+					<div class="form-group">
+						<h3>Thumbnail image	</h3>
+						<input type="file" class="form-control-file" name="image" required="">
 					</div>
 
 					<button type="submit" class="btn btn-info float-right">

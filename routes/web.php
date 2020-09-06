@@ -38,6 +38,10 @@ Route::get('/reject-member/{member_id}', 'AdminController@reject_member')->middl
 Route::post('/search-member', 'AdminController@search_member')->middleware('admin');
 Route::get('/member-edit/{member_id}', 'AdminController@edit_member')->middleware('admin');
 Route::post('/update-member/{member_id}', 'AdminController@update_member')->middleware('admin');
+Route::get('/delete-request/{member_id}', 'AdminController@delete_request')->middleware('admin');
+Route::get('/all-rejected-member', 'AdminController@member_reject')->middleware('admin');
+
+
 
 
 
@@ -103,7 +107,7 @@ Route::get('/all-event', 'AdminController@all_event')->name('all.event')->middle
 // Route::post('/event/update/{id}', 'AdminController@updateEvent')->name('event.update')->middleware('admin');
 // Route::get('/event/delete/{id}', 'AdminController@deleteEvent')->name('event.delete')->middleware('admin');
 Route::get('/event/show-people/{event_id}', 'AdminController@showPeople')->name('event.people')->middleware('admin');
-
+Route::get('/delete/{id}','AdminController@dlt')->middleware('admin');
 
 Route::get('/join', 'ContentController@join_event');
 Route::get('/view-all-event', 'ContentController@view_event');

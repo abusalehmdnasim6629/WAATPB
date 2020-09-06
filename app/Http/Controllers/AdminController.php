@@ -57,9 +57,22 @@ class AdminController extends Controller
             ->where('status', 1)
             ->orderBy('code')
             ->paginate(100);
-
+        Session::put('track',2);
         return view('admin.all_member')->with('result', $result);
     }
+
+    public function member_reject()
+    {
+
+        $result = DB::table('tbl_member')
+            ->select('tbl_member.*')
+            ->where('status', 2)
+            ->orderBy('code')
+            ->paginate(100);
+        Session::put('track',5);
+        return view('admin.rejected')->with('result', $result);
+    }
+
 
     public function makePaid($member_id)
     {
@@ -288,9 +301,10 @@ class AdminController extends Controller
         $membersId = DB::table('tbl_join_event')
             ->where('event_id', $event_id)
             ->pluck('member_id');
-
+        Session::put('track',3);
         $people = DB::table('tbl_member')->whereIn('member_id', $membersId)->get();
-        return view('admin.event_people', compact('people'));
+        $countPeople = DB::table('tbl_member')->whereIn('member_id', $membersId)->count();
+        return view('admin.event_people', compact('people'),compact('countPeople'));
     }
 
     public function delete_event($event_id)
@@ -529,7 +543,7 @@ class AdminController extends Controller
             ->delete();
 
         Alert::success('Successful', 'Member deleted successfully');
-        return Redirect::to('/all-member');
+        return Redirect()->back();
     }
 
 
@@ -708,6 +722,15 @@ class AdminController extends Controller
         return Redirect::to('/all-member-request');
     }
 
+    public function delete_request($member_id)
+    {
+        DB::table('tbl_member')
+           ->where('member_id',$member_id)
+           ->delete();
+        Alert::success('Successful', 'Request deleted successfully');
+        return redirect::to('/all-member-request');
+    }
+
 
 
 
@@ -719,6 +742,7 @@ class AdminController extends Controller
             ->where('email_address', 'like', '%' . $email . '%')
             ->orWhere('member_name', 'like', '%' . $email . '%')
             ->orWhere('code', 'like', '%' . $email . '%')
+           // ->orderBy('code')
             ->get();
         // return $result->email_address;
         if ($result) {
@@ -1124,7 +1148,7 @@ class AdminController extends Controller
              ->join('tbl_member','posts.member_id','=','tbl_member.member_id')
              ->select('posts.*','tbl_member.member_name')
              ->get();
-        
+        Session::put('track',1);
         return view('admin.all_blog')->with('result',$result);     
 
     }
@@ -1175,13 +1199,23 @@ class AdminController extends Controller
         return view('admin.add_video');
     }
     public function SaveVideo(Request $request){
+        $validator = Validator::make($request->all(), [
+            'image' => 'required|image|mimes:jpeg,png|max:5000',
 
+        ]);
+
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return redirect()
+                ->back()
+                ->withErrors($validator);
+        }
       $count = DB::table('videos')
          ->count();  
-
-      if($count<1){   
+    
+    if($count<1){   
       $video = array();
-    //  $link =   $request->link;
+   
       $video['title'] = $request->v_title;
 
     //   $id = preg_replace("#.'youtube\.com/watch\?v=#", "", $link);
@@ -1192,10 +1226,32 @@ class AdminController extends Controller
       parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
 
       $video['video_id'] = $my_array_of_vars['v']; 
-      DB::table('videos')
-        ->insert($video);
-        Alert::success('Successful', 'Added successfully');
-        return redirect()->back();
+      
+
+       if ($request->hasfile('image')) {
+
+        $image = $request->file('image');
+
+        $image_name = Str::random(20);
+        $ext = strtolower($image->getClientOriginalExtension());
+        $image_full_name = $image_name . '.' . $ext;
+        $upload_path = public_path() . '/image/';
+        $image_url = 'image/' . $image_full_name;
+        $success = $image->move($upload_path, $image_full_name);
+
+        if ($success) {
+            $video['thumbnail_image'] = $image_url;
+            DB::table('videos')
+            ->insert($video);
+            Alert::success('Successful', 'Added successfully');
+            return redirect()->back();
+        } else {
+
+            Alert::warning('Fail', 'Image upload unsuccessfull');
+            return Redirect::to('/add-image');
+        }
+      }
+
     }
     else{
 
@@ -1239,11 +1295,33 @@ class AdminController extends Controller
         parse_str( parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
   
         $video['video_id'] = $my_array_of_vars['v']; 
-        DB::table('videos')
-          ->where('id',$id)
-          ->update($video);
-          Alert::success('Successful', 'Upadated successfully');
-          return redirect::to('all-video');
+
+
+        if ($request->hasfile('image')) {
+
+            $image = $request->file('image');
+    
+            $image_name = Str::random(20);
+            $ext = strtolower($image->getClientOriginalExtension());
+            $image_full_name = $image_name . '.' . $ext;
+            $upload_path = public_path() . '/image/';
+            $image_url = 'image/' . $image_full_name;
+            $success = $image->move($upload_path, $image_full_name);
+    
+            if ($success) {
+                $video['thumbnail_image'] = $image_url;
+                DB::table('videos')
+                ->where('id',$id)
+                ->update($video);
+                Alert::success('Successful', 'Upadated successfully');
+                return redirect::to('all-video');
+            } else {
+    
+                Alert::warning('Fail', 'Image Edit unsuccessfull');
+                return Redirect::to('/all-video');
+            }
+          }
+        
    
       
   
@@ -1277,12 +1355,15 @@ class AdminController extends Controller
          
          $imageName = time() . '.png';
         
-        //  file_put_contents("public/".$imageName, $data);
-         file_put_contents($imageName, $data);
+         file_put_contents("public/".$imageName, $data);
+         
+         echo '<img src="public/'.$imageName.'"class="img-thumbnail" />';
+                 Session::put('imn',$imageName);
 
-
-         echo '<img src="'.$imageName.'"class="img-thumbnail" />';
-         Session::put('imn',$imageName);
+        // file_put_contents($imageName, $data);
+         
+        //  echo '<img src="'.$imageName.'"class="img-thumbnail" />';
+        //          Session::put('imn',$imageName);
         }
          
         
@@ -1307,6 +1388,7 @@ class AdminController extends Controller
                   ->withErrors($validator);
               }
             $uploaded_image['image'] = "public/".Session::get('imn');
+            // $uploaded_image['image'] = Session::get('imn');
                 DB::table('tbl_member')
                   ->where('member_id',Session::get('lcheck'))
                   ->update($uploaded_image);
@@ -1363,6 +1445,106 @@ class AdminController extends Controller
     
 
          }
+
+    // public function upload(Request $request){
+      
+    //     if(isset($_POST['image']))
+    //     {
+    //      $data = $_POST['image'];
+        
+    //      $image_array_1 = explode(";", $data);
+        
+    //      $image_array_2 = explode(",", $image_array_1[1]);
+        
+    //      $data = base64_decode($image_array_2[1]);
+         
+    //      $imageName = time() . '.png';
+        
+    //      file_put_contents("public/".$imageName, $data);
+         
+    //      echo '<img src="public/'.$imageName.'"class="img-thumbnail" />';
+    //              Session::put('imn',$imageName);
+    //     }
+         
+        
+      
+
+       
+ 
+    //  }
+    //  public function uploadd(Request $request){
+    //         $uploaded_image = array();
+    //         $validator = Validator::make($request->all(), [
+    //             'upload_image' => 'image|mimes:jpeg,png|max:2000',
+                
+        
+        
+    //           ]);
+        
+    //           if ($validator->fails()) {
+    //             $errors = $validator->errors();
+    //             return redirect()
+    //               ->back()
+    //               ->withErrors($validator);
+    //           }
+    //         $uploaded_image['image'] = "public/".Session::get('imn');
+    //             DB::table('tbl_member')
+    //               ->where('member_id',Session::get('lcheck'))
+    //               ->update($uploaded_image);
+    //             return Redirect::to('/profile');
+           
+        
+
+    //  }
+    //  public function upCover(){
+      
+    //     return view('upCover');
+ 
+ 
+    //  }
+    //  public function uploadCover(Request $request){
+    //     $uploaded_image = array();
+    //     $validator = Validator::make($request->all(), [
+    //         'upload_image' => 'image|mimes:jpeg,png|max:2000',
+            
+    
+    
+    //       ]);
+    
+    //       if ($validator->fails()) {
+    //         $errors = $validator->errors();
+    //         return redirect()
+    //           ->back()
+    //           ->withErrors($validator);
+    //       }
+          
+
+    //       if ($request->hasfile('upload_image')) {
+
+    //         $image = $request->file('upload_image');
+
+    //         $image_name = Str::random(20);
+    //         $ext = strtolower($image->getClientOriginalExtension());
+    //         $image_full_name = $image_name . '.' . $ext;
+    //         $upload_path = public_path() . '/image/';
+    //         $image_url = 'image/' . $image_full_name;
+    //         $success = $image->move($upload_path, $image_full_name);
+
+    //         if ($success) {
+    //             $uploaded_image['cover_image'] = $image_url;
+    //             DB::table('tbl_member')
+    //             ->where('member_id',Session::get('lcheck'))
+    //             ->update($uploaded_image);
+    //             Alert::success('Successful', 'Image updated successfully');
+    //             return Redirect::to('/profile');
+    //         }
+    //     }
+
+       
+    
+
+    //      }
+
      
         
     
@@ -1888,5 +2070,14 @@ class AdminController extends Controller
     public function back(){
 
         return redirect::to('/all-member-request');
+    }
+
+    public function dlt($id){
+
+        DB::table('tbl_join_event')
+        ->where('member_id',$id)
+        ->delete();
+       Alert::success('Successful', 'deleted successfully');
+       return Redirect()->back();
     }
 }

@@ -5,38 +5,20 @@
 <link href='https://fonts.googleapis.com/css?family=Advent Pro' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Amarante' rel='stylesheet'>
 <!-- <script src='https://kit.fontawesome.com/a076d05399.js'></script> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
 
 <style>
- /* .ser{
-	background-image:
-    linear-gradient(
-      to top, 
-      white, 
-      #D6DBDF , 
-      white
-    );
- } */
- /* main{
-	
-	background-image:
-    linear-gradient(
-      to top, 
-      white, 
-      white, 
-      #38b9f8, 
-      white,
-      white
-	  
-
-    );
-
- } */
+	body{
+		background:#F1F4F6;
+	}
+ 
  .wh{
 	
-	box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	/* box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); */
+	box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
 	background-color:white;
 	color:black;
+	border-radius:10px;
  }
  .wh p{
 	font-family: 'Advent Pro';
@@ -53,11 +35,14 @@
  }
  .sr{
 	/* box-shadow:0 2px 5px rgb(0,1.0,1.0); */
-	box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-	border-radius:48%;
+	/* box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); */
+	box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+	border-radius:50%;
 	background-color: white;
 	/* background-image: linear-gradient(to right, white, #a9dcdf); */
-	height:200px;
+	height:180px;
+	width:180px;
+
  }
  .sr:hover{
 	
@@ -71,20 +56,19 @@
 	transform: rotate(360deg);
 	transition-duration: 1s;
  }
- .vd iframe{
-	box-shadow:0 2px 5px rgb(0,1.0,1.0);
-	border-radius:20px;
-	height:420px;
-	
+
+ .vd a img{
+	/* box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); */
+	box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+	height:400px;
+	border-radius:5px;
  }
  .hi{
-	box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	/* box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19); */
+	box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
 	background-color:#85c1e9;
-	/* border-top-left-radius:10%;
-	border-top-right-radius:10%; */
+	border-radius:10px;
     color:white;
-	/* border-bottom-right-radius:10%;
-	border-bottom-left-radius:10%; */
 	padding:20px;
 	
  }
@@ -92,7 +76,7 @@
 	cursor:pointer;
 	font-size:20px;
  }
- .his{
+ /* .his{
 	
 	background-image:
     linear-gradient(
@@ -103,8 +87,8 @@
 	  
 
     );
- }
- .gl{
+ } */
+ /* .gl{
 	background-image:
     linear-gradient(
       to bottom, 
@@ -114,9 +98,10 @@
 	  
 
     );
- }
+ } */
  .ev{
-	  box-shadow:0 2px 5px rgb(0,1.0,1.0);
+	  /* box-shadow:0 2px 5px rgb(0,1.0,1.0); */
+	  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
 	  height:400px;
       border-left: 40px;
       border-right: 40px;
@@ -175,6 +160,43 @@
  #gl{
 	background:#1C2833;
  }
+ .image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height:425px;
+  border-radius:20px;
+  width: 100%;
+  opacity: 0;
+  margin-top:22px;
+  transition: .5s ease;
+  background-color: #e4ebe5;
+}
+
+.containerrr:hover .overlay {
+  opacity: .5;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
 </style>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
@@ -295,14 +317,24 @@
 			</div>
 		 
 		 </div>
+
 		 <div class="col-md-6">
 		    <div class="row vd">
-			  <div class="col-md-10 mx-auto">
+			  <div class="col-md-10 mx-auto ">
 				@if($video == null )
 					
 				@else
-				<iframe  width="100%"  src="https://www.youtube.com/embed/{{$video->video_id}}" frameborder="1"  allowfullscreen allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="1000"></iframe></a>
+				<!-- <iframe  width="100%"  src="https://www.youtube.com/embed/{{$video->video_id}}" frameborder="1"  allowfullscreen allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" data-aos="zoom-in" data-aos-easing="linear" data-aos-duration="1000"></iframe></a> -->
+				<div class="containerrr">
+					<!-- <a class="ig border"  ><img src="{{$video->thumbnail_image}}" class="image" alt="thumb"></a> -->
+					<a class="ig border"  ><img src="image/B7BztJSiUBecU2yNIOoM.png" class="image" alt="thumb"></a>
+					<div class="overlay">
+						<!-- <div class="text"><a data-fancybox="gallery" href="https://www.youtube.com/embed/{{$video->video_id}}" class="btn btn-danger btn-lg">Watch</a></div> -->
+						<div class="text"><a data-fancybox="gallery" href="video/v1.mp4" class="btn btn-danger btn-lg">Watch</a></div>
+					</div>
+				</div>
 				@endif
+				
 			  </div>
 			</div>	
 		 </div>
@@ -439,25 +471,7 @@
 		
 
 </main>
-<?php 
-       $res = DB::table('tbl_advertisement')
-              ->inRandomOrder()
-              ->limit(1)
-              ->get();
-    
-    ?>
-     <!-- <div class="d-block fixed-bottom  text-right"> -->
-     <div class="display-inline fixed-bottom text-white text-right" id="ad">
-            <button type="button" class="close" id="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-                           @foreach($res as $r)
-                           <a href="#" class="d-inline mb-4 h-100" >
-								<img class="img-fluid img-thumbnail" style="width:200px;height:200px;"
-									src="{{URL::to($r->advertisement_image)}}" alt="image">
-							</a>
-                            @endforeach
-     </div>
+ @include('layouts.addvertisement')
 
 	 
 @endsection
@@ -468,9 +482,7 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 <script>
         
 	  $(document).ready(function(){

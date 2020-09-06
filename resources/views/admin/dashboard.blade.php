@@ -313,7 +313,14 @@
 									<li>
 										<a href="{{URL::to('/all-member')}}">
 											<i class="metismenu-icon"></i>
-											All members
+											Accepted members
+										</a>
+									</li>
+
+									<li>
+										<a href="{{URL::to('/all-rejected-member')}}">
+											<i class="metismenu-icon"></i>
+											Rejected members
 										</a>
 									</li>
 

@@ -2,6 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
 <style>
   .ig{
 	  
@@ -32,7 +33,7 @@
 
 <div class="site-breadcrumb-title" style="height:250px;">
 <!-- style="background: url(assets/img/breadcrumb/breadcrumb.png)" -->
-	<h2 style="margin-top:35px;font-family: 'Alegreya SC'; font-size:50px;">Gallary</h2>
+	<h2 style="margin-top:35px;font-family: 'Alegreya SC'; font-size:50px;">Gallery</h2>
 	<div class="main-breadcrumb">
 		<div class="container">
 			
@@ -123,6 +124,5 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 @endsection

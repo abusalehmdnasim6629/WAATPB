@@ -15949,7 +15949,8 @@ legend {
     display: flex;
     flex: 1;
     position: relative;
-    align-items: center
+    align-items: center;
+    
 }
 
 .widget-content .widget-content-left .widget-heading {

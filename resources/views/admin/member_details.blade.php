@@ -41,9 +41,42 @@
                  <img src="{{URL::to($result->image)}}"  class="img-responsive im shadow " alt="">
 
                  <div class="col-md text-center action">
+                    
+                     @if( Session::get('track') == 2 )
+                        @php 
+                        Session::put('track',null);
+                        
+                        @endphp
                        <a class="btn btn-info  pd-2" href="{{URL::to('/all-member')}}">
                           <i class="fa fa-arrow-left" aria-hidden="true"> Back</i>
                        </a>
+                     @elseif( Session::get('track') == 3 )
+                        @php 
+                           Session::put('track',null); 
+                        @endphp
+                       <a class="btn btn-info  pd-2" href="{{URL::to('/all-event')}}">
+                          <i class="fa fa-arrow-left" aria-hidden="true"> Back</i>
+                       </a>
+                     @elseif( Session::get('track') == 5 )
+                        @php 
+                           Session::put('track',null); 
+                        @endphp
+                       <a class="btn btn-info  pd-2" href="{{URL::to('/all-rejected-member')}}">
+                          <i class="fa fa-arrow-left" aria-hidden="true"> Back</i>
+                       </a>  
+                       <a class="btn btn-success  pd-2" href="{{URL::to('/accept-member/'.$result->member_id)}}">
+                                       <i class="">Accept</i>
+                        </a>
+                     @else
+                        @php 
+                        Session::put('track',null);
+                        @endphp
+                        <a class="btn btn-info  pd-2" href="{{URL::to('/all-blog')}}">
+                              <i class="fa fa-arrow-left" aria-hidden="true"> Back</i>
+                        </a> 
+                     @endif
+
+                   
                 </div>  
             </div>
             <div class="col-md-8 mx-auto shadow detail">
@@ -74,27 +107,40 @@
                         
                         <td> {{$result->present_organization}}</td>
                         </tr>
+
+                        <tr>
                         <td><b>Present Address</b></td>
                         
                         <td> {{$result->present_address}}</td>
                         </tr>
+
+                        <tr>
                         <td><b>Department</b></td>
                         
                         <td> {{$result->department}}</td>
                         </tr>
+
+                        <tr>
                         <td><b>Blood group</b></td>
                      
                         <td>{{$result->blood_group}}</td>
                         </tr>
+
+                        @if( $result->member_skill )
+                        <tr>
                         <td><b>Skills</b></td>
                         
                         <td> {{$result->member_skill}}</td>
                         </tr>
+                        @endif
+
+                        @if( $result->member_hobby )
+                        <tr>
                         <td><b>Hobby</b></td>
                         
                         <td>{{$result->member_hobby}}</td>
                         </tr>
-                        
+                        @endif
                      
                      </table>
                   

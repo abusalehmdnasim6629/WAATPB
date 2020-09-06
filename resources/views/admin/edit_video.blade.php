@@ -34,10 +34,12 @@
 					
 					<div class="form-group">
 						<h3>Video link</h3>
-						<input type="text" class="form-control" name="link" value="{{$result->video_link}}" required="">
-						
-						
-						
+						<input type="text" class="form-control" name="link" value="{{$result->video_link}}" required="">	
+					</div>
+
+					<div class="form-group">
+						<h3>Thumbnail image	</h3>
+						<input type="file" class="form-control-file" name="image" value="{{$result->thumbnail_image}}" required="">
 					</div>
 
 					<button type="submit" class="btn btn-info float-right">

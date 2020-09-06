@@ -32,7 +32,7 @@
 						<th>Remark</th>
 						<th>Date</th>
 						<th class="text-center">Action</th>
-						<th class="text-center">Action</th>
+						
 
 					</tr>
 				</thead>
@@ -65,7 +65,7 @@
 
 
 
-						 <input type="checkbox" name="check[]" >
+						 
 
 
                         </Form>

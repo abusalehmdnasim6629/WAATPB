@@ -183,24 +183,31 @@
 					<div class="row">
 					    <div class="col-md-12">
 						<h4 class="m-y-2 text-center" style="margin-top:30px;">{{$pro->member_name}}</h4>
+						<hr>
 						</div>
 						<div class="col-md-6">
-							<h6>Designation</h6>
-							<p>
-								{{$pro->designation}}
-							</p>
-							<h6>Hobbies</h6>
-							<p>
-								{{$pro->member_hobby}}
-							</p>
-					
-						
-							<h6>Skills</h6>
-							<p>
-								{{$pro->member_skill}}
-							</p>
-							<hr>
+							<div class="table-responsive">
+                                <table class="table table-striped">
+                                    <tr>
+										<th>Designation</th>
+										<td>{{$pro->designation}}</td>
+									</tr>
+									@if($pro->member_hobby)
+									<tr>
+										<th>Hobbies</th>
+										<td>{{$pro->member_hobby}}</td>
+									</tr>
+									@endif
+									@if($pro->member_skill)
+									<tr>
+										<th>Skills</th>
+										<td>{{$pro->member_skill}}</td>
+									</tr>
+									@endif
+								</table>
 
+							</div>
+							
 						</div>
 						<div class="col-md-12">
 							<h4 class="m-t-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span>About</h4>

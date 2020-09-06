@@ -47,7 +47,7 @@
                         @endif
                         </td>
 						<td class="center">{{ $ct->date}}</td>
-						<td class="center">{{ $ct->member_name}}</td>
+						<td class="center"><a href="{{URL::to('/member-info/'.$ct->member_id)}}">{{ $ct->member_name}}</a></td>
 						<td class="text-center">
 							<span>{{ DB::table('likes')->where('post_id', $ct->id)->count()}}</span>
 						</td>

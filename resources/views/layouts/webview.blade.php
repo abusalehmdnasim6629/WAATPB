@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
@@ -26,7 +26,7 @@
     <link href="{{asset('assets/style.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/responsive.css')}}" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Alegreya SC' rel='stylesheet'>
-
+    
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
     <!-- ========== End Stylesheet ========== -->
 
